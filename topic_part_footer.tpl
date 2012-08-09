@@ -40,7 +40,7 @@
 
 
 		<ul class="topic-info">
-			<li id="vote_area_topic_{$oTopic->getId()}" class="vote 
+			{* <li id="vote_area_topic_{$oTopic->getId()}" class="vote 
 																{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
 																	{if $oTopic->getRating() > 0}
 																		vote-count-positive
@@ -78,10 +78,18 @@
 						{hook run='topic_show_vote_stats' topic=$oTopic}
 					</div>
 				{/if}
-			</li>
+			</li> *}
 
-			<li class="topic-info-author"><a rel="author" href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a></li>
-			<li class="topic-info-favourite">
+			<li class="topic-info-author">
+				<a href="{$oUserCurrent->getUserWebPath()}"><img src="{$oUserCurrent->getProfileAvatarPath(24)}" alt="avatar" /></a>
+				<a rel="author" href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a>
+			</li>
+			<li class="topic-info-date">
+				<time datetime="{date_format date=$oTopic->getDateAdd() format='c'}" title="{date_format date=$oTopic->getDateAdd() format='j F Y, H:i'}">
+					{date_format date=$oTopic->getDateAdd() format="j F Y, H:i"}
+				</time>
+			</li>
+			{*<li class="topic-info-favourite">
 				<div onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');" class="favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
 				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
 			</li>
@@ -92,7 +100,7 @@
 					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}">{$oTopic->getCountComment()} {$oTopic->getCountComment()|declension:$aLang.comment_declension:'russian'}</a>
 					{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}
 				</li>
-			{/if}
+			{/if}*}
 			
 			{hook run='topic_show_info' topic=$oTopic}
 		</ul>

@@ -68,15 +68,16 @@
 #userbar h1 { font-size: 23px; text-transform: lowercase; position: absolute; top: 5px; left: 10px; }
 #userbar h1 a { color: #fff; }
 
-.nav-userbar 									{ float: right; }
-.nav-userbar li 								{ }
-.nav-userbar li.avatar 							{ position: relative; top: 1px; margin-right: 1px; }
-.nav-userbar li.avatar a 						{ padding: 0; border: 2px solid #fff; border-radius: 2px; }
-.nav-userbar li.avatar img 						{ width: 40px; vertical-align: top; }
-.nav-userbar li a 								{ color: #fff; padding: 15px; display: block; }
-.nav-userbar li.nav-userbar-username a 			{ position: relative; padding-left: 47px; font-weight: bold; color: #333; }
-.nav-userbar li.nav-userbar-username .avatar 	{ position: absolute; top: 7px; left: 15px; }
-.nav-userbar li .new-messages 					{ color: #4AA731; font-weight: bold; }
+#userbar .userbar-avatar     { position: absolute; top: 1px; right: 1px; margin-right: 1px; }
+#userbar .userbar-avatar img { width: 40px; vertical-align: top; border: 2px solid #fff; border-radius: 2px; }
+
+#userbar .nav-userbar                       { position: absolute; right: 62px; top: 7px; }
+#userbar .nav-userbar li                    { float: left; margin-left: 13px; }
+#userbar .nav-userbar li a                  { display: block; width: 32px; height: 32px; background: url(../images/icons-mobile.png) no-repeat; }
+#userbar .nav-userbar li.userbar-search a   { background-position: 0 0; }
+#userbar .nav-userbar li.userbar-settings a { background-position: -32px 0; }
+#userbar .nav-userbar li.userbar-add a      { background-position: -64px 0; }
+.ls-user-role-guest #userbar .nav-userbar   { right: 10px; }
 
 
 /* Nav Main */

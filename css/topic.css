@@ -6,14 +6,14 @@
 .topic:last-child { margin-bottom: 0; }
 
 /* Header */
-.topic .topic-header .topic-title 				{ font-size: 26px; line-height: 1.1em; font-weight: bold; margin: 0 0 15px; }
-.topic .topic-header .topic-title a 			{ text-decoration: none; }
+.topic .topic-header .topic-title 				{ font-size: 23px; line-height: 1.2em; font-weight: normal; margin: 0 0 15px; }
+.topic .topic-header .topic-title a 			{ text-decoration: underline; color: #275ec2; }
 .topic .topic-header .topic-title i 			{ position: relative; top: 7px; cursor: help; }
 .topic .topic-header .topic-url 				{ margin-bottom: 15px; }
 .topic .topic-header .topic-url a 				{ background: #eee; border-radius: 3px; padding: 3px 10px 4px; text-decoration: none; }
 .topic .topic-header .topic-info 				{ margin-bottom: 25px; color: #777; }
 .topic .topic-header .topic-info time 			{ margin-right: 15px; }
-.topic .topic-header .topic-info .topic-blog 	{ margin-right: 15px; }
+.topic .topic-header .topic-info .topic-blog 	{ margin-right: 15px; font-size: 17px; color: #333; text-decoration: underline; }
 .topic .topic-header .topic-info .actions,
 .topic .topic-header .topic-info .actions li	{ display: inline; float: none; margin-bottom: 0; }
 .topic .topic-header .topic-info .actions li	{ margin-right: 10px; }
@@ -29,14 +29,13 @@
 .topic .topic-footer .topic-tags li.topic-tags-user a 	{ color: #3CA023; }
 
 /* Info */
-.topic .topic-footer .topic-info 		{ overflow: hidden; background: #f7f7f7; border-radius: 3px; }
-.topic .topic-footer .topic-info li 	{ float: left; height: 19px; padding: 8px 15px; border-right: 1px solid #fff; }
-.topic .topic-footer .topic-info li a 	{ text-decoration: none; }
-
-.topic .topic-footer .topic-info li.topic-info-author a 		{ font-weight: bold; color: #333; }
-.topic .topic-footer .topic-info li.topic-info-author a:hover 	{ text-decoration: underline; }
-.topic .topic-footer .topic-info li.topic-info-comments a		{  }
-.topic .topic-footer .topic-info li.topic-info-comments a span 	{ color: #777; }
+.topic .topic-footer .topic-info                                { overflow: hidden; background: #f6fafe; padding: 10px; }
+.topic .topic-footer .topic-info li                             { float: left; margin-right: 20px; color: #7b848d; line-height: 21px; }
+.topic .topic-footer .topic-info li a                           { text-decoration: none; }
+.topic .topic-footer .topic-info li.topic-info-author img       { vertical-align: middle; width: 21px; height: 21px; margin-right: 2px; }
+.topic .topic-footer .topic-info li.topic-info-author a         { color: #3f8ad7; }
+.topic .topic-footer .topic-info li.topic-info-comments a       {  }
+.topic .topic-footer .topic-info li.topic-info-comments a span  { color: #777; }
 .topic .topic-footer .topic-info li.topic-info-comments a:hover { text-decoration: underline; }
 
 /* Share */

@@ -6,18 +6,18 @@
 <article class="topic topic-type-{$oTopic->getType()} js-topic">
 	<header class="topic-header">
 		<h1 class="topic-title word-wrap">
+			{if $bTopicList}
+				<a href="{$oTopic->getUrl()}">{$oTopic->getTitle()|escape:'html'}</a>
+			{else}
+				{$oTopic->getTitle()|escape:'html'}
+			{/if}
+
 			{if $oTopic->getPublish() == 0}   
 				<i class="icon-tag" title="{$aLang.topic_unpublish}"></i>
 			{/if}
 			
 			{if $oTopic->getType() == 'link'} 
 				<i class="icon-share-alt" title="{$aLang.topic_link}"></i>
-			{/if}
-			
-			{if $bTopicList}
-				<a href="{$oTopic->getUrl()}">{$oTopic->getTitle()|escape:'html'}</a>
-			{else}
-				{$oTopic->getTitle()|escape:'html'}
 			{/if}
 		</h1>
 		
@@ -32,7 +32,7 @@
 		<div class="topic-info">
 			<a href="{$oBlog->getUrlFull()}" class="topic-blog">{$oBlog->getTitle()|escape:'html'}</a>
 			
-			<time datetime="{date_format date=$oTopic->getDateAdd() format='c'}" title="{date_format date=$oTopic->getDateAdd() format='j F Y, H:i'}">
+			{*<time datetime="{date_format date=$oTopic->getDateAdd() format='c'}" title="{date_format date=$oTopic->getDateAdd() format='j F Y, H:i'}">
 				{date_format date=$oTopic->getDateAdd() format="j F Y, H:i"}
 			</time>
 			
@@ -44,6 +44,6 @@
 				{if $oUserCurrent and ($oUserCurrent->isAdministrator() or $oBlog->getUserIsAdministrator() or $oBlog->getOwnerId()==$oUserCurrent->getId())}
 					<li><a href="{router page='topic'}delete/{$oTopic->getId()}/?security_ls_key={$LIVESTREET_SECURITY_KEY}" title="{$aLang.topic_delete}" onclick="return confirm('{$aLang.topic_delete_confirm}');" class="actions-delete">{$aLang.topic_delete}</a></li>
 				{/if}
-			</ul>
+			</ul>*}
 		</div>
 	</header>

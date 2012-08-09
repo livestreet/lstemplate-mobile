@@ -146,7 +146,7 @@
 					   {if $sidebarPosition == 'left'}content-right{/if}"
 				{if $sMenuItemSelect=='profile'}itemscope itemtype="http://data-vocabulary.org/Person"{/if}>
 				
-				{include file='nav_content.tpl'}
+				{* {include file='nav_content.tpl'} *}
 				{include file='system_message.tpl'}
 				
 				{hook run='content_begin'}

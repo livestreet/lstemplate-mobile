@@ -7,31 +7,24 @@
 	<h1 class="site-name"><a href="{cfg name='path.root.web'}">{cfg name='view.name'}</a></h1>
 
 	{hook run='userbar_nav'}
+
+	{if $oUserCurrent}
+		<div class="userbar-avatar">
+			<a href="{$oUserCurrent->getUserWebPath()}" class="username">
+				<img src="{$oUserCurrent->getProfileAvatarPath(48)}" alt="avatar" />
+			</a>
+		</div>
+	{/if}
 	
 	<ul class="nav-userbar">
+		<li class="userbar-search"><a href="{router page='search'}"></a></li>
 		{if $oUserCurrent}
-			<li class="avatar">
-				<a href="{$oUserCurrent->getUserWebPath()}" class="username">
-					<img src="{$oUserCurrent->getProfileAvatarPath(48)}" alt="avatar" />
-				</a>
-			</li>
-			{*
-			<li class="nav-userbar-username">
-				<a href="{$oUserCurrent->getUserWebPath()}" class="username">
-					<img src="{$oUserCurrent->getProfileAvatarPath(24)}" alt="avatar" class="avatar" />
-					{$oUserCurrent->getLogin()}
-				</a>
-			</li>
-			<li><a href="{router page='topic'}add/" class="write" id="modal_write_show">{$aLang.block_create}</a></li>
-			<li><a href="{$oUserCurrent->getUserWebPath()}favourites/topics/">{$aLang.user_menu_profile_favourites}</a></li>
-			<li><a href="{router page='talk'}" {if $iUserCurrentCountTalkNew}class="new-messages"{/if} id="new_messages" title="{if $iUserCurrentCountTalkNew}{$aLang.user_privat_messages_new}{/if}">{$aLang.user_privat_messages}{if $iUserCurrentCountTalkNew} ({$iUserCurrentCountTalkNew}){/if}</a></li>
-			<li><a href="{router page='settings'}profile/">{$aLang.user_settings}</a></li>
+			<li class="userbar-settings"><a href="{router page='settings'}profile/" title="{$aLang.user_settings}"></a></li>
+			<li class="userbar-add"><a href="{router page='topic'}add/" title="{$aLang.block_create}"></a></li>
 			{hook run='userbar_item'}
-			<li><a href="{router page='login'}exit/?security_ls_key={$LIVESTREET_SECURITY_KEY}">{$aLang.exit}</a></li>
-			*}
 		{else}
 			{hook run='userbar_item'}
-			<li><a href="{router page='login'}">{$aLang.user_login_submit}</a></li>
+			<li class="userbar-settings"><a href="{router page='login'}"></a></li>
 			{*<li><a href="{router page='registration'}" class="js-registration-form-show">{$aLang.registration_submit}</a></li>*}
 		{/if}
 	</ul>
