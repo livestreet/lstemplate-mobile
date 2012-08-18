@@ -4,7 +4,8 @@
 
 /* Блок с комментариями */
 .comments-header { margin-bottom: 20px; }
-.comments-header h3 { font-size: 24px; margin-bottom: 5px; }
+.comments-header h3 { font-size: 24px; margin-bottom: 5px; float: left; }
+.comments-header .comments-subscribe { float: right; position: relative; top: 10px; }
 
 .comments { margin-bottom: 30px; }
 
@@ -22,9 +23,9 @@
 
 
 /* Комментарий */
-.comment { min-height: 48px; margin-bottom: 10px; padding: 10px 10px 10px 68px; position: relative; }
+.comment { min-height: 48px; padding: 10px 10px 10px 57px; position: relative; border-bottom: 1px solid #eee; }
 .comment .deleted { padding: 5px 10px; color: #777; background: #f4f4f4; }
-.comment .comment-avatar { position: absolute; top: 10px; left: 10px; }
+.comment .comment-avatar { position: absolute; top: 10px; left: 0; width: 42px; height: 42px; }
 
 
 /* Типы комментариев
@@ -35,7 +36,7 @@
  * current 	- 	активный комментарий, который выделяется при исползование кнопки обновления в тулбаре
  *
  */
-.comment 							{ background: #f7f7f7; }
+.comment 							{ background: transparent; }
 .comment.comment-deleted 			{ background: #efd5d5; }
 .comment.comment-self				{ background: #c5f7ea; }
 .comment.comment-new 				{ background: #fbfba8; }
@@ -50,9 +51,9 @@
 .comment .comment-info { padding: 0 70px 7px 0; line-height: 12px; position: relative; top: -2px; overflow: hidden; zoom: 1; }
 .comment .comment-info li { float: left; height: 18px; padding-top: 3px; margin-right: 10px; }
 .comment .comment-info li a { text-decoration: none; }
-.comment .comment-info li.comment-author a { font-weight: bold; }
+.comment .comment-info li.comment-author a { color: #3f8ad7; }
 .comment .comment-info li.comment-author .comment-topic-author { background: #C9A518; color: #fff; font-size: 11px; border-radius: 3px; padding: 1px 7px; margin-right: 5px; }
-.comment .comment-info li.comment-date a { color: #999; border-color: #999; }
+.comment .comment-info li.comment-date a { color: #7b848d; }
 .comment .comment-info li.vote { position: absolute; top: 0; right: 0; margin: 0; }
 .comment .comment-info li.goto-comment-child { display: none; }
 
@@ -70,8 +71,8 @@
 /* Форма комментирования */
 .reply-header { font-size: 20px; line-height: 1.3em; margin-bottom: 15px; }
 
-.reply { padding-bottom: 10px; }
-.reply textarea { height: 100px; }
+.reply { padding-bottom: 10px; background: #fffedf; border-radius: 10px; padding: 20px; }
+.reply textarea { height: 100px; border: 2px solid #4a617e; border-radius: 5px; margin-bottom: 10px; }
 .reply textarea.loader { background: #f7f7f7 url(../images/loader.gif) no-repeat center; }
 
 .reply .mceEditor { display: block; margin-bottom: 10px; }

@@ -5,7 +5,7 @@
 
 
 	<footer class="topic-footer">
-		<ul class="topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
+		{*<ul class="topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
 			<li>{$aLang.topic_tags}:</li>
 			
 			{strip}
@@ -29,14 +29,7 @@
 					</li>
 				{/if}
 			{/strip}
-		</ul>
-		
-		
-		<div class="topic-share" id="topic_share_{$oTopic->getId()}">
-			{hookb run="topic_share" topic=$oTopic bTopicList=$bTopicList}
-				<div class="yashare-auto-init" data-yashareTitle="{$oTopic->getTitle()|escape:'html'}" data-yashareLink="{$oTopic->getUrl()}" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
-			{/hookb}
-		</div>
+		</ul>*}
 
 
 		<ul class="topic-info">
@@ -89,21 +82,35 @@
 					{date_format date=$oTopic->getDateAdd() format="j F Y, H:i"}
 				</time>
 			</li>
-			{*<li class="topic-info-favourite">
-				<div onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');" class="favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
-				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
-			</li>
-			<li class="topic-info-share"><a href="#" class="icon-share" title="{$aLang.topic_share}" onclick="jQuery('#topic_share_{$oTopic->getId()}').slideToggle(); return false;"></a></li>
-			
-			{if $bTopicList}
-				<li class="topic-info-comments">
-					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}">{$oTopic->getCountComment()} {$oTopic->getCountComment()|declension:$aLang.comment_declension:'russian'}</a>
-					{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}
-				</li>
-			{/if}*}
 			
 			{hook run='topic_show_info' topic=$oTopic}
 		</ul>
+
+		<ul class="topic-info topic-info-bottom">
+			<li class="topic-info-favourite">
+				<div onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');" class="favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
+				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
+			</li>
+			
+			{if $bTopicList}
+				<li class="topic-info-comments">
+					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}">
+						<i></i>
+						{$oTopic->getCountComment()}
+						{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}
+					</a> 
+				</li>
+			{/if}
+
+			<li class="topic-info-share" onclick="jQuery('#topic_share_{$oTopic->getId()}').slideToggle(); return false;"></li>
+		</ul>
+		
+		
+		<div class="topic-share" id="topic_share_{$oTopic->getId()}">
+			{hookb run="topic_share" topic=$oTopic bTopicList=$bTopicList}
+				<div class="yashare-auto-init" data-yashareTitle="{$oTopic->getTitle()|escape:'html'}" data-yashareLink="{$oTopic->getUrl()}" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+			{/hookb}
+		</div>
 
 		
 		{if !$bTopicList}

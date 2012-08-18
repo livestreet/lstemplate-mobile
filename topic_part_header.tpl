@@ -3,7 +3,7 @@
 {assign var="oVote" value=$oTopic->getVote()}
 
 
-<article class="topic topic-type-{$oTopic->getType()} js-topic">
+<article class="topic topic-type-{$oTopic->getType()} js-topic {if !$bTopicList}topic-single{/if}">
 	<header class="topic-header">
 		<h1 class="topic-title word-wrap">
 			{if $bTopicList}

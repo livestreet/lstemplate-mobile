@@ -136,7 +136,7 @@
 		{include file='header_top.tpl'}
 		{include file='nav.tpl'}
 
-		<div id="wrapper" class="{hook run='wrapper_class'}">
+		<div id="wrapper" class="clearfix {hook run='wrapper_class'}">
 			{if !$noSidebar && $sidebarPosition == 'left'}
 				{include file='sidebar.tpl'}
 			{/if}

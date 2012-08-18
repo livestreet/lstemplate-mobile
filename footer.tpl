@@ -7,8 +7,14 @@
 		<div class="copyright">
 			{hook run='copyright'}
 		</div>
+
+		{*r*}
+		<ul>
+			<li><a href="#">Полная версия</a></li>
+			<li><a href="#">RSS</a></li>
+			<li><a href="#">Навигация</a></li>
+		</ul>
 		
-		Автор шаблона &mdash; <a href="http://deniart.ru">deniart</a>
 		
 		{hook run='footer_end'}
 	</footer>

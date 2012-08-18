@@ -7,7 +7,7 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	line-height: 18px;
 	color: #333;
-	background-color: #f7f9f9;
+	background-color: #fbfcfc;
 	-webkit-text-size-adjust: 100%;
 }
 
@@ -54,7 +54,8 @@ h2.header-table { margin-bottom: 0; border-bottom: 1px solid #eee; padding-botto
 /* Футер
 ---------------------------------------------------- */
 #footer .copyright { float: right; }
-
+#footer a          { text-decoration: underline; }
+#footer ul li      { float: left; margin-right: 15px; }
 
 
 /* Stat
