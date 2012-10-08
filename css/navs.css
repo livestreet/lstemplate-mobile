@@ -14,21 +14,9 @@
 /* Nav Pills */
 .nav.nav-pills 				{ margin-bottom: 15px; }
 .nav.nav-pills li 			{ margin-right: 3px; }
-.nav.nav-pills li a 		{ border-radius: 2px; padding: 5px 12px; background: #f5f5f5; color: #888; }
+.nav.nav-pills li a 		{ padding: 5px 12px; background: #f5f5f5; color: #888; }
 .nav.nav-pills li a:hover 	{ background: #eaeaea; }
-.nav.nav-pills li.active a 	{
-	background: #2891d3;
-	background: -moz-linear-gradient(top, #2891d3 0%, #2375c6 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2891d3), color-stop(100%,#2375c6));
-	background: -webkit-linear-gradient(top, #2891d3 0%,#2375c6 100%);
-	background: -o-linear-gradient(top, #2891d3 0%,#2375c6 100%);
-	background: -ms-linear-gradient(top, #2891d3 0%,#2375c6 100%);
-	background: linear-gradient(top, #2891d3 0%,#2375c6 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2891d3', endColorstr='#2375c6',GradientType=0 );
-
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-	color: #fff;
-}
+.nav.nav-pills li.active a 	{ background: #058be9; color: #fff; }
 
 .nav.nav-pills.nav-pills-profile 		{ margin-bottom: 30px; }
 
@@ -50,38 +38,8 @@
 .nav-filter-wrapper { margin-bottom: 40px; }
 
 
-/* Userbar */
-#userbar {
-	height: 45px;
-	-webkit-box-shadow: 0 0 5px #ddd;
-	box-shadow: 0 0 5px #ddd;
-	background: #030522;
-	background: -webkit-linear-gradient(top,  #030522 0%,#1d2158 100%);
-	background: -moz-linear-gradient(top,  #030522 0%,#1d2158 100%);
-	background: -o-linear-gradient(top,  #030522 0%,#1d2158 100%);
-	background: -ms-linear-gradient(top,  #030522 0%,#1d2158 100%);
-	background: linear-gradient(top,  #030522 0%,#1d2158 100%);
-	overflow: hidden;
-	position: relative;
-}
-#userbar .search { float: left; margin: 5px 0 0 6px; *margin: 4px 0 0 4px; }
-#userbar h1 { font-size: 23px; text-transform: lowercase; position: absolute; top: 5px; left: 10px; }
-#userbar h1 a { color: #fff; }
-
-#userbar .userbar-avatar     { position: absolute; top: 1px; right: 1px; margin-right: 1px; }
-#userbar .userbar-avatar img { width: 40px; vertical-align: top; border: 2px solid #fff; border-radius: 2px; }
-
-#userbar .nav-userbar                       { position: absolute; right: 62px; top: 7px; }
-#userbar .nav-userbar li                    { float: left; margin-left: 13px; }
-#userbar .nav-userbar li a                  { display: block; width: 32px; height: 32px; background: url(../images/icons-mobile.png) no-repeat; }
-#userbar .nav-userbar li.userbar-search a   { background-position: 0 0; }
-#userbar .nav-userbar li.userbar-settings a { background-position: -32px 0; }
-#userbar .nav-userbar li.userbar-add a      { background-position: -64px 0; }
-.ls-user-role-guest #userbar .nav-userbar   { right: 10px; }
-
-
 /* Nav Main */
-.nav.nav-main 					{ background: #fff; box-shadow: 0 3px 3px rgba(0,0,0,.1); overflow: hidden; height: 30px; }
+.nav.nav-main 					{ overflow: hidden; height: 30px; }
 .nav.nav-main li 				{ font-size: 13px; height: 30px; line-height: 30px; color: #bccaca;  }
 .nav.nav-main li a 				{ color: #6d7e7e; padding: 0 10px; height: 30px; text-decoration: underline; }
 .nav.nav-main li a:hover 		{  }

@@ -7,9 +7,7 @@
 	zoom: 1;
 	margin-bottom: 10px;
 	background: #fff; 
-	border-bottom: 1px solid #eee;
-	box-shadow: 0 1px 2px rgba(0,0,0,.3); 
-	border-radius: 7px; 
+	box-shadow: 0 0 2px rgba(0,0,0,.3); 
 }
 .topic:last-child { margin-bottom: 0; }
 .topic.topic-single { margin-bottom: 55px; }

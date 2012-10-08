@@ -1,9 +1,5 @@
 {if !$oUserCurrent}
-	<div class="modal modal-login" id="window_login_form">
-		<header class="modal-header">
-			<h3>{$aLang.user_authorization}</h3>
-			<a href="#" class="close jqmClose"></a>
-		</header>
+	<div class="slide" id="window_login_form">
 		
 		
 		<script type="text/javascript">
@@ -33,11 +29,9 @@
 				<form action="{router page='login'}" method="post" id="popup-login-form">
 					{hook run='form_login_popup_begin'}
 
-					<p><label for="popup-login">{$aLang.user_login}:</label>
-					<input type="text" name="login" id="popup-login" class="input-text input-width-300"></p>
+					<p><input type="text" name="login" id="popup-login" placeholder="{$aLang.user_login}" class="input-text input-width-300"></p>
 					
-					<p><label for="popup-password">{$aLang.user_password}:</label>
-					<input type="password" name="password" id="popup-password" class="input-text input-width-300">
+					<p><input type="password" name="password" id="popup-password" placeholder="{$aLang.user_password}" class="input-text input-width-300">
 					<small class="validate-error-hide validate-error-login"></small></p>
 					
 					<p><label><input type="checkbox" name="remember" class="input-checkbox" checked> {$aLang.user_login_remember}</label></p>

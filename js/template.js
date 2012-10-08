@@ -221,6 +221,14 @@ jQuery(document).ready(function($){
 		}
 	});
 
+
+	ls.tools.slide = function(target, obj) {
+		$('.nav-userbar li:not(#' + $(obj).attr('id') + ')').removeClass('active');
+		$('.slide:not(' + target + ')').hide();
+		$(target).slideToggle(); 
+		$(obj).toggleClass('active');
+	}
+
 	
 	// Хук конца инициализации javascript-составляющих шаблона
 	ls.hook.run('ls_template_init_end',[],window);

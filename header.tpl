@@ -125,10 +125,7 @@
 	
 	
 	{if $oUserCurrent}
-		{include file='window_write.tpl'}
 		{include file='window_favourite_form_tags.tpl'}
-	{else}
-		{include file='window_login.tpl'}
 	{/if}
 	
 
