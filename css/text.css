@@ -2,13 +2,13 @@
 	ФОРМАТИРОВАННЫЙ ТЕКСТ
 ------------------------------------------------------------------- */
 
-.text { font-size: 15px; line-height: 1.6em; overflow: hidden; zoom: 1; }
+.text { font-size: 12px; font-family: Verdana, sans-serif; line-height: 1.6em; overflow: hidden; zoom: 1; }
 
 .text a	{ text-decoration: underline; }
 
-.text h4 { font-size: 24px; margin-bottom: 7px; font-weight: bold; }
-.text h5 { font-size: 20px; margin-bottom: 7px; font-weight: bold; }
-.text h6 { font-size: 18px; margin-bottom: 7px; font-weight: bold; }
+.text h4 { font-family: 'Open Sans', sans-serif; font-size: 20px; margin-bottom: 7px; font-weight: bold; }
+.text h5 { font-family: 'Open Sans', sans-serif; font-size: 16px; margin-bottom: 7px; font-weight: bold; }
+.text h6 { font-family: 'Open Sans', sans-serif; font-size: 14px; margin-bottom: 7px; font-weight: bold; }
 
 .text p { margin-bottom: 1em; }
 .text abbr[title] { border-bottom: 1px dotted; }

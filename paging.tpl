@@ -1,6 +1,5 @@
 {if $aPaging and $aPaging.iCountPage>1} 
 	<div class="pagination">
-		<div class="dotted-line"></div>
 
 		{if $aPaging.iPrevPage}
 			<a href="{$aPaging.sBaseUrl}/page{$aPaging.iPrevPage}/{$aPaging.sGetParams}" class="pagination-arrow pagination-arrow-prev js-paging-prev-page" title="{$aLang.paging_previos}"><span></span></a>

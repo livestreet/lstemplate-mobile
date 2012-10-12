@@ -32,7 +32,27 @@
 		</ul>*}
 
 
-		<ul class="topic-info">
+		{*<ul class="topic-info">
+			<li class="topic-info-favourite">
+				<div onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');" class="favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
+				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
+			</li>
+			
+			{if $bTopicList}
+				<li class="topic-info-comments">
+					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}">
+						<i></i>
+						{$oTopic->getCountComment()}
+						{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}
+					</a> 
+				</li>
+			{/if}
+
+			<li class="topic-info-share" onclick="jQuery('#topic_share_{$oTopic->getId()}').slideToggle(); return false;"></li>
+		</ul>*}
+
+
+		<ul class="topic-info-extra clearfix">
 			{* <li id="vote_area_topic_{$oTopic->getId()}" class="vote 
 																{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
 																	{if $oTopic->getRating() > 0}
@@ -74,35 +94,24 @@
 			</li> *}
 
 			<li class="topic-info-author">
-				<a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(24)}" alt="avatar" /></a>
-				<a rel="author" href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a>
-			</li>
-			<li class="topic-info-date">
+				<a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(48)}" alt="avatar" /></a>
+				<p><a rel="author" href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a></p>
 				<time datetime="{date_format date=$oTopic->getDateAdd() format='c'}" title="{date_format date=$oTopic->getDateAdd() format='j F Y, H:i'}">
 					{date_format date=$oTopic->getDateAdd() format="j F Y, H:i"}
 				</time>
 			</li>
+
+			<li class="topic-info-extra-trigger" onclick="ls.tools.slide('#topic-extra-target-{$oTopic->getId()}', this);"></li>
 			
 			{hook run='topic_show_info' topic=$oTopic}
 		</ul>
 
-		<ul class="topic-info topic-info-bottom">
-			<li class="topic-info-favourite">
-				<div onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');" class="favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
-				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
-			</li>
-			
-			{if $bTopicList}
-				<li class="topic-info-comments">
-					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}">
-						<i></i>
-						{$oTopic->getCountComment()}
-						{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}
-					</a> 
-				</li>
-			{/if}
 
-			<li class="topic-info-share" onclick="jQuery('#topic_share_{$oTopic->getId()}').slideToggle(); return false;"></li>
+		<ul class="slide slide-topic-info-extra" id="topic-extra-target-{$oTopic->getId()}">
+			<li><a href="#">Комментировать пост</a></li>{*TODO*}
+			<li><a href="#">Написать автору</a></li>{*TODO*}
+			<li><a href="#">Добавить в избранное</a></li>{*TODO*}
+			<li><a href="#">Вступить в блог</a></li>{*TODO*}
 		</ul>
 		
 		

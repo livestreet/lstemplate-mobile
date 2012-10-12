@@ -4,7 +4,7 @@
 
 body {
 	font-size: 13px;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'Open Sans',"Helvetica Neue", Helvetica, Arial, sans-serif;
 	line-height: 18px;
 	color: #333;
 	background-color: #f6f8fa;
@@ -70,8 +70,9 @@ h2.header-table { margin-bottom: 0; border-bottom: 1px solid #eee; padding-botto
 
 /* Футер
 ---------------------------------------------------- */
-#footer .copyright { float: right; }
+#footer .copyright {  }
 #footer a          { text-decoration: underline; }
+#footer ul { margin-bottom: 15px; }
 #footer ul li      { float: left; margin-right: 15px; }
 
 

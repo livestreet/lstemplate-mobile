@@ -30,7 +30,7 @@
 		
 		
 		<div class="topic-info">
-			<a href="{$oBlog->getUrlFull()}" class="topic-blog">{$oBlog->getTitle()|escape:'html'}</a>
+			<i class="icon-blog"></i><a href="{$oBlog->getUrlFull()}" class="topic-blog">{$oBlog->getTitle()|escape:'html'}</a>
 			
 			{*
 			
