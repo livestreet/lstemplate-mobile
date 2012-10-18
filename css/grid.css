@@ -4,7 +4,7 @@
 
 #container 	{ margin: 0 auto; margin-bottom: 20px; }
 #header 	{ height: 44px; position: relative; }
-#nav 		{ margin-bottom: 15px; }
+#nav 		{ margin-bottom: 4px; }
 #wrapper 	{ margin: 0 4px; }
 #content 	{ width: 100%; position: relative; }
 #footer 	{ overflow: hidden; zoom: 1; margin-bottom: 20px; padding: 20px 0 50px; color: #777; font-size: 11px; }

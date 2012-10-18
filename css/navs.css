@@ -1,4 +1,4 @@
-/* --------------------------------------------
+﻿/* --------------------------------------------
 	НАВИГАЦИЯ
 -------------------------------------------- */
 
@@ -41,9 +41,9 @@
 /* Nav Main */
 .nav.nav-main 					{ overflow: hidden; height: 30px; }
 .nav.nav-main li 				{ font-size: 13px; height: 30px; line-height: 30px; color: #bccaca;  }
-.nav.nav-main li a 				{ color: #6d7e7e; padding: 0 10px; height: 30px; text-decoration: underline; }
+.nav.nav-main li a 				{ color: #333; padding: 0 10px; height: 30px; text-decoration: underline; }
 .nav.nav-main li a:hover 		{  }
-.nav.nav-main li.active a 		{ background: transparent; color: #bbb; }
+.nav.nav-main li.active a 		{ text-decoration: none; background: #fff; color: #aeb1b5; }
 
 
 /* Nav Profile */
@@ -70,8 +70,27 @@
 .dropdown-create a 		{ font-weight: normal; }
 .dropdown-create h2 a 	{ text-transform: lowercase; }
 
-
-
+.nav-foldable-wrapper { margin: 4px 4px 0; }
+.nav-foldable-wrapper .nav-foldable-trigger {
+	padding: 10px 15px;
+	background: #fff;
+	border: 1px solid #eee;
+	cursor: pointer;
+	position: relative;
+}
+.nav-foldable-wrapper .nav-foldable-trigger:before {
+	content: "▶";
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: #ccc;
+}
+.nav-foldable-wrapper .nav-foldable-trigger.active:before { content: "▼"; }
+.nav-foldable-wrapper .slide { padding: 5px 0; border: 1px solid #eee; border-top: none; }
+.nav-foldable-wrapper .slide li { padding: 10px 15px; margin: 0; }
+.nav-foldable-wrapper .slide li a { display: block; font-size: 17px; text-decoration: underline; color: #275ec2; }
+.nav-foldable-wrapper .slide li a:hover,
+.nav-foldable-wrapper .slide li a:active {  }
 
 
 

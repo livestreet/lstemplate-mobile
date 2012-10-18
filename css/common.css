@@ -2,6 +2,15 @@
 	ОБЩИЕ СТИЛИ
 ------------------------------------------------------------------- */
 
+.wrapper { 	
+	padding: 9px;
+	background: #fff;
+
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.3); 
+	   -moz-box-shadow: 0 0 2px rgba(0,0,0,.3); 
+	        box-shadow: 0 0 2px rgba(0,0,0,.3);  
+}
+
 /* Голосование 
 ---------------------------------------------------- */
 .vote .vote-count 							{ display: inline-block; font-weight: bold; color: #aaa; font-size: 14px; }
@@ -185,6 +194,8 @@
 .mb-15 { margin-bottom: 15px !important; }
 .mb-20 { margin-bottom: 20px !important; }
 .mb-30 { margin-bottom: 30px !important; }
+
+.no-mg { margin-bottom: 0 !important; }
 
 .ta-c { text-align: center !important; }
 .ta-r { text-align: right !important; }

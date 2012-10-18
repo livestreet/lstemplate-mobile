@@ -12,16 +12,16 @@
 		{hook run='userbar_item'}
 
 		{if $iUserCurrentCountTalkNew}
-			<li class="item-messages" id="item-messages" onclick="ls.tools.slide('#messages', this);"><a href="{router page='talk'}"></a></li>
+			<li class="item-messages" id="item-messages" onclick="ls.tools.slide($('#messages'), $(this));"><a href="{router page='talk'}"></a></li>
 		{/if}
 
-		<li class="item-search" id="item-search" onclick="ls.tools.slide('#search', this);"></li>
+		<li class="item-search" id="item-search" onclick="ls.tools.slide($('#search'), $(this));"></li>
 
 		{if $oUserCurrent}
-			<li class="item-submit item-primary" id="item-submit" onclick="ls.tools.slide('#write', this);"></li>
+			<li class="item-submit item-primary" id="item-submit" onclick="ls.tools.slide($('#write'), $(this));"></li>
 
 		{else}
-			<li class="item-auth item-primary" id="item-auth" onclick="ls.tools.slide('#window_login_form', this);"></li>
+			<li class="item-auth item-primary" id="item-auth" onclick="ls.tools.slide($('#window_login_form'), $(this));"></li>
 		{/if}
 	</ul>
 </nav>

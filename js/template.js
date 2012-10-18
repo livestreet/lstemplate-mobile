@@ -150,6 +150,10 @@ jQuery(document).ready(function($){
 		$('#fav_count_'+type+'_'+idTarget).text((result.iCount>0) ? result.iCount : '');
 	});
 
+	ls.hook.add('ls_blog_toggle_join_after',function(idBlog,result){
+		$(this).empty();
+	});
+
 	/****************
 	 * TALK
 	 */
@@ -223,11 +227,27 @@ jQuery(document).ready(function($){
 
 
 	ls.tools.slide = function(target, obj) {
-		$('.nav-userbar li:not(#' + $(obj).attr('id') + ')').removeClass('active');
-		$('.slide:not(' + target + ')').hide();
-		$(target).slideToggle(); 
-		$(obj).toggleClass('active');
+		obj.parent().children('li').not(obj).removeClass('active');
+		$('.slide').not(target).removeClass('active').hide();
+		target.slideToggle(); 
+		obj.toggleClass('active');
 	}
+
+
+	$('.nav-foldable').each(function(){
+		$(this).wrap('<div class="nav-foldable-wrapper" />');
+
+		var wrapper = $(this).parent();
+		wrapper.prepend('<div class="nav-foldable-trigger">...</div>');
+		
+		var trigger = wrapper.find('.nav-foldable-trigger');
+		wrapper.find('ul').addClass('slide');
+
+		trigger.text(wrapper.find('ul li.active').text());
+		trigger.click(function(){ 
+			ls.tools.slide($(this).next('ul'), trigger);
+		})
+	});
 
 	
 	// Хук конца инициализации javascript-составляющих шаблона

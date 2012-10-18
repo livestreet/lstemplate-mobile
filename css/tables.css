@@ -2,20 +2,24 @@
 	ТАБЛИЦЫ
 ------------------------------------------------------------------- */
 
-.table 					{ width: 100%; margin-bottom: 15px; }
+.table 					{ width: 100%; }
 .table th 				{ text-align: left; background: #fafafa; }
 .table td, .table th 	{ border-bottom: 1px solid #eee; padding: 10px; }
 .table tr.active td 	{ background: #CBF4BC; }
+.table tr:last-child td { border: none; padding-bottom: 0; }
 
 .table a.asc:after		{ content: "▲"; }
 .table a.desc:after		{ content: "▼"; }
 
 /* Table Blogs */
+.table.table-blogs td { padding: 10px 0; }
 .table.table-blogs .cell-name .avatar 	{ float: left; margin-right: 10px; clear: right; }
-.table.table-blogs .cell-name p		 	{ overflow: hidden; }
+.table.table-blogs .cell-name p		 	{ overflow: hidden; color: #788087; font-size: 11px; }
+.table.table-blogs .cell-name h3		{ font-size: 16px; font-weight: 600; }
+.table.table-blogs .cell-name h3 a		{ text-decoration: underline; }
 .table.table-blogs .cell-rating 		{ width: 70px; font-weight: bold; }
 .table.table-blogs .cell-readers 		{ width: 70px; text-align: center; vertical-align: middle; }
-.table.table-blogs .cell-join 			{ width: 130px; text-align: center; vertical-align: middle; }
+.table.table-blogs .cell-join 			{ width: 30px; text-align: center; vertical-align: middle; }
 .table.table-blogs .cell-rating 		{ text-align: center; vertical-align: middle; }
 
 /* Table Plugins */
@@ -35,13 +39,22 @@
 .table.table-profile-info .cell-label 	{ width: 30%; color: #777; }
 
 /* Table Users */
-.table.table-users th 					{ font-size: 11px; }
-.table.table-users .cell-name 			{ font-weight: bold; }
-.table.table-users .cell-name img 		{ float: left; }
-.table.table-users .cell-name .username { margin-left: 32px; width: 120px; position: relative; top: 1px; }
-.table.table-users tbody .cell-date 	{ font-size: 11px; }
-.table.table-users .cell-rating,
-.table.table-users .cell-skill 			{ text-align: center; width: 50px; }
+.table.table-users td                         { padding: 13px 0; font-size: 11px; }
+.table.table-users .cell-name                 {  }
+.table.table-users .cell-name h3              { font-size: 14px; width: 100%; overflow: hidden; font-weight: 600; }
+.table.table-users .cell-name h3 a            { font-size: 10px; border-bottom: 1px solid #b9cadc; }
+.table.table-users .cell-name h3 a span       { font-size: 14px; }
+.table.table-users .cell-name .user-info      { position: relative; top: -2px; padding-left: 50px; }
+.table.table-users .cell-name .user-info img  { position: absolute; top: 2px; left: 0; width: 40px; }
+.table.table-users .cell-name p span          { margin-right: 10px; font-weight: 600; }
+.table.table-users .cell-name p span i        { vertical-align: middle; }
+.table.table-users .cell-name p span.rating   { color: #148c11; }
+.table.table-users .cell-name p span.rating i { position: relative; top: -1px; }
+.table.table-users .cell-name p span.strength { color: #788087; }
+.table.table-users .cell-name p .icon-note    { position: relative; top: 2px; }
+.table.table-users .cell-actions              { width: 69px; }
+.table.table-users .cell-actions a            { margin-right: 9px; }
+.table.table-users .cell-actions a:last-child { margin-right: 0; }
 
 /* Table Talk */
 .table.table-talk .cell-checkbox 		{ width: 20px; padding: 12px 0 10px 10px; }

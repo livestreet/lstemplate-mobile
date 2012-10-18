@@ -101,7 +101,7 @@
 				</time>
 			</li>
 
-			<li class="topic-info-extra-trigger" onclick="ls.tools.slide('#topic-extra-target-{$oTopic->getId()}', this);"></li>
+			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#topic-extra-target-{$oTopic->getId()}'), $(this));"></li>
 			
 			{hook run='topic_show_info' topic=$oTopic}
 		</ul>

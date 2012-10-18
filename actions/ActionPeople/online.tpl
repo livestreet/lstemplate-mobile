@@ -1,5 +1,7 @@
 {include file='header.tpl' menu='people'}
 
-{include file='user_list.tpl' aUsersList=$aUsersLast}
+<div class="wrapper">
+	{include file='user_list.tpl' aUsersList=$aUsersLast}
+</div>
 
 {include file='footer.tpl'}
