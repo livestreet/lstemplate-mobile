@@ -32,9 +32,10 @@
 .icon-friend.active    { width: 30px; height: 30px; background: url(../images/icons/friend-active.png) no-repeat; }
 .icon-send-message     { width: 30px; height: 30px; background: url(../images/icons/send-message.png) no-repeat; }
 
-.icon-rating     { width: 12px; height: 12px; background: url(../images/icons/rating.png) no-repeat; }
-.icon-strength     { width: 12px; height: 12px; background: url(../images/icons/strength.png) no-repeat; }
-.icon-note     { width: 11px; height: 11px; background: url(../images/icons/note.png) no-repeat; }
+.icon-rating           { width: 12px; height: 12px; background: url(../images/icons/rating.png) no-repeat; }
+.icon-strength         { width: 12px; height: 12px; background: url(../images/icons/strength.png) no-repeat; }
+.icon-note             { width: 11px; height: 11px; background: url(../images/icons/note.png) no-repeat; }
+.icon-vote             { width: 30px; height: 30px; background: url(../images/icons/vote.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 

@@ -11,8 +11,8 @@
 							<h3 class="word-wrap"><a href="{$oUserList->getUserWebPath()}"><span>{$oUserList->getLogin()}</span></a></h3>
 							
 							<p>
-								<span class="rating"><i class="icon-rating"></i> {$oUserList->getRating()}</span>
-								<span class="strength"><i class="icon-strength"></i> {$oUserList->getSkill()}</span>
+								<span class="user-profile-rating"><i class="icon-rating"></i> {$oUserList->getRating()}</span>
+								<span class="user-profile-rating user-profile-strength"><i class="icon-strength"></i> {$oUserList->getSkill()}</span>
 								{if $oUserCurrent && $oUserNote}<i class="icon-note"></i>{/if}
 							</p>
 						</div>

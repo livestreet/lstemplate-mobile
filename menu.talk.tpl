@@ -1,6 +1,4 @@
-<h3 class="profile-page-header">{$aLang.talk_menu_inbox}</h3>
-
-<ul class="nav nav-pills">					
+<ul class="nav-foldable">					
 	<li {if $sMenuSubItemSelect=='inbox'}class="active"{/if}><a href="{router page='talk'}">{$aLang.talk_menu_inbox}</a></li>
 	{if $iUserCurrentCountTalkNew}
 		<li {if $sMenuSubItemSelect=='new'}class="active"{/if}><a href="{router page='talk'}inbox/new/">{$aLang.talk_menu_inbox_new}</a></li>

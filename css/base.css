@@ -34,7 +34,7 @@ a.link-dotted:hover { border-color: #06e; }
 h2.page-header { color: #333; font-size: 27px; line-height: 1em; font-weight: bold; margin-bottom: 20px; }
 h2.page-header span { color: #aaa; }
 
-h2.header-table { margin-bottom: 0; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 14px; font-weight: bold; }
+h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 
 
 

@@ -1,6 +1,4 @@
-<h3 class="profile-page-header">{$aLang.user_menu_publication}</h3>
-
-<ul class="nav nav-pills nav-pills-profile">
+<ul class="nav-foldable">
 	<li {if $sMenuSubItemSelect=='topics'}class="active"{/if}>
 		<a href="{$oUserProfile->getUserWebPath()}created/topics/">{$aLang.topic_title}  {if $iCountTopicUser} ({$iCountTopicUser}) {/if}</a>
 	</li>

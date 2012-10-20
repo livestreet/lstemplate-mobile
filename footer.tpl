@@ -1,6 +1,5 @@
-			{hook run='content_end'}
-		</div> <!-- /content -->
-	</div> <!-- /wrapper -->
+		{hook run='content_end'}
+	</div> <!-- /content -->
 
 	
 	<footer id="footer">

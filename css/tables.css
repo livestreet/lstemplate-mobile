@@ -34,9 +34,11 @@
 .table.table-profile-notes .cell-date 		{ text-align: right; }
 
 /* Table Profile Info */
-.table.table-profile-info 				{ margin-bottom: 40px; }
-.table.table-profile-info td 			{ vertical-align: top; }
-.table.table-profile-info .cell-label 	{ width: 30%; color: #777; }
+.table-profile-info-wrapper { padding: 17px 0; border-bottom: 1px solid #e1e8ef; }
+
+.table.table-profile-info 				{ font-size: 11px; }
+.table.table-profile-info td 			{ vertical-align: top; padding: 3px 3px 3px 0; border: none; }
+.table.table-profile-info .cell-label 	{ width: 120px; }
 
 /* Table Users */
 .table.table-users td                         { padding: 13px 0; font-size: 11px; }
@@ -46,11 +48,6 @@
 .table.table-users .cell-name h3 a span       { font-size: 14px; }
 .table.table-users .cell-name .user-info      { position: relative; top: -2px; padding-left: 50px; }
 .table.table-users .cell-name .user-info img  { position: absolute; top: 2px; left: 0; width: 40px; }
-.table.table-users .cell-name p span          { margin-right: 10px; font-weight: 600; }
-.table.table-users .cell-name p span i        { vertical-align: middle; }
-.table.table-users .cell-name p span.rating   { color: #148c11; }
-.table.table-users .cell-name p span.rating i { position: relative; top: -1px; }
-.table.table-users .cell-name p span.strength { color: #788087; }
 .table.table-users .cell-name p .icon-note    { position: relative; top: 2px; }
 .table.table-users .cell-actions              { width: 69px; }
 .table.table-users .cell-actions a            { margin-right: 9px; }

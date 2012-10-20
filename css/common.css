@@ -2,15 +2,6 @@
 	ОБЩИЕ СТИЛИ
 ------------------------------------------------------------------- */
 
-.wrapper { 	
-	padding: 9px;
-	background: #fff;
-
-	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.3); 
-	   -moz-box-shadow: 0 0 2px rgba(0,0,0,.3); 
-	        box-shadow: 0 0 2px rgba(0,0,0,.3);  
-}
-
 /* Голосование 
 ---------------------------------------------------- */
 .vote .vote-count 							{ display: inline-block; font-weight: bold; color: #aaa; font-size: 14px; }
@@ -132,8 +123,8 @@
 /* Список пользователей 
 ---------------------------------------------------- */
 .user-list-avatar 			{ overflow: hidden; zoom: 1; }
-.user-list-avatar li 		{ width: 64px; overflow: hidden; float: left; margin-right: 20px; margin-bottom: 15px; text-align: center; font-size: 11px; }
-.user-list-avatar li img	{ margin-bottom: 2px; display: block; }
+.user-list-avatar li 		{ width: 30px; float: left; margin-right: 14px; margin-bottom: 14px; }
+.user-list-avatar li img	{ width: 30px; vertical-align: top; }
 
 
 
@@ -182,6 +173,16 @@
 .item-list li .avatar 		{ position: absolute; top: 10px; left: 0; margin-right: 10px; }
 .item-list li .author 		{ font-weight: bold; color: #333; }
 .item-list li .blog-name 	{ font-weight: bold; }
+
+
+
+/* User Profile Rating
+---------------------------------------------------- */
+.user-profile-rating                       { margin-right: 10px; font-weight: 600; font-size: 11px; }
+.user-profile-rating i                     { vertical-align: middle; }
+.user-profile-rating                       { color: #148c11; }
+.user-profile-rating i                     { position: relative; top: -1px; }
+.user-profile-rating.user-profile-strength { color: #788087; }
 
 
 

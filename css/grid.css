@@ -5,6 +5,19 @@
 #container 	{ margin: 0 auto; margin-bottom: 20px; }
 #header 	{ height: 44px; position: relative; }
 #nav 		{ margin-bottom: 4px; }
-#wrapper 	{ margin: 0 4px; }
-#content 	{ width: 100%; position: relative; }
+#content 	{ 
+	margin: 0 4px;
+	padding: 9px;
+	background: #fff;
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.3); 
+	   -moz-box-shadow: 0 0 2px rgba(0,0,0,.3); 
+	        box-shadow: 0 0 2px rgba(0,0,0,.3); 
+}
+#content.no-bg { 
+	background: transparent;
+	padding: 0;
+	-webkit-box-shadow: none; 
+	   -moz-box-shadow: none; 
+	        box-shadow: none; 
+}
 #footer 	{ overflow: hidden; zoom: 1; margin-bottom: 20px; padding: 20px 0 50px; color: #777; font-size: 11px; }

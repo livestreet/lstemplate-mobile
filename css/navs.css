@@ -70,6 +70,8 @@
 .dropdown-create a 		{ font-weight: normal; }
 .dropdown-create h2 a 	{ text-transform: lowercase; }
 
+
+/* Foldable */
 .nav-foldable-wrapper { margin: 4px 4px 0; }
 .nav-foldable-wrapper .nav-foldable-trigger {
 	padding: 10px 15px;
@@ -91,6 +93,8 @@
 .nav-foldable-wrapper .slide li a { display: block; font-size: 17px; text-decoration: underline; color: #275ec2; }
 .nav-foldable-wrapper .slide li a:hover,
 .nav-foldable-wrapper .slide li a:active {  }
+
+#content .nav-foldable-wrapper { margin: 0 0 4px; }
 
 
 

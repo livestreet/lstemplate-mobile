@@ -2,9 +2,9 @@
 	СТРАНИЦА ПОЛЬЗОВАТЕЛЯ
 -------------------------------------------- */
 
-.profile 				{ min-height: 48px; margin-bottom: 0; padding: 0 300px 20px 65px; position: relative; }
+.profile 				{ min-height: 48px; margin-bottom: 0; padding: 0 0 20px 72px; position: relative; }
 
-.profile .avatar 		{ position: absolute; top: 0; left: 0; }
+.profile .avatar 		{ position: absolute; top: 0; left: 0; width: 60px; height: 60px; }
 
 .profile .vote-label	{ text-transform: uppercase; text-align: right; font-size: 11px; color: #aaa; }
 .profile .count 		{ font-size: 34px; line-height: 1em; font-weight: bold; text-align: right; }
@@ -19,13 +19,18 @@
 .profile .vote.voted .vote-down 				{ display: inline-block; }
 .profile .vote.vote-count-positive .vote-count 	{ color: #5055B2; }
 
-.profile .strength 					{ position: absolute; top: 0; right: 0; }
+.profile .user-profile-rating-wrapper 			{ width: 57px; position: absolute; top: 12px; right: 0; }
+.profile .user-profile-rating 					{ display: block; margin: 0; }
 
-.profile .user-login 				{ width: 270px; font-size: 27px; line-height: 26px; font-weight: bold; margin-bottom: 5px; }
-.profile .user-login.no-user-name 	{ position: relative; top: 9px; }
-.profile .user-name 				{ color: #777; }
+.profile .user-login 				{ width: 270px; font-size: 19px; font-weight: 600; padding-top: 7px; margin-bottom: 7px; }
+.profile .user-login.no-user-name 	{ padding-top: 18px; }
+.profile .user-name 				{ font-size: 14px; color: #788087; }
+
+.profile-actions { padding: 9px; background: #fafafa; margin-bottom: 10px; }
+.profile-actions li { float: left; margin-right: 9px; }
+.profile-actions li.profile-actions-vote { float: right; margin-right: 0; }
 
 .profile-page-header 				{ font-size: 12px; font-weight: bold; margin-bottom: 20px; background: #f5f5f5; border-top: 1px solid #eee; color: #555; padding: 5px 10px 6px; }
 
-.profile-info-about { padding: 13px 20px 20px; background: #F1F9F1; border-radius: 5px; margin-bottom: 30px; color: #000; }
-.profile-info-about h3 { font-size: 18px; margin-bottom: 5px; }
+.profile-info-about { padding: 13px 20px 20px; background: #fffcd6; border-radius: 5px; color: #000; font-size: 11px; }
+.profile-info-about h2 { margin-bottom: 5px; }

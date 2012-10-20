@@ -1,6 +1,4 @@
-<h3 class="profile-page-header">{$aLang.user_menu_profile_favourites}</h3>
-
-<ul class="nav nav-pills nav-pills-profile">
+<ul class="nav-foldable">
 	<li {if $sMenuSubItemSelect=='topics'}class="active"{/if}>
 		<a href="{$oUserProfile->getUserWebPath()}favourites/topics/">{$aLang.user_menu_profile_favourites_topics}  {if $iCountTopicFavourite} ({$iCountTopicFavourite}) {/if}</a>
 	</li>

@@ -134,17 +134,12 @@
 		{include file='header_top.tpl'}
 		{include file='nav.tpl'}
 
-		<div id="wrapper" class="clearfix {hook run='wrapper_class'}">
-			{if !$noSidebar && $sidebarPosition == 'left'}
-				{include file='sidebar.tpl'}
-			{/if}
-		
-			<div id="content" role="main" 
-				class="{if $noSidebar}content-full-width{/if} 
-					   {if $sidebarPosition == 'left'}content-right{/if}"
-				{if $sMenuItemSelect=='profile'}itemscope itemtype="http://data-vocabulary.org/Person"{/if}>
-				
-				{* {include file='nav_content.tpl'} *}
-				{include file='system_message.tpl'}
-				
-				{hook run='content_begin'}
+		<div id="content" role="main" 
+			class="{if $noBg}no-bg{/if} 
+				   {if $sidebarPosition == 'left'}content-right{/if} {hook run='wrapper_class'}"
+			{if $sMenuItemSelect=='profile'}itemscope itemtype="http://data-vocabulary.org/Person"{/if}>
+			
+			{* {include file='nav_content.tpl'} *}
+			{include file='system_message.tpl'}
+			
+			{hook run='content_begin'}

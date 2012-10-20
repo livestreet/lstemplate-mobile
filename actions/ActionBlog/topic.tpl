@@ -1,4 +1,4 @@
-{include file='header.tpl' menu='blog'}
+{include file='header.tpl' menu='blog' noBg=true}
 
 {include file='topic.tpl'}
 {include 
