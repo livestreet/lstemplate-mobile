@@ -36,6 +36,8 @@
 .icon-strength         { width: 12px; height: 12px; background: url(../images/icons/strength.png) no-repeat; }
 .icon-note             { width: 11px; height: 11px; background: url(../images/icons/note.png) no-repeat; }
 .icon-vote             { width: 30px; height: 30px; background: url(../images/icons/vote.png) no-repeat; }
+.icon-rss              { width: 30px; height: 30px; background: url(../images/icons/rss.png) no-repeat; }
+.icon-blog-more        { width: 30px; height: 30px; background: url(../images/icons/blog-more.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 
