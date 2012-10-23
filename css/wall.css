@@ -2,26 +2,81 @@
 	СТЕНА
 -------------------------------------------- */
 
-.wall-submit 									{ margin-bottom: 30px; }
-.wall-submit.wall-submit-reply 					{ margin: 2px 0 2px 25px; padding: 7px; background: #fafafa; }
-.wall-submit.wall-submit-reply textarea 		{ height: 28px; *height: 16px; *width: 590px; margin: 0; }
-.wall-submit.wall-submit-reply button 			{ display: none; }
-.wall-submit.wall-submit-reply.active textarea 	{ height: 80px; margin-bottom: 5px; }
-.wall-submit.wall-submit-reply.active button 	{ display: block; }
-.wall-submit p 									{ margin-bottom: 5px; }
+.wall-note h3 { font-size: 15px; margin-bottom: 20px; font-family: Verdana, sans-serif; }
 
-.comments.wall,
-.wall .comment 					{ margin-bottom: 2px; }
-.wall .comment .comment-info	{ padding-bottom: 0; }
-.wall .comment .comment-content	{ margin-bottom: 3px; }
+.wall-reply-link   { padding-top: 5px; font-size: 11px; border-top: 1px solid #fff; }
+.wall-reply-link a { color: #788087; border-bottom: 1px dotted #788087; display: inline-block; line-height: 13px; }
 
-.comment.wall-comment-reply 					{ min-height: 0; padding-left: 48px; }
-.comment.wall-comment-reply .comment-avatar 	{ width: 30px; height: 30px; }
 
+/* More */
 .wall-more 							{ display: block; background: #f7f7f7; text-align: center; padding: 7px 0; font-size: 11px; margin-bottom: 2px; }
 .wall-more:hover 					{ background: #eee; }
-.wall-more.wall-more-reply 			{ margin-left: 25px; }
 .wall-more.loader 					{ background: #fafafa url(../images/loader.gif) 50% 50% no-repeat; }
 .wall-more.loader .wall-more-inner 	{ visibility: hidden; }
+.wall-more.wall-more-reply 			{ background: transparent; border-bottom: 1px solid #e2e7ec; margin-bottom: 0; }
 
-.wall-note h3 { font-size: 15px; margin-bottom: 20px; font-family: Verdana, sans-serif; }
+
+/* Wrapper */
+.wall-comment-wrapper { border-bottom: 1px solid #e2e7ec; margin-bottom: 10px; }
+.wall-comment-wrapper:last-child { margin-bottom: 0; }
+
+.wall-submit 									{ display: none; }
+.wall-submit.wall-submit-reply 					{ padding: 10px; position: relative; background: #f1f3fc; margin-top: 10px; }
+.wall-submit.wall-submit-reply:before {
+	content: "";
+	position: absolute;
+	top: -16px; left: 10px;
+	width: 0; height: 0;
+	border-color: transparent transparent #f1f3fc transparent;
+	border-width: 8px;
+	border-style: solid;
+}
+.wall-submit.wall-submit-reply textarea 		{ height: 80px; margin-bottom: 5px; }
+.wall-submit p 									{ margin-bottom: 5px; }
+
+
+/* Comment */
+.wall-comment {
+	min-height: 30px;
+	padding: 10px 0 10px 0;
+	font-size: 11px;
+	line-height: 13px;
+	position: relative;
+}
+.wall-comment:first-child                  { border-top: none; }
+.wall-comment:last-child                   { border-bottom: none; }
+.wall-comment .comment-avatar              { position: absolute; top: 10px; left: 0; width: 30px; height: 30px; }
+.wall-comment .comment-info                { min-height: 30px; color: #788087; margin-bottom: 3px; padding-left: 38px; margin-bottom: 7px; }
+.wall-comment .comment-info li:first-child { margin-bottom: 3px; }
+.wall-comment .comment-content.text        { font-size: 11px; line-height: 15px; }
+
+
+/* Replies */
+.comment-wrapper-replies { padding: 0 10px; background: #f1f3fc; margin-top: 5px; position: relative; margin-top: 10px; margin-bottom: 2px; }
+.comment-wrapper-replies:before {
+	content: "";
+	position: absolute;
+	top: -16px; left: 10px;
+	width: 0; height: 0;
+	border-color: transparent transparent #f1f3fc transparent;
+	border-width: 8px;
+	border-style: solid;
+}
+
+.comment-wrapper-replies .wall-reply-link   { padding: 5px 0 10px; font-size: 11px; border-top: 1px solid #fff; }
+.comment-wrapper-replies .wall-reply-link a { color: #788087; border-bottom: 1px dotted #788087; display: inline-block; line-height: 13px; }
+
+.wall-comment-reply {
+	min-height: 30px;
+	padding: 10px 10px 10px 38px;
+	font-size: 11px;
+	line-height: 13px;
+	position: relative;
+	border-bottom: 1px solid #e2e7ec;
+	border-top: 1px solid #fff;
+}
+.wall-comment-reply:first-child           { border-top: none; }
+.wall-comment-reply .comment-avatar       { position: absolute; top: 10px; left: 0; width: 30px; height: 30px; }
+.wall-comment-reply .comment-info         { color: #788087; margin-bottom: 3px; }
+.wall-comment-reply .comment-info li      { float: left; margin-right: 10px; }
+.wall-comment-reply .comment-content.text { font-size: 11px; line-height: 15px; }

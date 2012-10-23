@@ -16,8 +16,9 @@
 </script>
 
 {if $oUserCurrent}
-	<form class="wall-submit">
-		<label for="wall-text">{$aLang.wall_add_title}:</label>
+	<a href="#" class="button button-primary" onclick="return jQuery(this).next().toggle();">{$aLang.wall_action_reply}</a>
+
+	<form class="wall-submit wall-submit-reply">
 		<p><textarea rows="4" id="wall-text" class="input-text input-width-full js-wall-reply-parent-text"></textarea></p>
 
 		<button type="button" onclick="ls.wall.add(jQuery('#wall-text').val(),0);" class="button button-primary js-button-wall-submit">{$aLang.wall_add_submit}</button>
@@ -34,7 +35,7 @@
 	</div>
 {/if}
 
-<div id="wall-container" class="comments wall">
+<div id="wall-container" class="wall">
 	{include file='actions/ActionProfile/wall_items.tpl'}
 </div>
 

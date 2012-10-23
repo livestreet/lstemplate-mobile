@@ -154,6 +154,10 @@ jQuery(document).ready(function($){
 		$(this).empty();
 	});
 
+	ls.hook.add('ls_wall_addreply_after',function(sText, iPid, result){
+		$('#wall-reply-wrapper-'+iPid).show();
+	});
+
 	/****************
 	 * TALK
 	 */
