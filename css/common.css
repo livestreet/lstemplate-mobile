@@ -31,10 +31,9 @@
 	width: 20px;
 	height: 20px;
 	vertical-align: text-top;
-	background: url(../images/icons-mobile.png) 0 -53px no-repeat;
 	cursor: pointer;
 }
-.favourite.active 	{ background-position: -20px -53px; }
+.favourite.active 	{ }
 .favourite-count    { margin-left: 0; color: #333; }
 
 

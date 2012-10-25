@@ -15,7 +15,6 @@
 	width: 16px;
 	height: 16px;
 	line-height: 16px;
-	background: url(../images/icons.png) no-repeat;
 	background-color: #eee;
 }
 
@@ -26,10 +25,10 @@
 .icon-blog-private     { width: 30px; height: 30px; background: url(../images/icons/blog-private.png) no-repeat; }
 .icon-blog-owner       { width: 30px; height: 30px; background: url(../images/icons/blog-owner.png) no-repeat; }
 .icon-blog-join        { width: 30px; height: 30px; background: url(../images/icons/blog-join.png) no-repeat; }
-.icon-blog-join.active { width: 30px; height: 30px; background: url(../images/icons/blog-join-active.png) no-repeat; }
+.icon-blog-join.active { background: url(../images/icons/blog-join-active.png) no-repeat; }
 
 .icon-friend           { width: 30px; height: 30px; background: url(../images/icons/friend.png) no-repeat; }
-.icon-friend.active    { width: 30px; height: 30px; background: url(../images/icons/friend-active.png) no-repeat; }
+.icon-friend.active    { background: url(../images/icons/friend-active.png) no-repeat; }
 .icon-send-message     { width: 30px; height: 30px; background: url(../images/icons/send-message.png) no-repeat; }
 
 .icon-rating           { width: 12px; height: 12px; background: url(../images/icons/rating.png) no-repeat; }
@@ -38,6 +37,8 @@
 .icon-vote             { width: 30px; height: 30px; background: url(../images/icons/vote.png) no-repeat; }
 .icon-rss              { width: 30px; height: 30px; background: url(../images/icons/rss.png) no-repeat; }
 .icon-blog-more        { width: 30px; height: 30px; background: url(../images/icons/blog-more.png) no-repeat; }
+.icon-favourite        { width: 16px; height: 16px; background: url(../images/icons/favourite.png) no-repeat; }
+.icon-favourite.active { background: url(../images/icons/favourite-active.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 

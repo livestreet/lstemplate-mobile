@@ -3,29 +3,29 @@
 -------------------------------------------- */
 
 /* Блок с комментариями */
-.comments-header { margin-bottom: 20px; }
-.comments-header h3 { font-size: 24px; margin-bottom: 5px; float: left; }
-.comments-header .comments-subscribe { float: right; position: relative; top: 10px; }
+.comments-header                     { margin-bottom: 20px; }
+.comments-header h3                  { font-size: 19px; margin-bottom: 5px; font-weight: 600; }
+.comments-header .comments-subscribe { color: #788087; font-size: 11px; }
 
-.comments { margin-bottom: 30px; }
+.comments                            { margin-bottom: 30px; }
 
-.comment-wrapper { position: relative; }
-.comment-wrapper .comment-wrapper { padding-left: 25px; }
+.comment-wrapper                     { position: relative; }
+.comment-wrapper .comment-wrapper    { padding-left: 25px; }
 
-.comment-preview { padding: 5px 10px 6px; margin-bottom: 10px; background: #fafafa; border: 1px solid #eee; border-radius: 3px; }
-.comment-preview { font-size: 13px; line-height: 18px; }
+.comment-preview                     { padding: 5px 10px 6px; margin-bottom: 10px; background: #fafafa; border: 1px solid #eee; border-radius: 3px; }
+.comment-preview                     { font-size: 13px; line-height: 18px; }
 
 
 /* Стили для списка комментариев на странице http://ваш_сайт/comments/ */
-.comments.comment-list .comment { margin-bottom: 15px; }
-.comments.comment-list .comment-path { background: #eee; padding: 5px 10px 6px; border-top: 1px solid #ddd; }
+.comments.comment-list .comment                 { margin-bottom: 15px; }
+.comments.comment-list .comment-path            { background: #eee; padding: 5px 10px 6px; border-top: 1px solid #ddd; }
 .comments.comment-list .comment-path .blog-name { color: #777; }
 
 
 /* Комментарий */
-.comment { min-height: 48px; padding: 10px 10px 10px 57px; position: relative; border-bottom: 1px solid #eee; }
-.comment .deleted { padding: 5px 10px; color: #777; background: #f4f4f4; }
-.comment .comment-avatar { position: absolute; top: 10px; left: 0; width: 42px; height: 42px; }
+.comment                 { min-height: 48px; padding: 18px 0 18px 0; position: relative; border-bottom: 1px solid #e2e7ec; }
+.comment .deleted        { padding: 5px 10px; color: #777; background: #f4f4f4; }
+.comment .comment-avatar { position: absolute; top: 18px; left: 0; width: 30px; height: 30px; }
 
 
 /* Типы комментариев
@@ -36,7 +36,7 @@
  * current 	- 	активный комментарий, который выделяется при исползование кнопки обновления в тулбаре
  *
  */
-.comment 							{ background: transparent; }
+/*.comment 							{ background: transparent; }
 .comment.comment-deleted 			{ background: #efd5d5; }
 .comment.comment-self				{ background: #c5f7ea; }
 .comment.comment-new 				{ background: #fbfba8; }
@@ -44,35 +44,65 @@
 .comment.comment-bad 				{ opacity: 0.3; filter: alpha(opacity=30); }
 .comment.comment-bad:hover 			{ opacity: 1; filter: alpha(opacity=100); }
 
-.ls-user-role-not-admin .comment.comment-deleted 	{ padding: 10px 15px; min-height: 0; background: #f7f7f7; color: #888; }
+.ls-user-role-not-admin .comment.comment-deleted 	{ padding: 10px 15px; min-height: 0; background: #f7f7f7; color: #888; }*/
 
 
 /* Info Block */
-.comment .comment-info { padding: 0 70px 7px 0; line-height: 12px; position: relative; top: -2px; overflow: hidden; zoom: 1; }
-.comment .comment-info li { float: left; height: 18px; padding-top: 3px; margin-right: 10px; }
-.comment .comment-info li a { text-decoration: none; }
-.comment .comment-info li.comment-author a { color: #3f8ad7; }
+.comment .comment-info                                         {
+	min-height: 30px;
+	color: #788087;
+	margin-left: 32px;
+	margin-bottom: 7px;
+	padding-left: 6px;
+	padding-right: 30px;
+	font-size: 11px;
+	line-height: 13px;
+}
+.comment .comment-info.comment-topic-author                    {
+	background: rgb(254,255,163);
+	background: -moz-linear-gradient(left,  rgba(254,255,163,1) 0%, rgba(255,255,255,0) 100px);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(254,2055,163,0)), color-stop(100px,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(left,  rgba(254,255,163,1) 0%,rgba(255,255,255,01) 100px);
+	background: -o-linear-gradient(left,  rgba(254,255,163,1) 0%,rgba(255,255,255,0) 100px);
+	background: -ms-linear-gradient(left,  rgba(254,255,163,1) 0%,rgba(255,255,255,0) 100px);
+	background: linear-gradient(to right,  rgba(254,255,163,1) 0%,rgba(255,255,255,0) 100px);
+}
+.comment .comment-info li:first-child                          { margin-bottom: 3px; }
+.comment .comment-info li a                                    { text-decoration: none; }
+.comment .comment-info li.comment-author a                     { color: #184e8a; text-decoration: underline; }
 .comment .comment-info li.comment-author .comment-topic-author { background: #C9A518; color: #fff; font-size: 11px; border-radius: 3px; padding: 1px 7px; margin-right: 5px; }
-.comment .comment-info li.comment-date a { color: #7b848d; }
-.comment .comment-info li.vote { position: absolute; top: 0; right: 0; margin: 0; }
-.comment .comment-info li.goto-comment-child { display: none; }
+.comment .comment-info li.comment-date a                       { color: #7b848d; }
+.comment .comment-info li.goto-comment-child                   { display: none; }
 
+.comment .vote-count                           { position: absolute; top: 18px; right: 0; margin: 0; color: #788087; font-weight: bold; font-size: 11px; }
 
 /* Content */
-.comment .comment-content { margin-bottom: 10px; }
-.comment .comment-content.text { font-size: 13px; }
+.comment .comment-content                 { margin-bottom: 5px; }
+.comment .comment-content.text            { font-size: 11px; line-height: 15px; }
 .comment .comment-content.text blockquote { background: #fff; border-color: #ccc; padding: 5px 10px; margin-bottom: 5px; }
 
 
 /* Actions */
-.comment .comment-actions li { display: inline; margin-right: 10px; }
+.comment .comment-actions                      { font-size: 11px; font-family: Verdana; }
+.comment .comment-actions li                   { float: left; margin-right: 25px; }
+.comment .comment-actions li.comment-favourite { cursor: pointer; }
+.comment .comment-actions li .favourite-count  { position: relative; top: 1px; }
+.comment .comment-actions li a                 { color: #788087; }
+.comment .comment-actions li a.link-dotted     { border-color: #788087; }
 
 
 /* Форма комментирования */
 .reply-header { font-size: 20px; line-height: 1.3em; margin-bottom: 15px; }
 
-.reply { padding-bottom: 10px; background: #fffedf; border-radius: 10px; padding: 20px; }
-.reply textarea { height: 100px; border: 2px solid #4a617e; border-radius: 5px; margin-bottom: 10px; }
+.reply {
+	margin: 10px 0;
+	padding: 15px;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2); 
+	   -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2); 
+	        box-shadow: 0 1px 3px rgba(0,0,0,.2); 
+}
+.reply textarea { height: 100px; margin-bottom: 10px; }
 .reply textarea.loader { background: #f7f7f7 url(../images/loader.gif) no-repeat center; }
 
 .reply .mceEditor { display: block; margin-bottom: 10px; }

@@ -14,35 +14,28 @@
 
 .button {
 	display: inline-block;
-	
-	padding: 7px 15px;
+	padding: 7px 13px;
 	text-align: center;
-	
-	border: none;
-	
+	border: 1px solid #d9e3ec;
 	font-size: 14px;
+	font-family: 'Open Sans';
 	line-height: 16px;
-	
-	color: #fff;
-	
-	background: #555;
-
+	color: #333;
+	background: #f6f8fa;
 	cursor: pointer;
-	
-	*margin-right: 5px;
 }
 .button:hover { text-decoration: none; color: #fff; background: #666; }
 .button:active { 
-	-moz-box-shadow: 	0 0 7px rgba(0, 0, 0, .5) inset; 
 	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .5) inset; 
-	box-shadow: 		0 0 7px rgba(0, 0, 0, .5) inset; 
+	   -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .5) inset; 
+	        box-shadow: 0 0 7px rgba(0, 0, 0, .5) inset; 
 }
 .button.fl-r { *margin-right: 0; }
 
 
 /* Button Primary */
-.button.button-primary        { background: #058be9; }
-.button.button-primary:hover  { background: #0065e2; }
+.button.button-primary        { background: #058be9; color: #fff; border-color: #058be9; }
+.button.button-primary:hover  { background: #0065e2; border-color: #0065e2; }
 .button.button-primary.active { background: #d23e3e; }
 
 /* Button Icon (Without text) */

@@ -17,13 +17,13 @@
 	{if !$oComment->getDelete() or $bOneComment or ($oUserCurrent and $oUserCurrent->isAdministrator())}
 		<a name="comment{$oComment->getId()}"></a>
 		
+		<span class="vote-count" id="vote_total_comment_{$oComment->getId()}">{if $oComment->getRating() > 0}+{/if}{$oComment->getRating()}</span>
 		
 		<a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(48)}" alt="avatar" class="comment-avatar" /></a>
 		
 		
-		<ul class="comment-info">
+		<ul class="comment-info {if $iAuthorId == $oUser->getId()}comment-topic-author{/if}">
 			<li class="comment-author">
-				{if $iAuthorId == $oUser->getId()}<span class="comment-topic-author" title="{if $sAuthorNotice}{$sAuthorNotice}{/if}">{$aLang.comment_target_author}</span>{/if}
 				<a href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a>
 			</li>
 			<li class="comment-date">
@@ -31,7 +31,7 @@
 					<time datetime="{date_format date=$oComment->getDate() format='c'}">{date_format date=$oComment->getDate() hours_back="12" minutes_back="60" now="60" day="day H:i" format="j F Y, H:i"}</time>
 				</a>
 			</li>
-			
+			{*
 			{if $oComment->getPid()}
 				<li class="goto-comment-parent"><a href="#" onclick="ls.comments.goToParentComment({$oComment->getId()},{$oComment->getPid()}); return false;" title="{$aLang.comment_goto_parent}">↑</a></li>
 			{/if}
@@ -60,6 +60,7 @@
 					<div class="vote-up" onclick="return ls.vote.vote({$oComment->getId()},this,1,'comment');"></div>
 				</li>
 			{/if}
+			*}
 		</ul>
 		
 		
@@ -69,7 +70,7 @@
 			
 			
 		{if $oUserCurrent}
-			<ul class="comment-actions">
+			<ul class="comment-actions clearfix">
 				{if !$oComment->getDelete() and !$bAllowNewComment}
 					<li><a href="#" onclick="ls.comments.toggleCommentForm({$oComment->getId()}); return false;" class="reply-link link-dotted">{$aLang.comment_answer}</a></li>
 				{/if}
@@ -83,8 +84,8 @@
 				{/if}
 			
 				{if $oUserCurrent and !$bNoCommentFavourites}
-					<li class="comment-favourite">
-						<div onclick="return ls.favourite.toggle({$oComment->getId()},this,'comment');" class="favourite {if $oComment->getIsFavourite()}active{/if}"></div>
+					<li class="comment-favourite" onclick="return ls.favourite.toggle({$oComment->getId()},'#fav_comment_{$oComment->getId()}','comment');">
+						<div id="fav_comment_{$oComment->getId()}" class="favourite icon-favourite {if $oComment->getIsFavourite()}active{/if}"></div>
 						<span class="favourite-count" id="fav_count_comment_{$oComment->getId()}">{if $oComment->getCountFavourite() > 0}{$oComment->getCountFavourite()}{/if}</span>
 					</li>
 				{/if}

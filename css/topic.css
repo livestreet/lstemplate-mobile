@@ -13,7 +13,7 @@
 	        box-shadow: 0 0 2px rgba(0,0,0,.3); 
 }
 .topic:last-child { margin-bottom: 0; }
-.topic.topic-single { margin-bottom: 55px; }
+.topic.topic-single { margin-bottom: 35px; }
 
 /* Header */
 .topic .topic-header							{ padding: 5px 9px 0; margin-bottom: 10px; }
