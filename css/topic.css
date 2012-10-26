@@ -153,6 +153,8 @@
 
 /* Topic Talk */
 .topic.topic-type-talk { }
+.topic.topic-type-talk .topic-info-extra li.topic-info-author { padding-left: 0; }
+/*.topic.topic-type-talk { }
 .topic.topic-type-talk .topic-header { background: #f7f7f7; padding: 10px 15px 15px; border-top: 1px solid #dfdfdf; border-bottom: 1px solid #eee; }
 .topic.topic-type-talk .topic-header .topic-title { margin-bottom: 13px; font-size: 20px; }
 .topic.topic-type-talk .topic-header .topic-info { margin-bottom: 0; position: relative; min-height: 30px; padding-left: 40px; line-height: 14px; }
@@ -164,7 +166,7 @@
 .topic.topic-type-talk .topic-footer .topic-info { border-radius: 0; background: #fafafa; }
 
 .topic.topic-type-talk .talk-recipients 	{ padding: 15px; background: #fafafa; display: none; border-top: 1px solid #fff; border-bottom: 1px solid #eee; }
-.topic.topic-type-talk .talk-recipients h3 	{ font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+.topic.topic-type-talk .talk-recipients h3 	{ font-size: 16px; font-weight: bold; margin-bottom: 10px; }*/
 
 /* Topic Preview */
 .topic-preview { margin-top: 30px; }

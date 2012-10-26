@@ -65,8 +65,6 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 #header .nav-userbar li.item-submit.active { background-image: url(../images/icons/submit-active.png); }
 #header .nav-userbar li.item-messages      { background-image: url(../images/icons/messages.png); background-repeat: no-repeat; }
 
-.slide { display: none; padding: 13px; background: #fff; }
-
 
 /* Футер
 ---------------------------------------------------- */
@@ -135,6 +133,23 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 
 .userfield-add                           { text-decoration: none; border-bottom: 1px dashed #70AAE0; }
 .userfield-add:hover                     { color: #333; border-color: #333; }
+
+
+
+/* Message list
+---------------------------------------------------- */
+.message-list                       {  }
+.message-list li                    { position: relative; padding: 15px 10px 15px 27px; border-bottom: 1px solid #eee; }
+.message-list li:last-child         { border: none; }
+.message-list li .input-checkbox    { position: absolute; top: 22px; left: 0; }
+.message-list li h2                 { font-weight: normal; font-size: 16px; line-height: 18px; margin-bottom: 4px; }
+.message-list li h2 a               {  }
+.message-list li.message-unread h2    { font-weight: 600; }
+.message-list li .icon-favourite    { margin-left: 3px; position: relative; top: 3px; }
+.message-list li .message-info      { font-family: Verdana; font-size: 11px; line-height: 15px; }
+.message-list li .message-info time { color: #788087; }
+.message-list li .message-info i 	{ vertical-align: middle; position: relative; top: -1px; margin-left: 5px; }
+.message-list li .message-user		{ font-family: Verdana; font-size: 11px; color: #000; text-decoration: underline; }
 
 
 

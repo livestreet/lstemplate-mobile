@@ -39,6 +39,8 @@
 .icon-blog-more        { width: 30px; height: 30px; background: url(../images/icons/blog-more.png) no-repeat; }
 .icon-favourite        { width: 16px; height: 16px; background: url(../images/icons/favourite.png) no-repeat; }
 .icon-favourite.active { background: url(../images/icons/favourite-active.png) no-repeat; }
+.icon-in               { width: 12px; height: 12px; background: url(../images/icons/in.png) no-repeat; }
+.icon-out              { width: 12px; height: 12px; background: url(../images/icons/out.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 

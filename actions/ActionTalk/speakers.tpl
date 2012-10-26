@@ -1,5 +1,5 @@
 {if $oTalk->getUserId()==$oUserCurrent->getId() or $oUserCurrent->isAdministrator()}
-	<div class="talk-recipients" id="talk_recipients">
+	<div class="slide slide-bg-yellow" id="talk_recipients">
 		<h3>{$aLang.talk_speaker_title}</h3>
 
 		<form onsubmit="return ls.talk.addToTalk({$oTalk->getId()});">

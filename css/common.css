@@ -2,6 +2,23 @@
 	ОБЩИЕ СТИЛИ
 ------------------------------------------------------------------- */
 
+.wrapper { 	
+	padding: 9px;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+	        box-shadow: 0 1px 2px rgba(0,0,0,.2); 
+}
+
+
+
+/* Slides 
+---------------------------------------------------- */
+.slide                 { display: none; padding: 13px; background: #fff; }
+.slide.slide-bg-yellow { background: #FFFDEF; }
+
+
+
 /* Голосование 
 ---------------------------------------------------- */
 .vote .vote-count 							{ display: inline-block; font-weight: bold; color: #aaa; font-size: 14px; }
@@ -90,6 +107,9 @@
 .actions li a:hover 			{ text-decoration: underline; }
 .actions li a.link-dotted 		{ border-color: #f00; }
 .actions li a.link-dotted:hover { border-color: #06e; color: #06e; text-decoration: none; }
+
+.action-button-wrapper         { padding: 0 4px; background: #f9fafc; }
+.action-button-wrapper .button { margin: 8px 4px; }
 
 
 

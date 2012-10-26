@@ -89,6 +89,7 @@
 	border: 1px solid #eee;
 	cursor: pointer;
 	position: relative;
+	min-height: 18px
 }
 .nav-foldable-wrapper .nav-foldable-trigger:before {
 	content: "";
