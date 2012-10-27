@@ -20,6 +20,53 @@ jQuery(document).ready(function($){
 			$('body').addClass('ie' + parseInt($.browser.version));
 		}
 	}
+
+	// Userbar
+	ls.tools.showuserbar = function() {
+		$('#wrapper').addClass('hidden');
+		$('#wrapper').css('width', $('#container').width());
+
+		$('#userbar').addClass('show');
+		$('#userbar-inner').css('min-height', $(window).height());
+	};
+
+
+	ls.tools.hideuserbar = function() {
+		$('#wrapper').removeClass('hidden');
+		$('#wrapper').css('width', 'auto');
+
+		$('#userbar').removeClass('show');
+		$('#userbar-inner').css('min-height', 'auto');
+	};
+
+
+	$('#userbar-trigger').click(function(){
+		if ($('#wrapper').hasClass('hidden')) {
+			ls.tools.hideuserbar();
+		} else {
+			ls.tools.showuserbar();
+		}
+	});
+
+	$(window).bind('swiperightup', function(event_, obj){ 
+		ls.tools.showuserbar();
+	});
+	$(window).bind('swiperight', function(event_, obj){ 
+		ls.tools.showuserbar();
+	});
+	$(window).bind('swiperightdown', function(event_, obj){ 
+		ls.tools.showuserbar();
+	});
+	$(window).bind('swipeleftup', function(event_, obj){ 
+		ls.tools.hideuserbar();
+	});
+	$(window).bind('swipeleft', function(event_, obj){ 
+		ls.tools.hideuserbar();
+	});
+	$(window).bind('swipeleftdown', function(event_, obj){ 
+		ls.tools.hideuserbar();
+	});
+
 	 
 	// Всплывающие окна
 	$('#window_login_form').jqm();

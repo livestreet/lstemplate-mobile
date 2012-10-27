@@ -4,6 +4,8 @@
 		<input type="submit" value="" title="{$aLang.search_submit}" class="input-submit icon icon-search">
 	</form>*}
 
+	<div class="userbar-trigger" id="userbar-trigger"></div>
+
 	<h1 class="site-name"><a href="{cfg name='path.root.web'}">{cfg name='view.name'}</a></h1>
 
 	{hook run='userbar_nav'}

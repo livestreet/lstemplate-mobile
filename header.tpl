@@ -85,22 +85,6 @@
 	</script>
 	
 	
-	{if {cfg name='view.grid.type'} == 'fluid'}
-		<style>
-			#container {
-				min-width: {cfg name='view.grid.fluid_min_width'}px;
-				max-width: {cfg name='view.grid.fluid_max_width'}px;
-			}
-		</style>
-	{else}
-		<style>
-			#container {
-				width: {cfg name='view.grid.fixed_width'}px;
-			}
-		</style>
-	{/if}
-	
-	
 	{hook run='html_head_end'}
 </head>
 
@@ -121,9 +105,8 @@
 {/if}
 
 
-<body class="{$body_classes} width-{cfg name='view.grid.type'}">
+<body class="{$body_classes}">
 	{hook run='body_begin'}
-	
 	
 	{if $oUserCurrent}
 		{include file='window_favourite_form_tags.tpl'}
@@ -131,15 +114,21 @@
 	
 
 	<div id="container" class="{hook run='container_class'}">
-		{include file='header_top.tpl'}
-		{include file='nav.tpl'}
+		{if $oUserCurrent}
+			{include file='userbar_menu.tpl'}
+		{/if}
 
-		<div id="content" role="main" 
-			class="{if $noBg}no-bg{/if} 
-				   {if $sidebarPosition == 'left'}content-right{/if} {hook run='wrapper_class'}"
-			{if $sMenuItemSelect=='profile'}itemscope itemtype="http://data-vocabulary.org/Person"{/if}>
-			
-			{* {include file='nav_content.tpl'} *}
-			{include file='system_message.tpl'}
-			
-			{hook run='content_begin'}
+
+		<div id="wrapper">
+			{include file='header_top.tpl'}
+			{include file='nav.tpl'}
+
+			<div id="content" role="main" 
+				class="{if $noBg}no-bg{/if} 
+					   {if $sidebarPosition == 'left'}content-right{/if} {hook run='wrapper_class'}"
+				{if $sMenuItemSelect=='profile'}itemscope itemtype="http://data-vocabulary.org/Person"{/if}>
+				
+				{* {include file='nav_content.tpl'} *}
+				{include file='system_message.tpl'}
+				
+				{hook run='content_begin'}

@@ -4,25 +4,9 @@ $config = array();
 
 $config['view']['theme'] = 'default';
 
-
-/* Grid type:
- * 
- * fluid - резина
- * fixed - фиксированная ширина
- */
-$config['view']['grid']['type'] = 'fluid';
-
-/* Fluid settings */
-$config['view']['grid']['fluid_min_width'] = 320;
-$config['view']['grid']['fluid_max_width'] = 640;
-
-/* Fixed settings */
-$config['view']['grid']['fixed_width'] = 1000;
-
-
-
 $config['head']['default']['js'] = Config::Get('head.default.js');
 $config['head']['default']['js'][] = '___path.static.skin___/js/template.js';
+$config['head']['default']['js'][] = '___path.static.skin___/js/libs/jgestures.min.js';
 
 $config['head']['default']['css'] = array(
 	"___path.static.skin___/css/reset.css",

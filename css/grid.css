@@ -2,10 +2,18 @@
 	СЕТКА
 -------------------------------------------- */
 
-#container 	{ margin: 0 auto; margin-bottom: 20px; }
-#header 	{ height: 44px; position: relative; }
-#nav 		{ margin-bottom: 4px; }
-#content 	{ 
+#container 	{
+	min-width: 320px;
+	max-width: 640px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+}
+#header         { height: 44px; position: relative; }
+#nav            { margin-bottom: 4px; }
+#wrapper.hidden { position: absolute; top: 0; left: 270px; z-index: 1; }
+#content { 
 	margin: 0 4px;
 	padding: 9px;
 	background: #fff;
@@ -20,4 +28,10 @@
 	   -moz-box-shadow: none; 
 	        box-shadow: none; 
 }
-#footer 	{ overflow: hidden; zoom: 1; margin-bottom: 20px; padding: 20px 0 50px; color: #777; font-size: 11px; }
+#footer {
+	overflow: hidden;
+	margin-bottom: 20px;
+	padding: 20px 0 50px;
+	color: #777;
+	font-size: 11px;
+}

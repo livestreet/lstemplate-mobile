@@ -47,10 +47,13 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 	height: 44px;
 	background: #1c2135;
 	position: relative;
+	z-index: 0;
 }
 #header a            { text-decoration: none; }
 #header .site-name   { font-size: 22px; text-transform: lowercase; position: absolute; top: 5px; left: 10px; }
 #header .site-name a { color: #fff; }
+
+#header .userbar-trigger { display: none; position: absolute; top: 0; left: 0; background: #05AAE9; width: 44px; height: 44px; cursor: pointer; z-index: 100; }
 
 #header .nav-userbar                       { position: absolute; right: 0; top: 0; }
 #header .nav-userbar li                    { float: left; width: 44px; height: 44px; cursor: pointer; }
@@ -64,6 +67,38 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 #header .nav-userbar li.item-submit        { background-image: url(../images/icons/submit.png); background-repeat: no-repeat; }
 #header .nav-userbar li.item-submit.active { background-image: url(../images/icons/submit-active.png); }
 #header .nav-userbar li.item-messages      { background-image: url(../images/icons/messages.png); background-repeat: no-repeat; }
+
+.ls-user-role-user #header .site-name       { left: 54px; }
+.ls-user-role-user #header .userbar-trigger { display: block; }
+
+
+/* Userbar
+---------------------------------------------------- */
+#userbar        { width: 270px; background: #3b3c3c; display: none; position: relative; z-index: 2; }
+#userbar.show   { display: block; }
+
+#userbar .userbar-menu-inner {
+	position: relative;
+	background: #3e3f40;
+	margin-right: 8px;
+	-webkit-box-shadow: 0 0 7px #000;
+	   -moz-box-shadow: 0 0 7px #000;
+	        box-shadow: 0 0 7px #000;
+	color: #fff;
+}
+
+#userbar .userbar-menu-user         { display: block; height: 44px; position: relative; padding-left: 49px; background: #2d2e30; overflow: hidden; }
+#userbar .userbar-menu-user .avatar { width: 30px; height: 30px; position: absolute; top: 7px; left: 7px; }
+#userbar .userbar-menu-user h3      { line-height: 43px; }
+#userbar .userbar-menu-user h3 a    { color: #e2e5e9; font-size: 19px; font-weight: 600; }
+
+#userbar .userbar-menu-rating-wrapper { padding: 11px 9px; border-bottom: 1px solid #333435; }
+
+#userbar ul { border-top: 1px solid #48494a; }
+#userbar ul li { font-size: 15px; }
+#userbar ul li a { display: block; color: #fff; padding: 9px; }
+
+
 
 
 /* Футер
