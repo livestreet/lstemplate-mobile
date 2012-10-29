@@ -22,6 +22,7 @@
 .icon-dummy { background: #aaa; }
 
 .icon-blog             { background: url(../images/icons/blog.png) no-repeat; }
+.icon-blog.active      { background: url(../images/icons/blog-active.png) no-repeat; }
 .icon-blog-private     { width: 30px; height: 30px; background: url(../images/icons/blog-private.png) no-repeat; }
 .icon-blog-owner       { width: 30px; height: 30px; background: url(../images/icons/blog-owner.png) no-repeat; }
 .icon-blog-join        { width: 30px; height: 30px; background: url(../images/icons/blog-join.png) no-repeat; }
@@ -34,13 +35,17 @@
 .icon-rating           { width: 12px; height: 12px; background: url(../images/icons/rating.png) no-repeat; }
 .icon-strength         { width: 12px; height: 12px; background: url(../images/icons/strength.png) no-repeat; }
 .icon-note             { width: 11px; height: 11px; background: url(../images/icons/note.png) no-repeat; }
-.icon-vote             { width: 30px; height: 30px; background: url(../images/icons/vote.png) no-repeat; }
+.icon-vote             { width: 30px; height: 30px; background: url(../images/icons/vote.png) no-repeat; cursor: pointer; }
 .icon-rss              { width: 30px; height: 30px; background: url(../images/icons/rss.png) no-repeat; }
 .icon-blog-more        { width: 30px; height: 30px; background: url(../images/icons/blog-more.png) no-repeat; }
 .icon-favourite        { width: 16px; height: 16px; background: url(../images/icons/favourite.png) no-repeat; }
 .icon-favourite.active { background: url(../images/icons/favourite-active.png) no-repeat; }
 .icon-in               { width: 12px; height: 12px; background: url(../images/icons/in.png) no-repeat; }
 .icon-out              { width: 12px; height: 12px; background: url(../images/icons/out.png) no-repeat; }
+.icon-comments         { width: 16px; height: 16px; background: url(../images/icons/comments.png) no-repeat; }
+.icon-comments.active  { width: 16px; height: 16px; background: url(../images/icons/comments-active.png) no-repeat; }
+.icon-topic-menu       { width: 38px; height: 38px; background: url(../images/icons/topic-menu.png) no-repeat; }
+.icon-share            { width: 38px; height: 38px; background: url(../images/icons/share.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 

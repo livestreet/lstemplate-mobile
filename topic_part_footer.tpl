@@ -32,24 +32,40 @@
 		</ul>*}
 
 
-		{*<ul class="topic-info">
-			<li class="topic-info-favourite">
-				<div onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');" class="favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
+		<ul class="topic-info clearfix">
+			{if !$bTopicList}
+				<li><i class="icon-vote"></i></li>
+			{/if}
+
+			<li class="topic-info-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}" onclick="return ls.favourite.toggle({$oTopic->getId()},'#fav_topic_{$oTopic->getId()}','topic');">
+				<div id="fav_topic_{$oTopic->getId()}" class="favourite icon-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
 				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
 			</li>
 			
 			{if $bTopicList}
 				<li class="topic-info-comments">
 					<a href="{$oTopic->getUrl()}#comments" title="{$aLang.topic_comment_read}">
-						<i></i>
-						{$oTopic->getCountComment()}
-						{if $oTopic->getCountCommentNew()}<span>+{$oTopic->getCountCommentNew()}</span>{/if}
+						<i class="icon-comments {if $oTopic->getCountComment() != 0 && ($oTopic->getCountComment() == $oTopic->getCountCommentNew() || $oTopic->getCountCommentNew())}active{/if}"></i>
+						<span class="comments-count">
+							{$oTopic->getCountComment()}
+							{if $oTopic->getCountCommentNew()}<span class="comments-new">+{$oTopic->getCountCommentNew()}</span>{/if}
+						</span>
 					</a> 
 				</li>
 			{/if}
 
-			<li class="topic-info-share" onclick="jQuery('#topic_share_{$oTopic->getId()}').slideToggle(); return false;"></li>
-		</ul>*}
+			<li class="topic-info-share" onclick="ls.tools.slide($('#topic_share_{$oTopic->getId()}'), $(this));">
+				<i class="icon-share"></i>
+			</li>
+		</ul>
+
+		
+		<div class="slide slide-topic-info-extra" id="topic_share_{$oTopic->getId()}">
+			{hookb run="topic_share" topic=$oTopic bTopicList=$bTopicList}
+				<div class="yashare-auto-init" data-yashareTitle="{$oTopic->getTitle()|escape:'html'}" data-yashareLink="{$oTopic->getUrl()}" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
+			{/hookb}
+		</div>
+
 
 
 		<ul class="topic-info-extra clearfix">
@@ -101,7 +117,9 @@
 				</time>
 			</li>
 
-			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#topic-extra-target-{$oTopic->getId()}'), $(this));"></li>
+			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#topic-extra-target-{$oTopic->getId()}'), $(this));">
+				<i class="icon-topic-menu"></i>
+			</li>
 			
 			{hook run='topic_show_info' topic=$oTopic}
 		</ul>
@@ -110,16 +128,15 @@
 		<ul class="slide slide-topic-info-extra" id="topic-extra-target-{$oTopic->getId()}">
 			<li><a href="#">Комментировать пост</a></li>{*TODO*}
 			<li><a href="#">Написать автору</a></li>{*TODO*}
-			<li><a href="#">Добавить в избранное</a></li>{*TODO*}
 			<li><a href="#">Вступить в блог</a></li>{*TODO*}
+			{if $oUserCurrent and ($oUserCurrent->getId()==$oTopic->getUserId() or $oUserCurrent->isAdministrator() or $oBlog->getUserIsAdministrator() or $oBlog->getUserIsModerator() or $oBlog->getOwnerId()==$oUserCurrent->getId())}
+				<li><a href="{cfg name='path.root.web'}/{$oTopic->getType()}/edit/{$oTopic->getId()}/" title="{$aLang.topic_edit}" class="actions-edit">{$aLang.topic_edit}</a></li>
+			{/if}
+			
+			{if $oUserCurrent and ($oUserCurrent->isAdministrator() or $oBlog->getUserIsAdministrator() or $oBlog->getOwnerId()==$oUserCurrent->getId())}
+				<li><a href="{router page='topic'}delete/{$oTopic->getId()}/?security_ls_key={$LIVESTREET_SECURITY_KEY}" title="{$aLang.topic_delete}" onclick="return confirm('{$aLang.topic_delete_confirm}');" class="actions-delete">{$aLang.topic_delete}</a></li>
+			{/if}
 		</ul>
-		
-		
-		<div class="topic-share" id="topic_share_{$oTopic->getId()}">
-			{hookb run="topic_share" topic=$oTopic bTopicList=$bTopicList}
-				<div class="yashare-auto-init" data-yashareTitle="{$oTopic->getTitle()|escape:'html'}" data-yashareLink="{$oTopic->getUrl()}" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,gplus"></div>
-			{/hookb}
-		</div>
 
 		
 		{if !$bTopicList}

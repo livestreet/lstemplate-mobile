@@ -48,22 +48,10 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	$(window).bind('swiperightup', function(event_, obj){ 
+	$(window).bind('swiperightup swiperight swiperightdown', function(event_, obj){ 
 		ls.tools.showuserbar();
 	});
-	$(window).bind('swiperight', function(event_, obj){ 
-		ls.tools.showuserbar();
-	});
-	$(window).bind('swiperightdown', function(event_, obj){ 
-		ls.tools.showuserbar();
-	});
-	$(window).bind('swipeleftup', function(event_, obj){ 
-		ls.tools.hideuserbar();
-	});
-	$(window).bind('swipeleft', function(event_, obj){ 
-		ls.tools.hideuserbar();
-	});
-	$(window).bind('swipeleftdown', function(event_, obj){ 
+	$(window).bind('swipeleftup swipeleft swipeleftdown', function(event_, obj){ 
 		ls.tools.hideuserbar();
 	});
 
@@ -194,6 +182,7 @@ jQuery(document).ready(function($){
 
 	// избранное
 	ls.hook.add('ls_favourite_toggle_after',function(idTarget,objFavourite,type,params,result){
+		$(objFavourite).parent().toggleClass('active');
 		$('#fav_count_'+type+'_'+idTarget).text((result.iCount>0) ? result.iCount : '');
 	});
 

@@ -21,6 +21,7 @@
 	color: #333;
 	background: #f6f8fa;
 	cursor: pointer;
+	text-decoration: none;
 }
 .button:hover { text-decoration: none; background: #eee; }
 .button:active { 

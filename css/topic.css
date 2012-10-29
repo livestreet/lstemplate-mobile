@@ -22,6 +22,7 @@
 .topic .topic-header .topic-title i 			{ position: relative; top: 7px; cursor: help; }
 .topic .topic-header .topic-url 				{ margin-bottom: 15px; }
 .topic .topic-header .topic-url a 				{ background: #eee; border-radius: 3px; padding: 3px 10px 4px; text-decoration: none; }
+
 .topic .topic-header .topic-info 				{ color: #777; }
 .topic .topic-header .topic-info time 			{ margin-right: 15px; }
 .topic .topic-header .topic-info i 	            { margin-right: 7px; }
@@ -34,6 +35,8 @@
 .topic .topic-content 		{ margin-bottom: 15px; padding: 0 9px; }
 .topic .topic-content.text 	{ color: #333; }
 
+.topic .topic-more { padding: 0 9px; margin-bottom: 15px; }
+
 /* Tags */
 .topic .topic-footer .topic-tags 						{ margin: 0 0 15px; }
 .topic .topic-footer .topic-tags li 					{ display: inline; color: #888; }
@@ -41,21 +44,29 @@
 .topic .topic-footer .topic-tags li.topic-tags-user a 	{ color: #3CA023; }
 
 /* Info */
-.topic .topic-footer .topic-info-extra                             { position: relative; padding: 6px 0; margin: 0 9px; border-top: 1px solid #e1e8ef; }
-.topic .topic-footer .topic-info-extra li                          { float: left; }
-.topic .topic-footer .topic-info-extra li.topic-info-author        { position: relative; height: 30px; padding-left: 37px; padding-right: 50px; }
-.topic .topic-footer .topic-info-extra li.topic-info-author img    { position: absolute; top: 0; left: 0; width: 30px; height: 30px; }
-.topic .topic-footer .topic-info-extra li.topic-info-author p      { font-size: 11px; line-height: 14px; max-width: 200px; overflow: hidden; }
-.topic .topic-footer .topic-info-extra li.topic-info-author time   { display: block; font-size: 11px; color: #788087; }
-.topic .topic-footer .topic-info-extra li.topic-info-extra-trigger {
-	position: absolute;
-	top: 2px; right: 0;
-	width: 38px; height: 40px;
-	background: #eee;
-	cursor: pointer;
-}
-.topic .topic-footer .topic-info-extra li.topic-info-extra-trigger.active   { background-color: #fffdef; }
+.topic .topic-footer .topic-info                                              { position: relative; padding: 6px 0; margin: 0 9px; }
+.topic .topic-footer .topic-info li                                           { float: left; margin-right: 9px; }
+.topic .topic-footer .topic-info li:last-child                                { margin: 0; }
+.topic .topic-footer .topic-info li.topic-info-favourite                      { padding: 6px; cursor: pointer; font-size: 14px; line-height: 16px; }
+.topic .topic-footer .topic-info li.topic-info-favourite .favourite-count     { position: relative; top: -1px; margin-left: 2px; }
+.topic .topic-footer .topic-info li.topic-info-favourite.active               { color: #c17819; background: #fffbcd; }
+.topic .topic-footer .topic-info li.topic-info-comments                       { padding: 6px; cursor: pointer; font-size: 14px; line-height: 16px; }
+.topic .topic-footer .topic-info li.topic-info-comments a span.comments-count { color: #000; position: relative; top: -1px; margin-left: 3px; }
+.topic .topic-footer .topic-info li.topic-info-comments a span.comments-new   { color: #148c11; }
+.topic .topic-footer .topic-info li.topic-info-share                          { position: absolute; top: 2px; right: 0; width: 38px; height: 40px; cursor: pointer; }
+.topic .topic-footer .topic-info li.topic-info-share.active                   { background-color: #fffdef; }
+.topic .topic-footer .topic-info li.topic-info-share.active i                 { background: url(../images/icons/share-active.png) no-repeat; }
 
+/* Extra Info */
+.topic .topic-footer .topic-info-extra                                      { position: relative; padding: 6px 0; margin: 0 9px; border-top: 1px solid #e1e8ef; }
+.topic .topic-footer .topic-info-extra li                                   { float: left; }
+.topic .topic-footer .topic-info-extra li.topic-info-author                 { position: relative; height: 30px; padding-left: 37px; padding-right: 50px; }
+.topic .topic-footer .topic-info-extra li.topic-info-author img             { position: absolute; top: 0; left: 0; width: 30px; height: 30px; }
+.topic .topic-footer .topic-info-extra li.topic-info-author p               { font-size: 11px; line-height: 14px; max-width: 200px; overflow: hidden; }
+.topic .topic-footer .topic-info-extra li.topic-info-author time            { display: block; font-size: 11px; color: #788087; }
+.topic .topic-footer .topic-info-extra li.topic-info-extra-trigger          { position: absolute; top: 2px; right: 0; width: 38px; height: 40px; cursor: pointer; }
+.topic .topic-footer .topic-info-extra li.topic-info-extra-trigger.active   { background-color: #fffdef; }
+.topic .topic-footer .topic-info-extra li.topic-info-extra-trigger.active i { background: url(../images/icons/topic-menu-active.png) no-repeat; }
 
 .topic .topic-footer .slide.slide-topic-info-extra {
 	margin-bottom: 10px;
@@ -65,32 +76,6 @@
 }
 .topic .topic-footer .slide.slide-topic-info-extra li { font-size: 17px; padding: 10px 0; }
 .topic .topic-footer .slide.slide-topic-info-extra li a { border-bottom: 1px solid #becde1; color: #275ec2; }
-
-
-.topic .topic-footer .topic-info li.topic-info-comments a       { color: #333; }
-.topic .topic-footer .topic-info li.topic-info-comments i       {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	vertical-align: text-top;
-	background: url(../images/icons-mobile.png) -40px -53px no-repeat;
-	cursor: pointer;
-}
-.topic .topic-footer .topic-info li.topic-info-comments a span  { color: #27a736; }
-.topic .topic-footer .topic-info li.topic-info-comments a:hover { }
-.topic .topic-footer .topic-info.topic-info-bottom  { background: #fff; font-size: 17px; position: relative; padding: 13px 10px 13px; }
-.topic .topic-footer .topic-info.topic-info-bottom li.topic-info-share 	{
-	position: absolute;
-	top: 9px;
-	right: 9px;
-	width: 30px;
-	height: 30px;
-	background: url(../images/icons-mobile.png) no-repeat 0 -73px;
-	cursor: pointer;
-	margin: 0;
-}
-.topic .topic-footer .topic-info.topic-info-bottom li.topic-info-share.active,
-.topic .topic-footer .topic-info.topic-info-bottom li.topic-info-share:hover { background-position: -30px -73px; }
 
 
 

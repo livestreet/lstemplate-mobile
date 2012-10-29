@@ -24,6 +24,8 @@
 			<li {if $sAction=='settings'}class="active"{/if}><a href="{router page='settings'}">{$aLang.settings_menu}</a></li>
 
 			{* {hook run='profile_sidebar_menu_item_last' oUserProfile=$oUserProfile} *}
+
+			<li><a href="{router page='login'}exit/?security_ls_key={$LIVESTREET_SECURITY_KEY}">{$aLang.exit}</a></li>
 		</ul>
 	</div>
 </aside>
