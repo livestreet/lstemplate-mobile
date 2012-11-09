@@ -23,20 +23,28 @@ jQuery(document).ready(function($){
 
 	// Userbar
 	ls.tools.showuserbar = function() {
-		$('#wrapper').addClass('hidden');
-		$('#wrapper').css('width', $('#container').width());
+		if ( ! $('#wrapper').hasClass('hidden')) {
+			$('#userbar-trigger').toggleClass('active');
 
-		$('#userbar').addClass('show');
-		$('#userbar-inner').css('min-height', $(window).height());
+			$('#wrapper').addClass('hidden');
+			$('#wrapper').css('width', $('#container').width());
+
+			$('#userbar').addClass('show');
+			$('#userbar-inner').css('min-height', $(window).height());
+		}
 	};
 
 
 	ls.tools.hideuserbar = function() {
-		$('#wrapper').removeClass('hidden');
-		$('#wrapper').css('width', 'auto');
+		if ($('#wrapper').hasClass('hidden')) {
+			$('#userbar-trigger').toggleClass('active');
 
-		$('#userbar').removeClass('show');
-		$('#userbar-inner').css('min-height', 'auto');
+			$('#wrapper').removeClass('hidden');
+			$('#wrapper').css('width', 'auto');
+
+			$('#userbar').removeClass('show');
+			$('#userbar-inner').css('min-height', 'auto');
+		}
 	};
 
 
@@ -48,26 +56,150 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	$(window).bind('swiperightup swiperight swiperightdown', function(event_, obj){ 
-		ls.tools.showuserbar();
-	});
-	$(window).bind('swipeleftup swipeleft swipeleftdown', function(event_, obj){ 
-		ls.tools.hideuserbar();
-	});
 
-	 
-	// Всплывающие окна
-	$('#window_login_form').jqm();
-	$('#blog_delete_form').jqm({trigger: '#blog_delete_show'});
-	$('#add_friend_form').jqm({trigger: '#add_friend_show'});
-	$('#window_upload_img').jqm();
-	$('#userfield_form').jqm();
-	$('#favourite-form-tags').jqm();
-	$('#modal_write').jqm({trigger: '#modal_write_show'});
-	$('#foto-resize').jqm({modal: true});
-	$('#avatar-resize').jqm({modal: true});
-	$('#userfield_form').jqm({toTop: true}); 
-	$('#photoset-upload-form').jqm({trigger: '#photoset-start-upload'});
+	if ($('#userbar').length > 0) {
+		$(window).swipe( {
+			swipeLeft: function(event, direction, distance, duration, fingerCount) {
+				ls.tools.hideuserbar();
+			},
+			swipeRight: function(event, direction, distance, duration, fingerCount) {
+				ls.tools.showuserbar();
+			},
+			excludedElements:$.fn.swipe.defaults.excludedElements+", #slider"
+		});
+	}
+
+
+	$('.swipegallery').swipegallery();
+
+	// Vote
+	ls.vote.onVote = function(idTarget, objVote, value, type, result) {
+		if (result.bStateError) {
+			ls.msg.error(null, result.sMsg);
+		} else {
+			ls.msg.notice(null, result.sMsg);
+			
+			var divVoting = $('#'+this.options.prefix_area+type+'_'+idTarget);
+			var divTotal = $('#'+this.options.prefix_total+type+'_'+idTarget);
+			var divCount = $('#'+this.options.prefix_count+type+'_'+idTarget);
+
+			divTotal.addClass(this.options.classes.voted);
+
+			if (value > 0) {
+				divTotal.addClass(this.options.classes.plus);
+			}
+			if (value < 0) {
+				divTotal.addClass(this.options.classes.minus);
+			}
+			if (value == 0) {
+				divTotal.addClass(this.options.classes.voted_zero);
+			}
+			
+			if (divCount.length>0 && result.iCountVote) {
+				divCount.text(parseInt(result.iCountVote));
+			}
+
+			result.iRating = parseFloat(result.iRating);
+
+			divTotal.removeClass(this.options.classes.negative);
+			divTotal.removeClass(this.options.classes.positive);
+			divTotal.removeClass(this.options.classes.not_voted);
+			divTotal.removeClass(this.options.classes.zero);
+
+			if (result.iRating > 0) {
+				divTotal.addClass(this.options.classes.positive);
+				divTotal.text('+'+result.iRating);
+			}else if (result.iRating < 0) {
+				divTotal.addClass(this.options.classes.negative);
+				divTotal.text(result.iRating);
+			}else if (result.iRating == 0) {
+				divTotal.addClass(this.options.classes.zero);
+				divTotal.text(0);
+			}
+
+			var method='onVote'+ls.tools.ucfirst(type);
+			if ($.type(this[method])=='function') {
+				this[method].apply(this,[idTarget, objVote, value, type, result]);
+			}
+
+			divVoting.remove();
+		}
+		
+		$(this).trigger('vote',[idTarget, objVote, value, type, result]);
+	}
+
+
+	// Add friend
+	ls.user.addFriend = function(obj, idUser, sAction){
+		if(sAction != 'link' && sAction != 'accept') {
+			var sText = $('#add_friend_text').val();
+			$('#add_friend_form').children().each(function(i, item){$(item).attr('disabled','disabled')});
+		} else {
+			var sText='';
+		}
+
+		if(sAction == 'accept') {
+			var url = aRouter.profile+'ajaxfriendaccept/';
+		} else {
+			var url = aRouter.profile+'ajaxfriendadd/';
+		}
+
+		var params = {idUser: idUser, userText: sText};
+
+		ls.hook.marker('addFriendBefore');
+		ls.ajax(url, params, function(result){
+			$('#add_friend_form').children().each(function(i, item){$(item).removeAttr('disabled')});
+			if (!result) {
+				ls.msg.error('Error','Please try again later');
+			}
+			if (result.bStateError) {
+				ls.msg.error(null,result.sMsg);
+			} else {
+				ls.msg.notice(null,result.sMsg);
+				$('#add_friend_form').hide();
+				$('#add_friend_item').remove();
+				$('#profile_actions').prepend($(result.sToggleText));
+				ls.hook.run('ls_user_add_friend_after', [idUser,sAction,result], obj);
+			}
+		});
+		return false;
+	};
+
+
+	ls.msg = (function ($) {
+		/**
+		* Опции
+		*/
+		this.options = {
+			class_notice: 'system-message-notice',
+			class_error: 'system-message-error'
+		};
+
+		this.show = function(title, msg, msg_class){
+			$("div[class^='system-message-']").remove();
+			if (title == null) title = "";
+			$('#content').prepend('<div class="' + msg_class +'"><h4>' + title + '</h4><p>' + msg + '</p></div>');
+			$.scrollTo(0, 500);
+		};
+
+		/**
+		* Отображение информационного сообщения
+		*/
+		this.notice = function(title, msg){
+			this.show(title, msg, this.options.class_notice);
+		};
+
+		/**
+		* Отображение сообщения об ошибке
+		*/
+		this.error = function(title, msg){
+			this.show(title, msg, this.options.class_error);
+		};
+
+		return this;
+	}).call(ls.msg || {},jQuery);
+
+
 
 	$('.js-registration-form-show').click(function(){
 		if (ls.blocks.switchTab('registration','popup-login')) {
@@ -180,11 +312,42 @@ jQuery(document).ready(function($){
 	ls.comments.options.folding = false;
 	ls.comments.init();
 
-	// избранное
-	ls.hook.add('ls_favourite_toggle_after',function(idTarget,objFavourite,type,params,result){
-		$(objFavourite).parent().toggleClass('active');
-		$('#fav_count_'+type+'_'+idTarget).text((result.iCount>0) ? result.iCount : '');
-	});
+
+	/**
+	* Переключение избранного
+	*/
+	ls.favourite.toggle = function(idTarget, objFavourite, type) {
+		if (!this.options.type[type]) { return false; }
+
+		this.objFavourite = $(objFavourite);
+		
+		var params = {};
+		params['type'] = !this.objFavourite.hasClass(this.options.active);
+		params[this.options.type[type].targetName] = idTarget;
+		
+		ls.hook.marker('toggleBefore');
+		ls.ajax(this.options.type[type].url, params, function(result) {
+			$(this).trigger('toggle',[idTarget,objFavourite,type,params,result]);
+
+			if (result.bStateError) {
+				ls.msg.error(null, result.sMsg);
+			} else {
+				this.objFavourite.removeClass(this.options.active);
+				if (result.bState) {
+					this.objFavourite.addClass(this.options.active);
+					this.showTags(type,idTarget);
+				} else {
+					this.hideTags(type,idTarget);
+				}
+
+				$(objFavourite).parent().toggleClass('active');
+				$('#fav_count_'+type+'_'+idTarget).text((result.iCount>0) ? result.iCount : '');
+
+				ls.hook.run('ls_favourite_toggle_after',[idTarget,objFavourite,type,params,result],this);
+			}
+		}.bind(this));
+		return false;
+	};
 
 	ls.hook.add('ls_blog_toggle_join_after',function(idBlog,result){
 		$(this).empty();
@@ -193,6 +356,11 @@ jQuery(document).ready(function($){
 	ls.hook.add('ls_wall_addreply_after',function(sText, iPid, result){
 		$('#wall-reply-wrapper-'+iPid).show();
 	});
+
+	ls.favourite.hideEditTags = function() {
+		$('#favourite-form-tags').hide();
+		return false;
+	};
 
 	/****************
 	 * TALK
@@ -267,7 +435,7 @@ jQuery(document).ready(function($){
 
 
 	ls.tools.slide = function(target, obj) {
-		obj.parent().children('li').not(obj).removeClass('active');
+		//obj.parent().children('li').not(obj).removeClass('active');
 		$('.slide').not(target).removeClass('active').hide();
 		target.slideToggle(); 
 		obj.toggleClass('active');

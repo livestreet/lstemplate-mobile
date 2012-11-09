@@ -3,12 +3,6 @@
 	
 	<a href="{$oUserProfile->getUserWebPath()}"><img src="{$oUserProfile->getProfileAvatarPath(64)}" alt="avatar" class="avatar" itemprop="photo" /></a>
 	
-	{*<div id="vote_area_user_{$oUserProfile->getId()}" class="vote {if $oUserProfile->getRating()>=0}vote-count-positive{else}vote-count-negative{/if} {if $oVote} voted {if $oVote->getDirection()>0}voted-up{elseif $oVote->getDirection()<0}voted-down{/if}{/if}">
-		<div class="vote-label">{$aLang.user_rating}</div>
-		<a href="#" class="vote-up" onclick="return ls.vote.vote({$oUserProfile->getId()},this,1,'user');"></a>
-		<a href="#" class="vote-down" onclick="return ls.vote.vote({$oUserProfile->getId()},this,-1,'user');"></a>
-		<div id="vote_total_user_{$oUserProfile->getId()}" class="vote-count count" title="{$aLang.user_vote_count}: {$oUserProfile->getCountVote()}">{if $oUserProfile->getRating() > 0}+{/if}{$oUserProfile->getRating()}</div>
-	</div>*}
 
 
 	<div class="user-profile-rating-wrapper">
@@ -25,13 +19,63 @@
 	{hook run='profile_top_end' oUserProfile=$oUserProfile}
 </div>
 
+
 {if $oUserCurrent && $oUserCurrent->getId() != $oUserProfile->getId()}
-	<ul class="profile-actions clearfix">
-		<li><a href="#" class="icon-friend"></a></li>
+	<ul class="profile-actions clearfix" id="profile_actions">
+		{include file='actions/ActionProfile/friend_item.tpl' oUserFriend=$oUserProfile->getUserFriend()}
 		<li><a href="{router page='talk'}add/?talk_users={$oUserProfile->getLogin()}" class="icon-send-message"></a></li>
-		<li class="profile-actions-vote"><a href="#" class="icon-vote"></a></li>
+		<li class="vote-result vote-result-blog 
+			{if $oUserProfile->getRating() > 0}
+				vote-count-positive
+			{elseif $oUserProfile->getRating() < 0}
+				vote-count-negative
+			{elseif $oUserProfile->getRating() == 0}
+				vote-count-zero
+			{/if}
+
+			{if $oVote} 
+				voted
+														
+				{if $oVote->getDirection() > 0}
+					voted-up
+				{elseif $oVote->getDirection() < 0}
+					voted-down
+				{/if}
+			{/if}"
+
+			 id="vote_total_user_{$oUserProfile->getId()}"
+
+			{if $oUserCurrent && !$oVote}
+				onclick="ls.tools.slide($('#vote_area_user_{$oUserProfile->getId()}'), $(this));"
+			{/if}>
+			{if $oUserProfile->getRating() > 0}+{/if}{$oUserProfile->getRating()}
+		</li>
 	</ul>
 {/if}
+
+
+{if !$oUserFriend}
+	<div id="add_friend_form" class="slide slide-bg-grey mb-10">
+		<header class="modal-header">
+			<h3>{$aLang.profile_add_friend}</h3>
+			<a href="#" class="close jqmClose"></a>
+		</header>
+
+		<form onsubmit="return ls.user.addFriend(this,{$oUserProfile->getId()},'add');" class="modal-content">
+			<p><label for="add_friend_text">{$aLang.user_friend_add_text_label}</label>
+			<textarea id="add_friend_text" rows="3" class="input-text input-width-full"></textarea></p>
+
+			<button type="submit" class="button button-primary">{$aLang.user_friend_add_submit}</button>
+		</form>
+	</div>
+{/if}
+
+
+<div id="vote_area_user_{$oUserProfile->getId()}" class="vote vote-blog">
+	<div class="vote-item vote-up" onclick="return ls.vote.vote({$oUserProfile->getId()},this,1,'user');"><i></i></div>
+	<div class="vote-item vote-down" onclick="return ls.vote.vote({$oUserProfile->getId()},this,-1,'user');"><i></i></div>
+</div>
+
 
 <ul class="nav-foldable">
 	{hook run='profile_sidebar_menu_item_first' oUserProfile=$oUserProfile}

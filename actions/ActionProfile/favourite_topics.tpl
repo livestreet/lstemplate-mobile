@@ -1,11 +1,10 @@
-{assign var="sidebarPosition" value='left'}
-{include file='header.tpl'}
+{include file='header.tpl' noBg=true}
 
 
-
-{include file='actions/ActionProfile/profile_top.tpl'}
-
-{include file='menu.profile_favourite.tpl'}
+<div class="wrapper mb-10">
+	{include file='actions/ActionProfile/profile_top.tpl'}
+	{include file='menu.profile_favourite.tpl'}
+</div>
 
 {if $oUserCurrent and $oUserCurrent->getId()==$oUserProfile->getId()}
 	{$aBlockParams.user=$oUserProfile}

@@ -2,25 +2,18 @@
 	СТРАНИЦА ПОЛЬЗОВАТЕЛЯ
 -------------------------------------------- */
 
-.profile 				{ min-height: 48px; margin-bottom: 0; padding: 0 0 20px 72px; position: relative; }
+.profile                              { min-height: 48px; margin-bottom: 0; padding: 0 0 20px 72px; position: relative; }
 
-.profile .avatar 		{ position: absolute; top: 0; left: 0; width: 60px; height: 60px; }
+.profile .avatar                      { position: absolute; top: 0; left: 0; width: 60px; height: 60px; }
 
-.profile .vote-label	{ text-transform: uppercase; text-align: right; font-size: 11px; color: #aaa; }
-.profile .count 		{ font-size: 34px; line-height: 1em; font-weight: bold; text-align: right; }
+.vote.vote-blog                       { margin: 0 0 15px; }
+.vote.vote-blog .vote-item            { float: right; margin-right: 0; margin-left: 15px; }
 
-.profile .vote 									{ position: absolute; top: 0; right: 140px; background: #fff; }
-.profile .vote .vote-count 						{ padding-left: 25px; display: block; }
-.profile .vote .vote-up 						{ position: absolute; top: 22px; left: 0; display: none; }
-.profile .vote .vote-down 						{ position: absolute; top: 35px; left: 0; display: none; }
-.profile .vote:hover .vote-up,
-.profile .vote:hover .vote-down,
-.profile .vote.voted .vote-up,
-.profile .vote.voted .vote-down 				{ display: inline-block; }
-.profile .vote.vote-count-positive .vote-count 	{ color: #5055B2; }
+.vote-result.vote-result-blog                 { float: right; margin-right: 0; width: auto; padding: 0 10px 0 10px; }
+.vote-result.vote-result-blog.voted           { padding: 0 40px 0 10px; }
 
-.profile .user-profile-rating-wrapper 			{ width: 57px; position: absolute; top: 12px; right: 0; }
-.profile .user-profile-rating 					{ display: block; margin: 0; }
+.profile .user-profile-rating-wrapper { width: 57px; position: absolute; top: 12px; right: 0; }
+.profile .user-profile-rating         { display: block; margin: 0; }
 
 .profile .user-login 				{ width: 270px; font-size: 19px; font-weight: 600; padding-top: 7px; margin-bottom: 7px; }
 .profile .user-login.no-user-name 	{ padding-top: 18px; }

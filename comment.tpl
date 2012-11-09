@@ -18,7 +18,28 @@
 		<a name="comment{$oComment->getId()}"></a>
 		
 		{if $oComment->getTargetType() != 'talk'}	
-			<span class="vote-count" id="vote_total_comment_{$oComment->getId()}">{if $oComment->getRating() > 0}+{/if}{$oComment->getRating()}</span>
+			<span class="vote-result-comment
+				{if $oComment->getRating() > 0}
+					vote-count-positive
+				{elseif $oComment->getRating() < 0}
+					vote-count-negative
+				{elseif $oComment->getRating() == 0}
+					vote-count-zero
+				{/if}
+
+				{if $oVote} 
+					voted
+															
+					{if $oVote->getDirection() > 0}
+						voted-up
+					{elseif $oVote->getDirection() < 0}
+						voted-down
+					{/if}
+				{/if}}" 
+
+				id="vote_total_comment_{$oComment->getId()}">
+				{if $oComment->getRating() > 0}+{/if}{$oComment->getRating()}
+			</span>
 		{/if}
 
 		<a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(48)}" alt="avatar" class="comment-avatar" /></a>
@@ -33,35 +54,12 @@
 					<time datetime="{date_format date=$oComment->getDate() format='c'}">{date_format date=$oComment->getDate() hours_back="12" minutes_back="60" now="60" day="day H:i" format="j F Y, H:i"}</time>
 				</a>
 			</li>
+
 			{*
 			{if $oComment->getPid()}
 				<li class="goto-comment-parent"><a href="#" onclick="ls.comments.goToParentComment({$oComment->getId()},{$oComment->getPid()}); return false;" title="{$aLang.comment_goto_parent}">↑</a></li>
 			{/if}
 			<li class="goto-comment-child"><a href="#" title="{$aLang.comment_goto_child}">↓</a></li>
-			
-			
-			{if $oComment->getTargetType() != 'talk'}						
-				<li id="vote_area_comment_{$oComment->getId()}" class="vote 
-																		{if $oComment->getRating() > 0}
-																			vote-count-positive
-																		{elseif $oComment->getRating() < 0}
-																			vote-count-negative
-																		{/if}    
-																		
-																		{if $oVote} 
-																			voted 
-																			
-																			{if $oVote->getDirection() > 0}
-																				voted-up
-																			{else}
-																				voted-down
-																			{/if}
-																		{/if}">
-					<div class="vote-down" onclick="return ls.vote.vote({$oComment->getId()},this,-1,'comment');"></div>
-					<span class="vote-count" id="vote_total_comment_{$oComment->getId()}">{if $oComment->getRating() > 0}+{/if}{$oComment->getRating()}</span>
-					<div class="vote-up" onclick="return ls.vote.vote({$oComment->getId()},this,1,'comment');"></div>
-				</li>
-			{/if}
 			*}
 		</ul>
 		
@@ -85,6 +83,16 @@
 					<li><a href="#" class="comment-repair link-dotted" onclick="ls.comments.toggle(this,{$oComment->getId()}); return false;">{$aLang.comment_repair}</a></li>
 				{/if}
 			
+				{if $oUserCurrent && !$oVote && $oComment->getTargetType() != 'talk'}
+					<li>
+						<a href="#"
+
+						onclick="ls.tools.slide($('#vote_area_comment_{$oComment->getId()}'), $(this)); return false;"
+
+						class="link-dotted">Оценить</a>{*TODO*}
+					</li>
+				{/if}
+			
 				{if $oUserCurrent and !$bNoCommentFavourites}
 					<li class="comment-favourite" onclick="return ls.favourite.toggle({$oComment->getId()},'#fav_comment_{$oComment->getId()}','comment');">
 						<div id="fav_comment_{$oComment->getId()}" class="favourite icon-favourite {if $oComment->getIsFavourite()}active{/if}"></div>
@@ -94,6 +102,15 @@
 				
 				{hook run='comment_action' comment=$oComment}
 			</ul>
+		{/if}
+
+
+			
+		{if $oComment->getTargetType() != 'talk'}						
+			<div id="vote_area_comment_{$oComment->getId()}" class="vote">
+				<div class="vote-item vote-down" onclick="return ls.vote.vote({$oComment->getId()},this,-1,'comment');"><i></i></div>
+				<div class="vote-item vote-up" onclick="return ls.vote.vote({$oComment->getId()},this,1,'comment');"><i></i></div>
+			</div>
 		{/if}
 	{else}				
 		{$aLang.comment_was_delete}

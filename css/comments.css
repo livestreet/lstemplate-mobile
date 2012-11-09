@@ -74,7 +74,21 @@
 .comment .comment-info li.comment-date a                       { color: #7b848d; }
 .comment .comment-info li.goto-comment-child                   { display: none; }
 
-.comment .vote-count                           { position: absolute; top: 18px; right: 0; margin: 0; color: #788087; font-weight: bold; font-size: 11px; }
+
+/* Vote */
+.vote-result-comment       { width: auto; position: absolute; top: 18px; right: 0; margin: 0; font-weight: bold; font-size: 11px; }
+
+.vote-result-comment.voted                   { padding-right: 18px; }
+.vote-result-comment.voted:before            { content: ""; position: absolute; top: 2px; right: 0; width: 14px; height: 14px; }
+.vote-result-comment.voted.voted-up:before   { background: url(../images/icons/voted-up-comment.png) no-repeat; }
+.vote-result-comment.voted.voted-down:before { background: url(../images/icons/voted-down-comment.png) no-repeat; }
+
+.vote-result-comment.vote-count-negative { color: #f21a09; }
+.vote-result-comment.vote-count-positive { color: #148c11; }
+.vote-result-comment.vote-count-zero     { color: #788087; }
+
+.comment .vote { margin: 10px 0 0 0; background: #fff; }
+
 
 /* Content */
 .comment .comment-content                 { margin-bottom: 5px; }

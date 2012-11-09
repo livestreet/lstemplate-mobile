@@ -53,7 +53,8 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 #header .site-name   { font-size: 22px; text-transform: lowercase; position: absolute; top: 5px; left: 10px; }
 #header .site-name a { color: #fff; }
 
-#header .userbar-trigger { display: none; position: absolute; top: 0; left: 0; background: #05AAE9; width: 44px; height: 44px; cursor: pointer; z-index: 100; }
+#header .userbar-trigger { display: none; position: absolute; top: 0; left: 0; width: 44px; height: 44px; cursor: pointer; z-index: 100; }
+#header .userbar-trigger.active { background-color: #05AAE9; }
 
 #header .nav-userbar                       { position: absolute; right: 0; top: 0; }
 #header .nav-userbar li                    { float: left; width: 44px; height: 44px; cursor: pointer; }
@@ -179,7 +180,7 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 .message-list li .input-checkbox    { position: absolute; top: 22px; left: 0; }
 .message-list li h2                 { font-weight: normal; font-size: 16px; line-height: 18px; margin-bottom: 4px; }
 .message-list li h2 a               {  }
-.message-list li.message-unread h2    { font-weight: 600; }
+.message-list li.message-unread h2  { font-weight: 600; }
 .message-list li .icon-favourite    { margin-left: 3px; position: relative; top: 3px; }
 .message-list li .message-info      { font-family: Verdana; font-size: 11px; line-height: 15px; }
 .message-list li .message-info time { color: #788087; }
@@ -188,10 +189,36 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 
 
 
+/* Swipe
+---------------------------------------------------- */
+.swipegallery                     { margin: 0 9px 15px; overflow: hidden; }
+.swipegallery .sg-inner,
+.swipegallery .sg-item-inner      { overflow: hidden; }
+.swipegallery .sg-inner           {  }
+.swipegallery ul                  { }
+.swipegallery li                  { display: table-cell; vertical-align: top; }
+.swipegallery img                 { width: 100%; vertical-align: top; margin-bottom: 6px; }
+.swipegallery .sg-item-desc       { background: #f6f8fa; font-size: 11px; padding: 10px 15px; border-bottom: 1px solid #dde5ed; }
+
+.swipegallery .sg-nav             {
+	background: #f6f8fa;
+	height: 34px;
+	position: relative;
+	line-height: 34px;
+	text-align: center;
+	color: #9da9b5;
+	font-size: 11px;
+}
+.swipegallery .sg-nav i           { cursor: pointer; position: absolute; top: 3px; }
+.swipegallery .sg-nav i.icon-prev { left: 0; }
+.swipegallery .sg-nav i.icon-next { right: 0; }
+.swipegallery .sg-nav span        {  }
+
+
 /* Misc
 ---------------------------------------------------- */
 .avatar-edit       { margin-bottom: 15px; }
-.avatar-edit img   { vertical-align: bottom; }
+.avatar-edit img   { vertical-align: top; }
 .avatar-edit label { margin-top: 10px; }
 
 .drafts            { float: right; margin-top: 10px; }

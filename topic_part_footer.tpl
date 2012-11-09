@@ -3,6 +3,9 @@
 	{assign var="oVote" value=$oTopic->getVote()}
 	{assign var="oFavourite" value=$oTopic->getFavourite()}
 
+	{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
+		{assign var="bVoteInfoShow" value=true}
+	{/if}
 
 	<footer class="topic-footer">
 		{*<ul class="topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
@@ -34,7 +37,46 @@
 
 		<ul class="topic-info clearfix">
 			{if !$bTopicList}
-				<li><i class="icon-vote"></i></li>
+				<li class="vote-result
+							{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
+								{if $oTopic->getRating() > 0}
+									vote-count-positive
+								{elseif $oTopic->getRating() < 0}
+									vote-count-negative
+								{elseif $oTopic->getRating() == 0}
+									vote-count-zero
+								{/if}
+							{/if}
+							
+							{if $oVote} 
+								voted
+																		
+								{if $oVote->getDirection() > 0}
+									voted-up
+								{elseif $oVote->getDirection() < 0}
+									voted-down
+								{elseif $oVote->getDirection() == 0}
+									voted-zero
+								{/if}
+							{/if}
+
+							{if (strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time') && !$oVote) || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId())}
+								vote-nobuttons
+							{/if}" 
+
+					id="vote_total_topic_{$oTopic->getId()}" 
+
+					{if !$oVote && !$bVoteInfoShow}
+						onclick="ls.tools.slide($('#vote_area_topic_{$oTopic->getId()}'), $(this));"
+					{/if}
+
+					{if false}
+						onclick="ls.tools.slide($('#vote-info-topic-{$oTopic->getId()}'), $(this));"
+					{/if}>
+					{if $bVoteInfoShow}
+						{if $oTopic->getRating() > 0}+{/if}{$oTopic->getRating()}
+					{/if}
+				</li>
 			{/if}
 
 			<li class="topic-info-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}" onclick="return ls.favourite.toggle({$oTopic->getId()},'#fav_topic_{$oTopic->getId()}','topic');">
@@ -59,6 +101,14 @@
 			</li>
 		</ul>
 
+		{if $bVoteInfoShow}
+			<div id="vote-info-topic-{$oTopic->getId()}" class="slide slide-bg-grey">
+				+ {$oTopic->getCountVoteUp()}<br/>
+				- {$oTopic->getCountVoteDown()}<br/>
+				&nbsp; {$oTopic->getCountVoteAbstain()}<br/>
+				{hook run='topic_show_vote_stats' topic=$oTopic}
+			</div>
+		{/if}
 		
 		<div class="slide slide-topic-info-extra" id="topic_share_{$oTopic->getId()}">
 			{hookb run="topic_share" topic=$oTopic bTopicList=$bTopicList}
@@ -67,48 +117,19 @@
 		</div>
 
 
+		<div id="vote_area_topic_{$oTopic->getId()}" class="vote">
+			<div class="vote-item vote-up" onclick="return ls.vote.vote({$oTopic->getId()},this,1,'topic');"><i></i></div>
+			{if !$bVoteInfoShow}
+				<div class="vote-item vote-zero" title="{$aLang.topic_vote_count}: {$oTopic->getCountVote()}" onclick="return ls.vote.vote({$oTopic->getId()},this,0,'topic');">
+					<i></i> Воздержаться
+				</div>
+			{/if}
+			<div class="vote-item vote-down" onclick="return ls.vote.vote({$oTopic->getId()},this,-1,'topic');"><i></i></div>
+		</div>
+
+
 
 		<ul class="topic-info-extra clearfix">
-			{* <li id="vote_area_topic_{$oTopic->getId()}" class="vote 
-																{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
-																	{if $oTopic->getRating() > 0}
-																		vote-count-positive
-																	{elseif $oTopic->getRating() < 0}
-																		vote-count-negative
-																	{/if}
-																{/if}
-																
-																{if $oVote} 
-																	voted
-																	
-																	{if $oVote->getDirection() > 0}
-																		voted-up
-																	{elseif $oVote->getDirection() < 0}
-																		voted-down
-																	{/if}
-																{/if}">
-				{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
-					{assign var="bVoteInfoShow" value=true}
-				{/if}
-				<div class="vote-up" onclick="return ls.vote.vote({$oTopic->getId()},this,1,'topic');"></div>
-				<div class="vote-count {if $bVoteInfoShow}js-infobox-vote-topic{/if}" id="vote_total_topic_{$oTopic->getId()}" title="{$aLang.topic_vote_count}: {$oTopic->getCountVote()}">
-					{if $bVoteInfoShow}
-						{if $oTopic->getRating() > 0}+{/if}{$oTopic->getRating()}
-					{else} 
-						<a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,0,'topic');">?</a> 
-					{/if}
-				</div>
-				<div class="vote-down" onclick="return ls.vote.vote({$oTopic->getId()},this,-1,'topic');"></div>
-				{if $bVoteInfoShow}
-					<div id="vote-info-topic-{$oTopic->getId()}" style="display: none;">
-						+ {$oTopic->getCountVoteUp()}<br/>
-						- {$oTopic->getCountVoteDown()}<br/>
-						&nbsp; {$oTopic->getCountVoteAbstain()}<br/>
-						{hook run='topic_show_vote_stats' topic=$oTopic}
-					</div>
-				{/if}
-			</li> *}
-
 			<li class="topic-info-author">
 				<a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(48)}" alt="avatar" /></a>
 				<p><a rel="author" href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a></p>
@@ -126,9 +147,10 @@
 
 
 		<ul class="slide slide-topic-info-extra" id="topic-extra-target-{$oTopic->getId()}">
-			<li><a href="#">Комментировать пост</a></li>{*TODO*}
-			<li><a href="#">Написать автору</a></li>{*TODO*}
-			<li><a href="#">Вступить в блог</a></li>{*TODO*}
+			{if $oUserCurrent}
+				<li><a href="{router page='talk'}add/?talk_users={$oUser->getLogin()}">Написать автору</a></li>{*TODO*}
+			{/if}
+
 			{if $oUserCurrent and ($oUserCurrent->getId()==$oTopic->getUserId() or $oUserCurrent->isAdministrator() or $oBlog->getUserIsAdministrator() or $oBlog->getUserIsModerator() or $oBlog->getOwnerId()==$oUserCurrent->getId())}
 				<li><a href="{cfg name='path.root.web'}/{$oTopic->getType()}/edit/{$oTopic->getId()}/" title="{$aLang.topic_edit}" class="actions-edit">{$aLang.topic_edit}</a></li>
 			{/if}

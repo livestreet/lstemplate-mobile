@@ -1,13 +1,33 @@
 {include file='topic_part_header.tpl'}
 
+{assign var=iMainPhotoId value=$oTopic->getPhotosetMainPhotoId()}
 
-<script type="text/javascript">
-	jQuery(window).load(function($) {
-		ls.photoset.showMainPhoto({$oTopic->getId()});
-	});
-</script>
+{assign var=aPhotos value=$oTopic->getPhotosetPhotos(0, $oConfig->get('module.topic.photoset.per_page'))} {* TODO *}
+{if count($aPhotos)}   
+	<div id="slider" class="swipegallery">
+		<div class="sg-inner">
+			<ul>                             
+			{foreach from=$aPhotos item=oPhoto name=photos}
+				<li {if $iMainPhotoId == $oPhoto->getId()}class="sg-item-cover"{/if}>
+					<div class="sg-item-inner">
+						<img src="{$oPhoto->getWebPath(1000)}" alt="{$oPhoto->getDescription()}" />
+						{if $oPhoto->getDescription()}<div class="sg-item-desc">{$oPhoto->getDescription()}</div>{/if}
+					</div>
+				</li>
+			{/foreach}
+			</ul>
+		</div>
+		
+		<div class="sg-nav">
+			<i class="icon-prev sg-prev"></i>
+			<i class="icon-next sg-next"></i>
+			
+			<span class="sg-counter"><span class="sg-pos">1</span> / {$oTopic->getPhotosetCount()}</span>
+		</div>
+	</div>
+{/if}
 
-{assign var=oMainPhoto value=$oTopic->getPhotosetMainPhoto()}
+{*{assign var=oMainPhoto value=$oTopic->getPhotosetMainPhoto()}
 {if $oMainPhoto}
 <div class="topic-photo-preview" id="photoset-main-preview-{$oTopic->getId()}" onclick="window.location='{$oTopic->getUrl()}#photoset'">
 	<div class="topic-photo-count" id="photoset-photo-count-{$oTopic->getId()}">{$oTopic->getPhotosetCount()} {$aLang.topic_photoset_photos}</div>
@@ -18,7 +38,7 @@
 	
 	<img src="{$oMainPhoto->getWebPath(500)}" alt="image" id="photoset-main-image-{$oTopic->getId()}" />
 </div>
-{/if}
+{/if}*}
 
 
 {assign var=iPhotosCount value=$oTopic->getPhotosetCount()}
@@ -58,29 +78,6 @@
 			});
 		});
 	</script>
-	
-	
-	<div class="topic-photo-images">
-		<h2>{$oTopic->getPhotosetCount()} {$oTopic->getPhotosetCount()|declension:$aLang.topic_photoset_count_images}</h2>
-		<a name="photoset"></a>
-		
-		<ul id="topic-photo-images">
-			{assign var=aPhotos value=$oTopic->getPhotosetPhotos(0, $oConfig->get('module.topic.photoset.per_page'))}
-			{if count($aPhotos)}                                
-				{foreach from=$aPhotos item=oPhoto}
-					<li><a class="photoset-image" href="{$oPhoto->getWebPath(1000)}" rel="[photoset]"  title="{$oPhoto->getDescription()}"><img src="{$oPhoto->getWebPath('50crop')}" alt="{$oPhoto->getDescription()}" /></a></li>                                    
-					{assign var=iLastPhotoId value=$oPhoto->getId()}
-				{/foreach}
-			{/if}
-			<script type="text/javascript">
-				ls.photoset.idLast='{$iLastPhotoId}';
-			</script>
-		</ul>
-		
-		{if count($aPhotos)<$oTopic->getPhotosetCount()}
-			<a href="javascript:ls.photoset.getMore({$oTopic->getId()})" id="topic-photo-more" class="topic-photo-more">{$aLang.topic_photoset_show_more} &darr;</a>
-		{/if}
-	</div>
 {/if}
 
  

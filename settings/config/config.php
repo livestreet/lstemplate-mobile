@@ -6,7 +6,8 @@ $config['view']['theme'] = 'default';
 
 $config['head']['default']['js'] = Config::Get('head.default.js');
 $config['head']['default']['js'][] = '___path.static.skin___/js/template.js';
-$config['head']['default']['js'][] = '___path.static.skin___/js/libs/jgestures.min.js';
+$config['head']['default']['js'][] = '___path.static.skin___/js/libs/jquery.touchswipe.min.js';
+$config['head']['default']['js'][] = '___path.static.skin___/js/libs/jquery.swipegallery.js';
 
 $config['head']['default']['css'] = array(
 	"___path.static.skin___/css/reset.css",

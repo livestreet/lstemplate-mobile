@@ -41,14 +41,6 @@
 
 <div class="blog">
 	<header class="blog-header">
-		{*<div id="vote_area_blog_{$oBlog->getId()}" class="vote {if $oBlog->getRating() > 0}vote-count-positive{elseif $oBlog->getRating() < 0}vote-count-negative{/if} {if $oVote} voted {if $oVote->getDirection()>0}voted-up{elseif $oVote->getDirection()<0}voted-down{/if}{/if}">
-			<div class="vote-label">Рейтинг</div>
-			<a href="#" class="vote-up" onclick="return ls.vote.vote({$oBlog->getId()},this,1,'blog');"></a>
-			<a href="#" class="vote-down" onclick="return ls.vote.vote({$oBlog->getId()},this,-1,'blog');"></a>
-			<div id="vote_total_blog_{$oBlog->getId()}" class="vote-count count" title="{$aLang.blog_vote_count}: {$oBlog->getCountVote()}">{if $oBlog->getRating() > 0}+{/if}{$oBlog->getRating()}</div>
-		</div>*}
-		
-		
 		<img src="{$oBlog->getAvatarPath(64)}" alt="avatar" class="avatar" />
 		
 		
@@ -59,7 +51,7 @@
 		</p>
 
 
-		<a href="#" class="icon-blog-more" id="blog-more" onclick="return ls.tools.slide(jQuery('#blog-more-content'), $(this))"></a>
+		<a href="#" class="icon-blog-more" id="blog-more" onclick="ls.tools.slide(jQuery('#blog-more-content'), jQuery(this)); return false;"></a>
 	</header>
 	
 	
@@ -135,7 +127,41 @@
 				{/if}
 			</li>
 		{/if}
+
+
+		<li id="vote_total_blog_{$oBlog->getId()}" class="vote-result 
+			{if $oBlog->getRating() > 0}
+				vote-count-positive
+			{elseif $oBlog->getRating() < 0}
+				vote-count-negative
+			{elseif $oBlog->getRating() == 0}
+				vote-count-zero
+			{/if}
+
+			{if $oVote} 
+				voted
+														
+				{if $oVote->getDirection() > 0}
+					voted-up
+				{elseif $oVote->getDirection() < 0}
+					voted-down
+				{/if}
+			{/if}" 
+
+			{if $oUserCurrent && !$oVote}
+				onclick="ls.tools.slide($('#vote_area_blog_{$oBlog->getId()}'), $(this));"
+			{/if}
+
+			title="{$aLang.blog_vote_count}: {$oBlog->getCountVote()}">
+
+			{if $oBlog->getRating() > 0}+{/if}{$oBlog->getRating()}
+		</li>
 	</ul>
+
+	<div id="vote_area_blog_{$oBlog->getId()}" class="vote">
+		<div class="vote-item vote-up" onclick="return ls.vote.vote({$oBlog->getId()},this,1,'blog');"><i></i></div>
+		<div class="vote-item vote-down" onclick="return ls.vote.vote({$oBlog->getId()},this,-1,'blog');"><i></i></div>
+	</div>
 </div>
 
 {hook run='blog_info' oBlog=$oBlog}

@@ -7,7 +7,7 @@
 			<div class="pagination-arrow pagination-arrow-prev inactive" title="{$aLang.paging_previos}"><span></span></div>
 		{/if}
 		
-		<div class="pagination-current"><span>{$aPaging.iCurrentPage}</span> / 100</div>
+		<div class="pagination-current"><span>{$aPaging.iCurrentPage}</span> / 100</div> {* TODO max page *}
 		
 		{if $aPaging.iNextPage}
 			<a href="{$aPaging.sBaseUrl}/page{$aPaging.iNextPage}/{$aPaging.sGetParams}" class="pagination-arrow pagination-arrow-next js-paging-next-page" title="{$aLang.paging_next}"><span></span></a>

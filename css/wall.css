@@ -2,7 +2,7 @@
 	СТЕНА
 -------------------------------------------- */
 
-.wall-note h3 { font-size: 15px; margin-bottom: 20px; font-family: Verdana, sans-serif; }
+.wall-note h3 { font-size: 13px; margin-top: 20px; }
 
 .wall-reply-link   { padding-top: 5px; font-size: 11px; border-top: 1px solid #fff; }
 .wall-reply-link a { color: #788087; border-bottom: 1px dotted #788087; display: inline-block; line-height: 13px; }

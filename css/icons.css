@@ -46,6 +46,10 @@
 .icon-comments.active  { width: 16px; height: 16px; background: url(../images/icons/comments-active.png) no-repeat; }
 .icon-topic-menu       { width: 38px; height: 38px; background: url(../images/icons/topic-menu.png) no-repeat; }
 .icon-share            { width: 38px; height: 38px; background: url(../images/icons/share.png) no-repeat; }
+.icon-prev             { width: 28px; height: 28px; background: url(../images/icons/paging-prev.png) no-repeat; }
+.icon-next             { width: 28px; height: 28px; background: url(../images/icons/paging-next.png) no-repeat; }
+.icon-userbar          { width: 44px; height: 44px; background: url(../images/icons/userbar.png) no-repeat; }
+.icon-userbar.active   { width: 44px; height: 44px; background: url(../images/icons/userbar-active.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 

@@ -34,7 +34,8 @@
 .table.table-profile-notes .cell-date 		{ text-align: right; }
 
 /* Table Profile Info */
-.table-profile-info-wrapper { padding: 17px 0; border-bottom: 1px solid #e1e8ef; }
+.table-profile-info-wrapper            { padding: 17px 0; border-bottom: 1px solid #e1e8ef; }
+.table-profile-info-wrapper:last-child { border: none; padding-bottom: 0; }
 
 .table.table-profile-info 				{ font-size: 11px; }
 .table.table-profile-info td 			{ vertical-align: top; padding: 3px 3px 3px 0; border: none; }

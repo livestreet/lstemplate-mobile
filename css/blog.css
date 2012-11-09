@@ -18,20 +18,12 @@
 .blog .blog-header .icon-blog-more { position: absolute; top: 10px; right: 10px; }
 .blog .blog-header p		 	   { overflow: hidden; color: #788087; font-size: 11px; }
 
-.blog .blog-header .vote-label	{ text-transform: uppercase; text-align: right; font-size: 11px; color: #aaa; }
-.blog .blog-header .count 		{ font-size: 34px; line-height: 1em; font-weight: bold; text-align: right; }
-
-.blog .blog-header .vote 									{ position: absolute; top: 15px; right: 15px; }
-.blog .blog-header .vote .vote-count 						{ padding-left: 25px; display: block; color: #333; }
-.blog .blog-header .vote .vote-up 							{ position: absolute; top: 22px; left: 0; display: none; }
-.blog .blog-header .vote .vote-down 						{ position: absolute; top: 35px; left: 0; display: none; }
-.blog .blog-header .vote:hover .vote-up,
-.blog .blog-header .vote:hover .vote-down,
-.blog .blog-header .vote.voted .vote-up,
-.blog .blog-header .vote.voted .vote-down 					{ display: inline-block; }
-.blog .blog-header .vote.vote-count-positive .vote-count 	{ color: #5055B2; }
+.blog .vote { margin: 0; border-top: 1px solid #eee; }
+.blog .vote .vote-item { float: right; margin-left: 15px; margin-right: 0; }
 
 .blog .actions { margin-bottom: 0; padding: 8px 9px; background: #f9fafc; }
+.blog .actions .vote-result { float: right; margin-right: 0; width: auto; padding: 0 10px 0 10px; }
+.blog .actions .vote-result.voted { padding: 0 40px 0 10px; }
 
 
 /* Content */
