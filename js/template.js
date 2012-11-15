@@ -165,6 +165,32 @@ jQuery(document).ready(function($){
 		return false;
 	};
 
+	ls.favourite.showEditTags = function(idTarget,type,obj) {
+		var form=$('#favourite-form-tags');
+		$('#favourite-form-tags-target-type').val(type);
+		$('#favourite-form-tags-target-id').val(idTarget);
+		var text='';
+		var tags=$('.js-favourite-tags-'+$('#favourite-form-tags-target-type').val()+'-'+$('#favourite-form-tags-target-id').val());
+		tags.find('.js-favourite-tag-user a').each(function(k,tag){
+			if (text) {
+				text=text+', '+$(tag).text();
+			} else {
+				text=$(tag).text();
+			}
+		});
+		$('#favourite-form-tags-tags').val(text);
+		//$(obj).parents('.js-favourite-insert-after-form').after(form);
+		form.insertAfter($(obj).parent().parent());
+		form.slideToggle();
+
+		return false;
+	};
+
+	ls.favourite.hideEditTags = function() {
+		$('#favourite-form-tags').slideUp();
+		return false;
+	};
+
 
 	ls.msg = (function ($) {
 		/**
@@ -434,8 +460,11 @@ jQuery(document).ready(function($){
 	});
 
 
-	ls.tools.slide = function(target, obj) {
-		//obj.parent().children('li').not(obj).removeClass('active');
+	ls.tools.slide = function(target, obj, deactivate_items) {
+		if (deactivate_items) {
+			obj.parent().children('li').not(obj).removeClass('active');
+		}
+
 		$('.slide').not(target).removeClass('active').hide();
 		target.slideToggle(); 
 		obj.toggleClass('active');
@@ -446,12 +475,21 @@ jQuery(document).ready(function($){
 		$(this).wrap('<div class="nav-foldable-wrapper" />');
 
 		var wrapper = $(this).parent();
-		wrapper.prepend('<div class="nav-foldable-trigger">...</div>');
+		wrapper.prepend('<div class="nav-foldable-trigger inactive">' + ls.lang.get('nav_select_item') + '</div>');
 		
 		var trigger = wrapper.find('.nav-foldable-trigger');
 		wrapper.find('ul').addClass('slide');
 
-		trigger.text(wrapper.find('ul li.active').text());
+		if ($(this).hasClass('nav-foldable-primary')) {
+			$(this).removeClass('nav-foldable-primary');
+			trigger.addClass('nav-foldable-primary');
+		}
+
+		var active = wrapper.find('ul li.active');
+		if (active.length > 0) {
+			trigger.text(active.text()).removeClass('inactive');
+		}
+		
 		trigger.click(function(){ 
 			ls.tools.slide($(this).next('ul'), trigger);
 		})

@@ -45,12 +45,6 @@
 .modal.modal-login .nav { margin-bottom: 30px; }
 
 
-
-.slide.slide-write { font-size: 17px; padding: 15px 20px; }
-.slide.slide-write li {  padding: 10px 0; }
-.slide.slide-write li a { color: #275ec2; border-bottom: 1px solid #beceed; }
-
-
 /* Upload Image */
 .modal-image-upload { width: 500px; margin-left: -250px; }
 

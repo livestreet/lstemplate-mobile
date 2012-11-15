@@ -29,10 +29,12 @@
 .icon-blog-join.active { background: url(../images/icons/blog-join-active.png) no-repeat; }
 
 .icon-friend           { width: 30px; height: 30px; background: url(../images/icons/friend.png) no-repeat; }
+.icon-friend-waiting   { width: 30px; height: 30px; background: url(../images/icons/friend-waiting.png) no-repeat; }
 .icon-friend.active    { background: url(../images/icons/friend-active.png) no-repeat; }
 .icon-send-message     { width: 30px; height: 30px; background: url(../images/icons/send-message.png) no-repeat; }
 
 .icon-rating           { width: 12px; height: 12px; background: url(../images/icons/rating.png) no-repeat; }
+.icon-rating-grey      { width: 12px; height: 12px; background: url(../images/icons/rating-grey.png) no-repeat; }
 .icon-strength         { width: 12px; height: 12px; background: url(../images/icons/strength.png) no-repeat; }
 .icon-note             { width: 11px; height: 11px; background: url(../images/icons/note.png) no-repeat; }
 .icon-vote             { width: 30px; height: 30px; background: url(../images/icons/vote.png) no-repeat; cursor: pointer; }
@@ -50,6 +52,31 @@
 .icon-next             { width: 28px; height: 28px; background: url(../images/icons/paging-next.png) no-repeat; }
 .icon-userbar          { width: 44px; height: 44px; background: url(../images/icons/userbar.png) no-repeat; }
 .icon-userbar.active   { width: 44px; height: 44px; background: url(../images/icons/userbar-active.png) no-repeat; }
+.icon-views            { width: 20px; height: 16px; background: url(../images/icons/views.png) no-repeat; }
+
+.icon-profile-submit-white     { width: 16px; height: 16px; background: url(../images/icons/profile-submit-white.png) no-repeat; }
+.icon-profile-activity-white   { width: 16px; height: 16px; background: url(../images/icons/profile-activity-white.png) no-repeat; }
+.icon-profile-favourites-white { width: 16px; height: 16px; background: url(../images/icons/profile-favourites-white.png) no-repeat; }
+.icon-profile-friends-white    { width: 19px; height: 16px; background: url(../images/icons/profile-friends-white.png) no-repeat; }
+.icon-profile-messages-white   { width: 18px; height: 16px; background: url(../images/icons/profile-messages-white.png) no-repeat; }
+.icon-profile-profile-white    { width: 18px; height: 16px; background: url(../images/icons/profile-profile-white.png) no-repeat; }
+.icon-profile-submited-white   { width: 16px; height: 16px; background: url(../images/icons/profile-submited-white.png) no-repeat; }
+.icon-profile-settings-white   { width: 16px; height: 16px; background: url(../images/icons/profile-settings-white.png) no-repeat; }
+.icon-profile-wall-white       { width: 16px; height: 16px; background: url(../images/icons/profile-wall-white.png) no-repeat; }
+
+.icon-profile-activity   { width: 16px; height: 16px; background: url(../images/icons/profile-activity.png) no-repeat; }
+.icon-profile-favourites { width: 16px; height: 16px; background: url(../images/icons/profile-favourites.png) no-repeat; }
+.icon-profile-friends    { width: 19px; height: 16px; background: url(../images/icons/profile-friends.png) no-repeat; }
+.icon-profile-messages   { width: 18px; height: 16px; background: url(../images/icons/profile-messages.png) no-repeat; }
+.icon-profile-profile    { width: 18px; height: 16px; background: url(../images/icons/profile-profile.png) no-repeat; }
+.icon-profile-submited   { width: 16px; height: 16px; background: url(../images/icons/profile-submited.png) no-repeat; }
+.icon-profile-settings   { width: 16px; height: 16px; background: url(../images/icons/profile-settings.png) no-repeat; }
+.icon-profile-wall       { width: 16px; height: 16px; background: url(../images/icons/profile-wall.png) no-repeat; }
+
+.icon-submit-topic       { width: 25px; height: 25px; background: url(../images/icons/submit-topic.png) no-repeat; }
+.icon-submit-blog        { width: 25px; height: 25px; background: url(../images/icons/submit-blog.png) no-repeat; }
+.icon-submit-message     { width: 25px; height: 25px; background: url(../images/icons/submit-message.png) no-repeat; }
+.icon-submit-draft       { width: 25px; height: 25px; background: url(../images/icons/submit-draft.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 

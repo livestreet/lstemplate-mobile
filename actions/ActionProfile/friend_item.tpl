@@ -3,9 +3,9 @@
 {elseif $oUserFriend and $oUserFriend->getStatusTo()==$USER_FRIEND_REJECT and $oUserFriend->getStatusFrom()==$USER_FRIEND_OFFER and $oUserFriend->getUserTo()==$oUserCurrent->getId()}
 	<li id="add_friend_item"><a href="#" class="icon-friend" title="{$aLang.user_friend_add}" onclick="return ls.user.addFriend(this,{$oUserProfile->getId()},'accept');"></a></li>
 {elseif $oUserFriend and $oUserFriend->getFriendStatus()==$USER_FRIEND_OFFER+$USER_FRIEND_REJECT and $oUserFriend->getUserTo()!=$oUserCurrent->getId()}
-	<li><i class="icon-friend"></i></li>	{* user_friend_offer_reject *}							
+	{* <li><i class="icon-friend"></i></li> *}	{* user_friend_offer_reject *}							
 {elseif $oUserFriend and $oUserFriend->getFriendStatus()==$USER_FRIEND_OFFER+$USER_FRIEND_NULL and $oUserFriend->getUserFrom()==$oUserCurrent->getId()}
-	<li><i class="icon-friend"></i></li>	{* user_friend_offer_send *}					
+	<li><i class="icon-friend-waiting"></i></li>	{* user_friend_offer_send *}					
 {elseif $oUserFriend and $oUserFriend->getFriendStatus()==$USER_FRIEND_OFFER+$USER_FRIEND_NULL and $oUserFriend->getUserTo()==$oUserCurrent->getId()}
 	<li id="add_friend_item"><a href="#" class="icon-friend" title="{$aLang.user_friend_add}" onclick="return ls.user.addFriend(this,{$oUserProfile->getId()},'accept');"></a></li>
 {elseif !$oUserFriend}

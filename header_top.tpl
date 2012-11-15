@@ -1,9 +1,4 @@
 <nav id="header" class="clearfix">
-	{*<form action="{router page='search'}topics/" class="search">
-		<input type="text" placeholder="{$aLang.search}" maxlength="255" name="q" class="input-text">
-		<input type="submit" value="" title="{$aLang.search_submit}" class="input-submit icon icon-search">
-	</form>*}
-
 	<div class="icon-userbar userbar-trigger" id="userbar-trigger"></div>
 
 	<h1 class="site-name"><a href="{cfg name='path.root.web'}">{cfg name='view.name'}</a></h1>
@@ -14,16 +9,16 @@
 		{hook run='userbar_item'}
 
 		{if $iUserCurrentCountTalkNew}
-			<li class="item-messages" id="item-messages" onclick="ls.tools.slide($('#messages'), $(this));"><a href="{router page='talk'}"></a></li>
+			<li class="item-messages" id="item-messages" onclick="ls.tools.slide($('#messages'), $(this), true);"><a href="{router page='talk'}"></a></li>
 		{/if}
 
-		<li class="item-search" id="item-search" onclick="ls.tools.slide($('#search'), $(this));"></li>
+		<li class="item-search" id="item-search" onclick="ls.tools.slide($('#search'), $(this), true);"></li>
 
 		{if $oUserCurrent}
-			<li class="item-submit item-primary" id="item-submit" onclick="ls.tools.slide($('#write'), $(this));"></li>
+			<li class="item-submit item-primary" id="item-submit" onclick="ls.tools.slide($('#write'), $(this), true);"></li>
 
 		{else}
-			<li class="item-auth item-primary" id="item-auth" onclick="ls.tools.slide($('#window_login_form'), $(this));"></li>
+			<li class="item-auth item-primary" id="item-auth" onclick="ls.tools.slide($('#window_login_form'), $(this), true);"></li>
 		{/if}
 	</ul>
 </nav>

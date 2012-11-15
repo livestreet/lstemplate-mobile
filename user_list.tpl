@@ -21,7 +21,6 @@
 						{if $oUserCurrent}
 							{strip}
 								<a href="{router page='talk'}add/?talk_users={$oUserList->getLogin()}" class="icon-send-message"></a>
-								<a href="#" class="icon-friend"></a>
 							{/strip}
 						{/if}
 					</td>

@@ -18,9 +18,6 @@ body {
 a 		{ color: #5055b2; text-decoration: none; }
 a:hover { color: #06e; }
 
-.text a:visited,
-.item-list li a:visited { color: #1D2273; }
-
 a.link-dashed 		{ border-bottom: 1px dashed #5055b2; }
 a.link-dashed:hover { border-color: #06e; }
 
@@ -31,7 +28,7 @@ a.link-dotted:hover { border-color: #06e; }
 
 /* Заголовки
 ---------------------------------------------------- */
-h2.page-header { color: #333; font-size: 27px; line-height: 1em; font-weight: bold; margin-bottom: 20px; }
+h2.page-header { color: #333; font-size: 15px; line-height: 1em; font-weight: bold; margin-bottom: 20px; }
 h2.page-header span { color: #aaa; }
 
 h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
@@ -94,20 +91,33 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 #userbar .userbar-menu-user h3 a    { color: #e2e5e9; font-size: 19px; font-weight: 600; }
 
 #userbar .userbar-menu-rating-wrapper { padding: 11px 9px; border-bottom: 1px solid #333435; }
+#userbar .userbar-menu-rating-wrapper .user-profile-rating { color: #788087; }
 
 #userbar ul { border-top: 1px solid #48494a; }
-#userbar ul li { font-size: 15px; }
-#userbar ul li a { display: block; color: #fff; padding: 9px; }
+#userbar ul li { font-size: 15px; line-height: 16px; position: relative; }
+#userbar ul li a { display: block; color: #fff; padding: 12px 9px 12px 47px; }
+#userbar ul li .holder            {
+	position: absolute;
+	left: 13px; top: 12px;
+	width: 20px;
+	height: 16px;
+	margin-right: 14px;
+	text-align: center;
+	vertical-align: middle;
+}
 
 
 
 
 /* Футер
 ---------------------------------------------------- */
-#footer .copyright {  }
-#footer a          { text-decoration: underline; }
-#footer ul         { margin-bottom: 15px; }
-#footer ul li      { float: left; margin-right: 15px; }
+#footer                          { font-size: 11px; }
+#footer a                        { text-decoration: underline; }
+#footer .footer-inner            { border-top: 1px solid #e2e7ec; padding: 9px; }
+#footer .footer-links            { margin-bottom: 15px; }
+#footer .footer-links li         { float: left; margin-right: 15px; }
+#footer .footer-profile-links    { padding-bottom: 40px; }
+#footer .footer-profile-links li { float: left; width: 14.23%; text-align: center; }
 
 
 /* Stat
@@ -194,8 +204,8 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 .swipegallery                     { margin: 0 9px 15px; overflow: hidden; }
 .swipegallery .sg-inner,
 .swipegallery .sg-item-inner      { overflow: hidden; }
-.swipegallery .sg-inner           {  }
-.swipegallery ul                  { }
+.swipegallery .sg-inner.loader    { height: 200px; background: #fafafa url(../images/loader.gif) 50% 50% no-repeat; }
+.swipegallery .sg-inner.loader ul { display: none; }
 .swipegallery li                  { display: table-cell; vertical-align: top; }
 .swipegallery img                 { width: 100%; vertical-align: top; margin-bottom: 6px; }
 .swipegallery .sg-item-desc       { background: #f6f8fa; font-size: 11px; padding: 10px 15px; border-bottom: 1px solid #dde5ed; }
@@ -212,7 +222,6 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 .swipegallery .sg-nav i           { cursor: pointer; position: absolute; top: 3px; }
 .swipegallery .sg-nav i.icon-prev { left: 0; }
 .swipegallery .sg-nav i.icon-next { right: 0; }
-.swipegallery .sg-nav span        {  }
 
 
 /* Misc

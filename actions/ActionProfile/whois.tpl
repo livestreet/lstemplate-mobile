@@ -1,4 +1,3 @@
-{assign var="sidebarPosition" value='left'}
 {assign var="sMenuItemSelect" value='profile'}
 {include file='header.tpl'}
 
@@ -8,99 +7,114 @@
 
 
 
-	{include file='actions/ActionProfile/profile_top.tpl'}
+{include file='actions/ActionProfile/profile_top.tpl'}
 
-	{assign var="aUserFieldValues" value=$oUserProfile->getUserFieldValues(true,array(''))}
+{assign var="aUserFieldValues" value=$oUserProfile->getUserFieldValues(true,array(''))}
 
-	{if $oUserProfile->getProfileSex()!='other' || $oUserProfile->getProfileBirthday() || $oGeoTarget || count($aUserFieldValues)}
-	<div class="table-profile-info-wrapper">
-		<h2 class="header-table">{$aLang.profile_privat}</h2>
-		
-		
-		<table class="table table-profile-info">		
-			{if $oUserProfile->getProfileSex()!='other'}
-				<tr>
-					<td class="cell-label">{$aLang.profile_sex}:</td>
-					<td>
-						{if $oUserProfile->getProfileSex()=='man'}
-							{$aLang.profile_sex_man}
-						{else}
-							{$aLang.profile_sex_woman}
-						{/if}
-					</td>
-				</tr>
-			{/if}
-				
-				
-			{if $oUserProfile->getProfileBirthday()}
-				<tr>
-					<td class="cell-label">{$aLang.profile_birthday}:</td>
-					<td>{date_format date=$oUserProfile->getProfileBirthday() format="j F Y"}</td>
-				</tr>
-			{/if}
+{if $oUserProfile->getProfileSex()!='other' || $oUserProfile->getProfileBirthday() || $oGeoTarget || count($aUserFieldValues)}
+<div class="table-profile-info-wrapper">
+	<h2 class="header-table">{$aLang.profile_privat}</h2>
+	
+	
+	<table class="table table-profile-info">		
+		{if $oUserProfile->getProfileSex()!='other'}
+			<tr>
+				<td class="cell-label">{$aLang.profile_sex}:</td>
+				<td>
+					{if $oUserProfile->getProfileSex()=='man'}
+						{$aLang.profile_sex_man}
+					{else}
+						{$aLang.profile_sex_woman}
+					{/if}
+				</td>
+			</tr>
+		{/if}
 			
 			
-			{if $oGeoTarget}
+		{if $oUserProfile->getProfileBirthday()}
+			<tr>
+				<td class="cell-label">{$aLang.profile_birthday}:</td>
+				<td>{date_format date=$oUserProfile->getProfileBirthday() format="j F Y"}</td>
+			</tr>
+		{/if}
+		
+		
+		{if $oGeoTarget}
+			<tr>
+				<td class="cell-label">{$aLang.profile_place}:</td>
+				<td itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+					{if $oGeoTarget->getCountryId()}
+						<a href="{router page='people'}country/{$oGeoTarget->getCountryId()}/" itemprop="country-name">{$oUserProfile->getProfileCountry()|escape:'html'}</a>{if $oGeoTarget->getCityId()},{/if}
+					{/if}
+					
+					{if $oGeoTarget->getCityId()}
+						<a href="{router page='people'}city/{$oGeoTarget->getCityId()}/" itemprop="locality">{$oUserProfile->getProfileCity()|escape:'html'}</a>
+					{/if}
+				</td>
+			</tr>
+		{/if}
+
+		{if $aUserFieldValues}
+			{foreach from=$aUserFieldValues item=oField}
 				<tr>
-					<td class="cell-label">{$aLang.profile_place}:</td>
-					<td itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-						{if $oGeoTarget->getCountryId()}
-							<a href="{router page='people'}country/{$oGeoTarget->getCountryId()}/" itemprop="country-name">{$oUserProfile->getProfileCountry()|escape:'html'}</a>{if $oGeoTarget->getCityId()},{/if}
-						{/if}
-						
-						{if $oGeoTarget->getCityId()}
-							<a href="{router page='people'}city/{$oGeoTarget->getCityId()}/" itemprop="locality">{$oUserProfile->getProfileCity()|escape:'html'}</a>
-						{/if}
-					</td>
+					<td class="cell-label"><i class="icon-contact icon-contact-{$oField->getName()}"></i> {$oField->getTitle()|escape:'html'}:</td>
+					<td>{$oField->getValue(true,true)}</td>
 				</tr>
-			{/if}
+			{/foreach}
+		{/if}
 
-			{if $aUserFieldValues}
-				{foreach from=$aUserFieldValues item=oField}
-					<tr>
-						<td class="cell-label"><i class="icon-contact icon-contact-{$oField->getName()}"></i> {$oField->getTitle()|escape:'html'}:</td>
-						<td>{$oField->getValue(true,true)}</td>
-					</tr>
-				{/foreach}
-			{/if}
+		{hook run='profile_whois_privat_item' oUserProfile=$oUserProfile}
+	</table>
+</div>
+{/if}
 
-			{hook run='profile_whois_privat_item' oUserProfile=$oUserProfile}
-		</table>
+{hook run='profile_whois_item_after_privat' oUserProfile=$oUserProfile}
+
+
+
+{if $oUserCurrent && $oUserCurrent->getId() != $oUserProfile->getId()}
+	<section class="profile-info-note">
+		{if $oUserNote}
+			<script type="text/javascript">
+				ls.usernote.sText = {json var = $oUserNote->getText()};
+			</script>
+		{/if}
+
+		<div id="usernote-note" class="profile-note" {if !$oUserNote}style="display: none;"{/if}>
+			<p id="usernote-note-text">
+				{if $oUserNote}
+					{$oUserNote->getText()}
+				{/if}
+			</p>
+			
+			<ul class="actions">
+				<li><a href="#" onclick="return ls.usernote.showForm();" class="link-dotted">{$aLang.user_note_form_edit}</a></li>
+				<li><a href="#" onclick="return ls.usernote.remove({$oUserProfile->getId()});" class="link-dotted">{$aLang.user_note_form_delete}</a></li>
+			</ul>
+		</div>
+		
+		<div id="usernote-form" style="display: none;">
+			<p><textarea rows="4" cols="20" id="usernote-form-text" class="input-text input-width-full"></textarea></p><br />
+			<button type="submit" onclick="return ls.usernote.save({$oUserProfile->getId()});" class="button button-primary">{$aLang.user_note_form_save}</button>&nbsp;&nbsp;
+			<button type="submit" onclick="return ls.usernote.hideForm();" class="button">{$aLang.user_note_form_cancel}</button>
+		</div>
+		
+		<a href="#" onclick="return ls.usernote.showForm();" id="usernote-button-add" class="link-dotted" {if $oUserNote}style="display:none;"{/if}>{$aLang.user_note_add}</a>
+	</section>
+{/if}
+
+{if $oUserProfile->getProfileAbout()}					
+	<div class="profile-info-about">
+		<h2 class="header-table">{$aLang.profile_about}</h2>
+		{$oUserProfile->getProfileAbout()}
 	</div>
-	{/if}
-
-	{hook run='profile_whois_item_after_privat' oUserProfile=$oUserProfile}
+{/if}
 
 
-	{if $oUserProfile->getProfileAbout()}					
-		<div class="profile-info-about">
-			<h2 class="header-table">{$aLang.profile_about}</h2>
-			{$oUserProfile->getProfileAbout()}
-		</div>
-	{/if}
-
-
-	{assign var="aUserFieldContactValues" value=$oUserProfile->getUserFieldValues(true,array('contact'))}
-	{if $aUserFieldContactValues}
-		<div class="table-profile-info-wrapper">
-			<h2 class="header-table">{$aLang.profile_contacts}</h2>
-			
-			<table class="table table-profile-info">
-				{foreach from=$aUserFieldContactValues item=oField}
-					<tr>
-						<td class="cell-label">{$oField->getTitle()|escape:'html'}:</td>
-						<td>{$oField->getValue(true,true)}</td>
-					</tr>
-				{/foreach}
-			</table>
-		</div>
-	{/if}
-
-
-	{assign var="aUserFieldContactValues" value=$oUserProfile->getUserFieldValues(true,array('social'))}
-	{if $aUserFieldContactValues}
+{assign var="aUserFieldContactValues" value=$oUserProfile->getUserFieldValues(true,array('contact'))}
+{if $aUserFieldContactValues}
 	<div class="table-profile-info-wrapper">
-		<h2 class="header-table">{$aLang.profile_social}</h2>
+		<h2 class="header-table">{$aLang.profile_contacts}</h2>
 		
 		<table class="table table-profile-info">
 			{foreach from=$aUserFieldContactValues item=oField}
@@ -111,10 +125,27 @@
 			{/foreach}
 		</table>
 	</div>
-	{/if}
+{/if}
 
 
-	{hook run='profile_whois_item' oUserProfile=$oUserProfile}
+{assign var="aUserFieldContactValues" value=$oUserProfile->getUserFieldValues(true,array('social'))}
+{if $aUserFieldContactValues}
+<div class="table-profile-info-wrapper">
+	<h2 class="header-table">{$aLang.profile_social}</h2>
+	
+	<table class="table table-profile-info">
+		{foreach from=$aUserFieldContactValues item=oField}
+			<tr>
+				<td class="cell-label">{$oField->getTitle()|escape:'html'}:</td>
+				<td>{$oField->getValue(true,true)}</td>
+			</tr>
+		{/foreach}
+	</table>
+</div>
+{/if}
+
+
+{hook run='profile_whois_item' oUserProfile=$oUserProfile}
 
 
 <div class="table-profile-info-wrapper">

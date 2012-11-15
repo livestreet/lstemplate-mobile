@@ -38,9 +38,11 @@
 .topic .topic-more { padding: 0 9px; margin-bottom: 15px; }
 
 /* Tags */
-.topic .topic-footer .topic-tags 						{ margin: 0 0 15px; }
-.topic .topic-footer .topic-tags li 					{ display: inline; color: #888; }
+.topic .topic-footer .topic-tags 						{ padding-top: 7px; margin: 0 0 15px 9px; font-size: 11px; border-top: 1px dotted #cfdbe6; }
+.topic .topic-footer .topic-tags li 					{ display: inline; }
+.topic .topic-footer .topic-tags li a 					{ text-decoration: underline; color: #5780ae; }
 .topic .topic-footer .topic-tags li.topic-tags-edit 	{ margin-left: 20px; }
+.topic .topic-footer .topic-tags li.topic-tags-edit a 	{ text-decoration: none; }
 .topic .topic-footer .topic-tags li.topic-tags-user a 	{ color: #3CA023; }
 
 /* Info */
@@ -56,6 +58,7 @@
 .topic .topic-footer .topic-info li.topic-info-share                          { position: absolute; top: 2px; right: 0; width: 38px; height: 40px; cursor: pointer; }
 .topic .topic-footer .topic-info li.topic-info-share.active                   { background-color: #fffdef; }
 .topic .topic-footer .topic-info li.topic-info-share.active i                 { background: url(../images/icons/share-active.png) no-repeat; }
+.topic .topic-footer .topic-info li.topic-info-views                          { padding: 6px; font-size: 14px; line-height: 16px; }
 
 /* Extra Info */
 .topic .topic-footer .topic-info-extra                                      { position: relative; padding: 6px 0; margin: 0 9px; border-top: 1px solid #e1e8ef; }
@@ -104,54 +107,49 @@
 .topic .poll .button.button-icon.active { background: #43bb34; }
 
 /* Topic Photo */
-.topic.topic-type-photoset {  }
-.topic.topic-type-photoset .topic-photo-preview { position: relative; margin-bottom: 15px; cursor: pointer; }
-.topic.topic-type-photoset .topic-photo-preview img { vertical-align: top; }
-.topic.topic-type-photoset .topic-photo-preview .topic-photo-count { display: none; cursor: pointer; position: absolute; top: 5px; right: 5px; background: #000; color: #6bd24b; padding: 4px 7px; background: rgba(0,0,0,.6); }
-.topic.topic-type-photoset .topic-photo-preview .topic-photo-desc { display: none; width: 96%; padding: 7px 2%; position: absolute; bottom: 0; left: 0; background: #000; color: #6bd24b; color: #fff; line-height: 16px; background: rgba(0,0,0,.7); }
+.topic.topic-type-photoset                                         {  }
+.topic.topic-type-photoset .topic-photo-preview                    { margin: 0 9px 15px; position: relative; margin-bottom: 15px; cursor: pointer; }
+.topic.topic-type-photoset .topic-photo-preview img                { vertical-align: top; width: 100%; }
+.topic.topic-type-photoset .topic-photo-preview .topic-photo-count {
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background: #000;
+	color: #fff;
+	padding: 4px 7px;
+	opacity: .7;
+}
 
-.topic.topic-type-photoset .topic-photo-images { padding-top: 10px; margin-bottom: 15px; }
-.topic.topic-type-photoset .topic-photo-images h2 { border-bottom: 1px solid #ddd; padding-bottom: 4px; margin-bottom: 15px; }
-.topic.topic-type-photoset .topic-photo-images ul { overflow: hidden; zoom: 1; }
-.topic.topic-type-photoset .topic-photo-images ul li { float: left; margin: 0 9px 9px 0; position: relative; }
-.topic.topic-type-photoset .topic-photo-images ul li .image-number { display: none; position: absolute; top: 5px; right: 5px; background: #000; color: #6bd24b; padding: 1px 6px; font-size: 11px; background: rgba(0,0,0,.6); }
+.topic.topic-type-photoset .topic-photo-images                           { padding-top: 10px; margin-bottom: 15px; }
+.topic.topic-type-photoset .topic-photo-images h2                        { border-bottom: 1px solid #ddd; padding-bottom: 4px; margin-bottom: 15px; }
+.topic.topic-type-photoset .topic-photo-images ul                        { overflow: hidden; zoom: 1; }
+.topic.topic-type-photoset .topic-photo-images ul li                     { float: left; margin: 0 9px 9px 0; position: relative; }
+.topic.topic-type-photoset .topic-photo-images ul li .image-number       { display: none; position: absolute; top: 5px; right: 5px; background: #000; color: #6bd24b; padding: 1px 6px; font-size: 11px; background: rgba(0,0,0,.6); }
 .topic.topic-type-photoset .topic-photo-images ul li:hover .image-number { display: block; }
-.topic.topic-type-photoset .topic-photo-images ul li img { vertical-align: top; }
-.topic.topic-type-photoset .topic-photo-images .topic-photo-more { display: block; border-top: 1px solid #dbe6f0; text-align: center; padding: 10px 0; margin-bottom: 15px; text-decoration: none; background: #f3f7fa; color: #7b90a5; }
-.topic.topic-type-photoset .topic-photo-images .topic-photo-more:hover { background: #eaf2f8; }
+.topic.topic-type-photoset .topic-photo-images ul li img                 { vertical-align: top; }
+.topic.topic-type-photoset .topic-photo-images .topic-photo-more         { display: block; border-top: 1px solid #dbe6f0; text-align: center; padding: 10px 0; margin-bottom: 15px; text-decoration: none; background: #f3f7fa; color: #7b90a5; }
+.topic.topic-type-photoset .topic-photo-images .topic-photo-more:hover   { background: #eaf2f8; }
 
-.topic-photo-upload { background: #fafafa; padding: 15px 15px 15px; margin-bottom: 20px; }
-.topic-photo-upload h2 { margin-bottom: 15px; }
-.topic-photo-upload ul { overflow: hidden; zoom: 1; }
-.topic-photo-upload ul li { min-height: 100px; _height: 100px; margin-bottom: 10px; padding-left: 110px; position: relative; }
-.topic-photo-upload ul li img { position: absolute; top: 0; left: 0; }
-.topic-photo-upload ul li label { color: #aaa; }
-.topic-photo-upload ul li textarea { border: 1px solid #ddd; width: 350px; height: 60px; padding: 3px; font-size: 12px; font-family: Arial, sans-serif; color: #333; }
-.topic-photo-upload ul li .image-delete { text-decoration: none; margin-right: 15px; }
-.topic-photo-upload ul li .image-delete:hover { color: #f00; }
+.topic-photo-upload                                          { background: #fafafa; padding: 15px 15px 15px; margin-bottom: 20px; }
+.topic-photo-upload h2                                       { margin-bottom: 15px; }
+.topic-photo-upload ul                                       { overflow: hidden; zoom: 1; }
+.topic-photo-upload ul li                                    { min-height: 100px; _height: 100px; margin-bottom: 10px; padding-left: 110px; position: relative; }
+.topic-photo-upload ul li img                                { position: absolute; top: 0; left: 0; }
+.topic-photo-upload ul li label                              { color: #aaa; }
+.topic-photo-upload ul li textarea                           { border: 1px solid #ddd; width: 350px; height: 60px; padding: 3px; font-size: 12px; font-family: Arial, sans-serif; color: #333; }
+.topic-photo-upload ul li .image-delete                      { text-decoration: none; margin-right: 15px; }
+.topic-photo-upload ul li .image-delete:hover                { color: #f00; }
 .topic-photo-upload ul li.marked-as-preview .mark-as-preview { display: inline; color: #43c70f; font-weight: bold; }
-.topic-photo-upload ul li .mark-as-preview { display: none; text-decoration: none; }
-.topic-photo-upload ul li:hover .mark-as-preview { display: inline; }
-.topic-photo-upload .topic-photo-upload-rules { color: #888; margin-bottom: 15px; }
-.topic-photo-upload .topic-photo-upload-input { margin-bottom: 20px; }
-.topic-photo-upload .topic-photo-upload-input input { margin-top: 3px; }
+.topic-photo-upload ul li .mark-as-preview                   { display: none; text-decoration: none; }
+.topic-photo-upload ul li:hover .mark-as-preview             { display: inline; }
+.topic-photo-upload .topic-photo-upload-rules                { color: #888; margin-bottom: 15px; }
+.topic-photo-upload .topic-photo-upload-input                { margin-bottom: 20px; }
+.topic-photo-upload .topic-photo-upload-input input          { margin-top: 3px; }
 
 /* Topic Talk */
 .topic.topic-type-talk { }
 .topic.topic-type-talk .topic-info-extra li.topic-info-author { padding-left: 0; }
-/*.topic.topic-type-talk { }
-.topic.topic-type-talk .topic-header { background: #f7f7f7; padding: 10px 15px 15px; border-top: 1px solid #dfdfdf; border-bottom: 1px solid #eee; }
-.topic.topic-type-talk .topic-header .topic-title { margin-bottom: 13px; font-size: 20px; }
-.topic.topic-type-talk .topic-header .topic-info { margin-bottom: 0; position: relative; min-height: 30px; padding-left: 40px; line-height: 14px; }
-.topic.topic-type-talk .topic-header .topic-info .avatar { position: absolute; top: 0; left: 0; }
-.topic.topic-type-talk .topic-header .topic-info .author-wrapper { margin-bottom: 4px; position: relative; top: -2px; }
-.topic.topic-type-talk .topic-header .topic-info .author-wrapper .author { font-weight: bold; margin-right: 15px; }
-.topic.topic-type-talk .topic-header .topic-info .recipient { margin-right: 10px; }
-.topic.topic-type-talk .topic-content { font-size: 13px; padding: 15px; background: #fafafa; margin-bottom: 1px; border-top: 1px solid #fff; }
-.topic.topic-type-talk .topic-footer .topic-info { border-radius: 0; background: #fafafa; }
-
-.topic.topic-type-talk .talk-recipients 	{ padding: 15px; background: #fafafa; display: none; border-top: 1px solid #fff; border-bottom: 1px solid #eee; }
-.topic.topic-type-talk .talk-recipients h3 	{ font-size: 16px; font-weight: bold; margin-bottom: 10px; }*/
 
 /* Topic Preview */
 .topic-preview { margin-top: 30px; }

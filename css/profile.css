@@ -2,28 +2,32 @@
 	СТРАНИЦА ПОЛЬЗОВАТЕЛЯ
 -------------------------------------------- */
 
-.profile                              { min-height: 48px; margin-bottom: 0; padding: 0 0 20px 72px; position: relative; }
+.profile                                 { min-height: 48px; margin-bottom: 0; padding: 0 0 20px 72px; position: relative; }
 
-.profile .avatar                      { position: absolute; top: 0; left: 0; width: 60px; height: 60px; }
+.profile .avatar                         { position: absolute; top: 0; left: 0; width: 60px; height: 60px; }
 
-.vote.vote-blog                       { margin: 0 0 15px; }
-.vote.vote-blog .vote-item            { float: right; margin-right: 0; margin-left: 15px; }
+.vote.vote-blog                          { margin: 0 0 15px; }
+.vote.vote-blog .vote-item               { float: right; margin-right: 0; margin-left: 15px; }
 
-.vote-result.vote-result-blog                 { float: right; margin-right: 0; width: auto; padding: 0 10px 0 10px; }
-.vote-result.vote-result-blog.voted           { padding: 0 40px 0 10px; }
+.vote-result.vote-result-blog            { float: right; margin-right: 0; width: auto; padding: 0 10px 0 10px; }
+.vote-result.vote-result-blog.voted      { padding: 0 40px 0 10px; }
 
-.profile .user-profile-rating-wrapper { width: 57px; position: absolute; top: 12px; right: 0; }
-.profile .user-profile-rating         { display: block; margin: 0; }
+.profile .user-profile-rating-wrapper    { width: 57px; position: absolute; top: 12px; right: 0; }
+.profile .user-profile-rating            { display: block; margin: 0; }
 
-.profile .user-login 				{ width: 270px; font-size: 19px; font-weight: 600; padding-top: 7px; margin-bottom: 7px; }
-.profile .user-login.no-user-name 	{ padding-top: 18px; }
-.profile .user-name 				{ font-size: 14px; color: #788087; }
+.profile .user-login                     { width: 270px; font-size: 19px; font-weight: 600; padding-top: 7px; margin-bottom: 7px; }
+.profile .user-login.no-user-name        { padding-top: 18px; }
+.profile .user-name                      { font-size: 14px; color: #788087; }
 
-.profile-actions { padding: 9px; background: #fafafa; margin-bottom: 10px; }
-.profile-actions li { float: left; margin-right: 9px; }
+.profile-actions                         { padding: 9px; background: #fafafa; margin-bottom: 10px; }
+.profile-actions li                      { float: left; margin-right: 9px; }
 .profile-actions li.profile-actions-vote { float: right; margin-right: 0; }
 
-.profile-page-header 				{ font-size: 12px; font-weight: bold; margin-bottom: 20px; background: #f5f5f5; border-top: 1px solid #eee; color: #555; padding: 5px 10px 6px; }
+.profile-page-header                     { font-size: 12px; font-weight: bold; margin-bottom: 20px; background: #f5f5f5; border-top: 1px solid #eee; color: #555; padding: 5px 10px 6px; }
 
-.profile-info-about { padding: 13px 20px 20px; background: #fffcd6; border-radius: 5px; color: #000; font-size: 11px; }
-.profile-info-about h2 { margin-bottom: 5px; }
+.profile-info-note                       { padding: 20px; background: #fffcd6; border-radius: 5px; color: #000; font-size: 11px; border-bottom: 1px solid #E1E8EF; }
+.profile-info-note h2                    { margin-bottom: 5px; }
+.profile-info-note .actions              { margin-bottom: 0; padding-top: 15px; font-size: 12px; line-height: 18px; }
+.profile-info-note .actions a            { color: #184e8a; text-decoration: underline; }
+
+.profile-info-about                      { padding: 20px 0; color: #000; font-size: 11px; border-bottom: 1px solid #E1E8EF; }

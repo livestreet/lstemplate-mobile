@@ -7,44 +7,29 @@
 
 <form action="{router page='admin'}plugins/" method="post" id="form_plugins_list">
 	<table class="table table-plugins">
-		<thead>
-			<tr>
-				<th class="cell-checkbox"><input type="checkbox" name="" onclick="ls.tools.checkAll('form_plugins_checkbox', this, true);" /></th>
-				<th>{$aLang.plugins_plugin_name}</th>
-				<th>{$aLang.plugins_plugin_version}</th>
-				<th>{$aLang.plugins_plugin_author}</th>
-                <th>{$aLang.plugins_plugin_settings}</th>
-				<th></th>
-			</tr>
-		</thead>
-		
 		<tbody>
 			{foreach from=$aPlugins item=aPlugin}
 				<tr {if $aPlugin.is_active}class="active"{/if}>
 					<td class="cell-checkbox"><input type="checkbox" name="plugin_del[{$aPlugin.code}]" class="form_plugins_checkbox" /></td>
 					<td>
-						<h3>{$aPlugin.property->name->data}</h3>
-						{$aPlugin.property->description->data}
-					</td>
-					<td>{$aPlugin.property->version|escape:'html'}</td>
-					<td>
-						{$aPlugin.property->author->data}<br />
-						{$aPlugin.property->homepage}
-					</td>				
-                    <td>
-						{if $aPlugin.property->settings != ""}
-							{if $aPlugin.is_active}
-								<a href="{$aPlugin.property->settings}">{$aLang.plugins_plugin_settings}</a>
-							{else}
-
-							{/if}
+						<h3>{$aPlugin.property->name->data} {$aPlugin.property->version|escape:'html'}</h3>
+						{$aPlugin.property->description->data}<br />
+						
+						<strong>{$aPlugin.property->author->data}</strong> {if $aPlugin.property->homepage != ""}|{/if}
+						
+						{if $aPlugin.property->homepage != ""}
+							{$aPlugin.property->homepage} {if $aPlugin.property->settings != "" && $aPlugin.is_active}|{/if}
+						{/if}
+						
+						{if $aPlugin.property->settings != "" && $aPlugin.is_active}
+							<a href="{$aPlugin.property->settings}">{$aLang.plugins_plugin_settings}</a>
 						{/if}
 					</td>
-					<td>
+					<td class="cell-activate">
 						{if $aPlugin.is_active}
-							<a href="{router page='admin'}plugins/?plugin={$aPlugin.code}&action=deactivate&security_ls_key={$LIVESTREET_SECURITY_KEY}">{$aLang.plugins_plugin_deactivate}</a>
+							<a href="{router page='admin'}plugins/?plugin={$aPlugin.code}&action=deactivate&security_ls_key={$LIVESTREET_SECURITY_KEY}"><i class="icon-blog-join active"></i></a>
 						{else}
-							<a href="{router page='admin'}plugins/?plugin={$aPlugin.code}&action=activate&security_ls_key={$LIVESTREET_SECURITY_KEY}">{$aLang.plugins_plugin_activate}</a>
+							<a href="{router page='admin'}plugins/?plugin={$aPlugin.code}&action=activate&security_ls_key={$LIVESTREET_SECURITY_KEY}"><i class="icon-blog-join"></i></a>
 						{/if}
 					</td>
 				</tr>

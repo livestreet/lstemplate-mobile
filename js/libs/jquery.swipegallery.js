@@ -23,6 +23,7 @@
 			items.width(item_width);
 			container.width(items_count * item_width);
 			inner.height(items.eq(index).find('.sg-item-inner').height());
+			go_to_slide(index);
 		};
 
 		// Update counter
@@ -63,8 +64,12 @@
 			items       = container.find('li');
 			items_count = items.length;
 			
-			resize();
-			update_counter();
+			$(window).load(function () {
+				inner.removeClass('loader');
+				
+				resize();
+				update_counter();
+			});
 
 			// Bind gestures
 			obj.swipe({
@@ -87,10 +92,10 @@
 
 			// Resize
 			$(window).resize(function () {
-				if (index != 0) {
-					index = 0;
-					go_to_slide(index);
-				}
+				// if (index != 0) {
+				// 	index = 0;
+				// 	go_to_slide(index);
+				// }
 				resize();
 			});
 		});

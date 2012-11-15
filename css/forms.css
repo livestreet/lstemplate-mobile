@@ -4,7 +4,7 @@
 
 .input-text {
 	width: 150px;
-	padding: 5px;
+	padding: 7px;
 	border: 1px solid #adb3b9;
 	-webkit-box-shadow: 0 2px 4px rgba(0,0,0,.07) inset; box-shadow: 0 2px 4px rgba(0,0,0,.07) inset;
 	-moz-box-sizing: border-box;
@@ -57,4 +57,4 @@ dl.form-item dd { float: left; width: 300px; }
 /* Валидатор 
 ---------------------------------------------------------------*/
 .validate-error-hide { display: none; }
-.validate-error-show { display: block; color: #f00; font-weight: bold; font-size: 12px; }
+.validate-error-show { display: block; color: #f00; font-size: 12px; }

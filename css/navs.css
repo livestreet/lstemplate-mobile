@@ -21,6 +21,16 @@
 .nav.nav-pills.nav-pills-profile 		{ margin-bottom: 30px; }
 
 
+/* Nav Tabs */
+.nav.nav-tabs                  { margin-bottom: 25px; font-size: 13px; }
+.nav.nav-tabs li               { margin-right: 3px; }
+.nav.nav-tabs li:first-child a { padding-left: 0; }
+.nav.nav-tabs li:last-child a  { padding-right: 0; border: none; }
+.nav.nav-tabs li a             { padding: 0 10px; text-decoration: underline; color: #275ec2; border-right: 1px solid #d4d9dd; }
+.nav.nav-tabs li a:hover       { background: none; }
+.nav.nav-tabs li.active a      { color: #000; background: none; text-decoration: none; }
+
+
 /* Nav Topic Filter */
 .nav.nav-filter 						{ margin-bottom: 1px; }
 .nav.nav-filter li 						{ margin-right: 1px; position: relative; }
@@ -50,6 +60,13 @@
 .nav.nav-profile 				{ margin-bottom: 15px; }
 .nav.nav-profile li 			{ float: none; margin-bottom: 2px; }
 .nav.nav-profile li a 			{ padding: 7px 12px; color: #333; }
+
+
+/* Nav Admin */
+.nav.nav-admin            { margin-bottom: 0; }
+.nav.nav-admin li         { float: none; }
+.nav.nav-admin li a       { padding: 7px 12px 7px 0; }
+.nav.nav-admin li a:hover { background: none; }
 
 
 /* Dropdown */
@@ -101,14 +118,16 @@
 	background: url(../images/icons/arrow.png) no-repeat;
 	color: #ccc;
 }
-.nav-foldable-wrapper .nav-foldable-trigger.active:before { background: url(../images/icons/arrow-active.png) no-repeat; }
-.nav-foldable-wrapper .slide { padding: 5px 0; border: 1px solid #eee; border-top: none; }
-.nav-foldable-wrapper .slide li { padding: 10px 15px; margin: 0; }
-.nav-foldable-wrapper .slide li a { display: block; font-size: 17px; text-decoration: underline; color: #275ec2; }
+.nav-foldable-wrapper .nav-foldable-trigger.active:before        { background: url(../images/icons/arrow-active.png) no-repeat; }
+.nav-foldable-wrapper .nav-foldable-trigger.inactive             { color: #888; }
+.nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary { border-color: #8BD0FF; color: #058be9; }
+.nav-foldable-wrapper .slide                                     { padding: 5px 0; border: 1px solid #eee; border-top: none; }
+.nav-foldable-wrapper .slide li                                  { padding: 10px 15px; margin: 0; }
+.nav-foldable-wrapper .slide li a                                { display: block; font-size: 17px; text-decoration: underline; color: #275ec2; }
 .nav-foldable-wrapper .slide li a:hover,
-.nav-foldable-wrapper .slide li a:active {  }
+.nav-foldable-wrapper .slide li a:active                         {  }
 
-#content .nav-foldable-wrapper { margin: 0 0 4px; }
+#content .nav-foldable-wrapper                                   { margin: 0 0 4px; }
 
 
 

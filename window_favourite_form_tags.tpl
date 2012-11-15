@@ -1,5 +1,5 @@
 {if $oUserCurrent}
-	<div id="favourite-form-tags" class="modal">
+	<div id="favourite-form-tags" class="slide slide-bg-grey">
 		<header class="modal-header">
 			<h3>{$aLang.add_favourite_tags}</h3>
 			<a href="#" class="close jqmClose"></a>

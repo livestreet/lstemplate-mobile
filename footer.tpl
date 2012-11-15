@@ -3,15 +3,30 @@
 
 		
 		<footer id="footer">
-			{*TODO*}
-			<ul class="clearfix">
-				<li><a href="#">Полная версия</a></li>
-				<li><a href="#">RSS</a></li>
-				<li><a href="#">Навигация</a></li>
-			</ul>
-
-			<div class="copyright">
-				{hook run='copyright'}
+			{if $oUserCurrent}
+				<ul class="footer-profile-links clearfix">
+					<li><a href="{$oUserCurrent->getUserWebPath()}"><i class="icon-profile-profile"></i></a></li>
+					<li><a href="{router page='talk'}"><i class="icon-profile-messages"></i></a></li>
+					<li><a href="{$oUserCurrent->getUserWebPath()}created/topics/"><i class="icon-profile-submited"></i></a></li>
+					<li><a href="{$oUserCurrent->getUserWebPath()}favourites/topics/"><i class="icon-profile-favourites"></i></a></li>
+					<li><a href="{$oUserCurrent->getUserWebPath()}friends/"><i class="icon-profile-friends"></i></a></li>
+					<li><a href="{$oUserCurrent->getUserWebPath()}stream/"><i class="icon-profile-activity"></i></a></li>
+					<li><a href="{router page='settings'}"><i class="icon-profile-settings"></i></a></li>
+				</ul>
+			{/if}
+			
+			<div class="footer-inner">
+				<ul class="footer-links clearfix">
+					<li><a href="{cfg name='path.root.web'}">{$aLang.desktop_version}</a></li>
+					{if $oUserCurrent && $oUserCurrent->isAdministrator()}
+						<li><a href="{router page='admin'}">{$aLang.admin_header}</a></li>
+					{/if}
+					<li><a href="{$aHtmlRssAlternate.url}">RSS</a></li>
+				</ul>
+				
+				<div class="copyright">
+					{hook run='copyright'}
+				</div>
 			</div>
 			
 			{hook run='footer_end'}

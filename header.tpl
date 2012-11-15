@@ -22,16 +22,6 @@
 	<meta name="MobileOptimized" content="320">
 	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes" name="viewport">
 
-	<!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
-	<!-- For iPhone 4 with high-resolution Retina display: -->
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{cfg name='path.static.skin'}/images/h/apple-touch-icon.png">
-	<!-- For first-generation iPad: -->
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{cfg name='path.static.skin'}/images/m/apple-touch-icon.png">
-	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-	<link rel="apple-touch-icon-precomposed" href="{cfg name='path.static.skin'}/images/l/apple-touch-icon-precomposed.png">
-	<!-- For nokia devices: -->
-	<link rel="shortcut icon" href="{cfg name='path.static.skin'}/images/l/apple-touch-icon.png">
-
 	<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
 	<meta http-equiv="cleartype" content="on">
 
@@ -82,6 +72,7 @@
 		var tinyMCE = false;
 		ls.lang.load({json var = $aLangJs});
 		ls.registry.set('comment_max_tree','{cfg name="module.comment.max_tree"}');
+		ls.lang.load({lang_load name="nav_select_item"});
 	</script>
 	
 	

@@ -18,6 +18,11 @@
 .slide.slide-bg-yellow { background: #FFFDEF; }
 .slide.slide-bg-grey   { background: #f7f7f7; }
 
+.slide.slide-write { font-size: 17px; padding: 15px 20px; }
+.slide.slide-write li {  padding: 7px 0; }
+.slide.slide-write li a { color: #275ec2; border-bottom: 1px solid #beceed; }
+.slide.slide-write li i { margin-right: 5px; }
+
 
 
 /* Голосование 
@@ -63,19 +68,19 @@
 
 .vote-result.voted.voted-up.vote-count-negative:before   { background: url(../images/icons/vote-up-red.png) no-repeat; }
 .vote-result.voted.voted-up.vote-count-positive:before   { background: url(../images/icons/vote-up-green.png) no-repeat; }
-.vote-result.voted.voted-up.vote-count-zero:before       { background: url(../images/icons/vote-up-green.png) no-repeat; }
+.vote-result.voted.voted-up.vote-count-zero:before       { background: url(../images/icons/vote-up-zero.png) no-repeat; }
 
 .vote-result.voted.voted-down.vote-count-negative:before { background: url(../images/icons/vote-down-red.png) no-repeat; }
 .vote-result.voted.voted-down.vote-count-positive:before { background: url(../images/icons/vote-down-green.png) no-repeat; }
-.vote-result.voted.voted-down.vote-count-zero:before     { background: url(../images/icons/vote-down-green.png) no-repeat; }
+.vote-result.voted.voted-down.vote-count-zero:before     { background: url(../images/icons/vote-down-zero.png) no-repeat; }
 
 .vote-result.voted.voted-zero.vote-count-negative:before { background: url(../images/icons/vote-zero.png) no-repeat; }
 .vote-result.voted.voted-zero.vote-count-positive:before { background: url(../images/icons/vote-zero.png) no-repeat; }
-.vote-result.voted.voted-zero.vote-count-zero:before     { background: url(../images/icons/vote-zero.png) no-repeat; }
+.vote-result.voted.voted-zero.vote-count-zero:before     { background: url(../images/icons/vote-zero-active.png) no-repeat; }
 
 .vote-result.vote-count-negative                         { background: #ff6e6e; -webkit-box-shadow: 0 2px 2px #df4040 inset; box-shadow: 0 2px 2px #df4040 inset; color: #f21a09; }
 .vote-result.vote-count-positive                         { background: #95ea61; -webkit-box-shadow: 0 2px 2px #7ac447 inset; box-shadow: 0 2px 2px #7ac447 inset; color: #148c11; }
-.vote-result.vote-count-zero                             { background: #eee; -webkit-box-shadow: 0 2px 2px #ccc inset; box-shadow: 0 2px 2px #ccc inset; color: #333; }
+.vote-result.vote-count-zero                             { background: #f2f5f8; -webkit-box-shadow: 0 2px 2px #ccc inset; box-shadow: 0 2px 2px #ccc inset; color: #96a3b0; }
 
 
 
@@ -279,8 +284,8 @@
 
 /* Разное
 ---------------------------------------------------- */
-.system-message-error 	{ background: #f0c8c8; color: #b22626; padding: 10px 15px; margin-bottom: 15px; }
-.system-message-notice 	{ background: #dafad8; color: #4bb23b; padding: 10px 15px; margin-bottom: 15px; }
+.system-message-error 	{ background: #f0c8c8; color: #b22626; padding: 10px 15px; margin-bottom: 5px; }
+.system-message-notice 	{ background: #dafad8; color: #4bb23b; padding: 10px 15px; margin-bottom: 5px; }
 
 .notice-empty 			{ color: #aaa; }
 

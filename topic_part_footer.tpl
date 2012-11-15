@@ -8,8 +8,8 @@
 	{/if}
 
 	<footer class="topic-footer">
-		{*<ul class="topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
-			<li>{$aLang.topic_tags}:</li>
+		<ul class="topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
+			<li><strong>{$aLang.topic_tags}:</strong></li>
 			
 			{strip}
 				{if $oTopic->getTagsArray()}
@@ -32,7 +32,7 @@
 					</li>
 				{/if}
 			{/strip}
-		</ul>*}
+		</ul>
 
 
 		<ul class="topic-info clearfix">
@@ -78,6 +78,10 @@
 					{/if}
 				</li>
 			{/if}
+			
+			<li class="topic-info-views">
+				<i class="icon-views"></i> {$oTopic->getCountRead()}
+			</li>
 
 			<li class="topic-info-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}" onclick="return ls.favourite.toggle({$oTopic->getId()},'#fav_topic_{$oTopic->getId()}','topic');">
 				<div id="fav_topic_{$oTopic->getId()}" class="favourite icon-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
