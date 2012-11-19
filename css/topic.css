@@ -12,16 +12,17 @@
 	   -moz-box-shadow: 0 0 2px rgba(0,0,0,.3); 
 	        box-shadow: 0 0 2px rgba(0,0,0,.3); 
 }
-.topic:last-child { margin-bottom: 0; }
+.topic:last-child   { margin-bottom: 0; }
 .topic.topic-single { margin-bottom: 35px; }
+
+.topic .topic-url   { margin-bottom: 15px; padding: 0 9px; }
+.topic .topic-url a { text-decoration: underline; color: #22b500; }
 
 /* Header */
 .topic .topic-header							{ padding: 5px 9px 0; margin-bottom: 10px; }
 .topic .topic-header .topic-title 				{ font-size: 19px; line-height: 1.5em; font-weight: 600; margin: 0 0 7px; }
 .topic .topic-header .topic-title a 			{ color: #184e8a; border-bottom: 1px solid #b9cadc; }
-.topic .topic-header .topic-title i 			{ position: relative; top: 7px; cursor: help; }
-.topic .topic-header .topic-url 				{ margin-bottom: 15px; }
-.topic .topic-header .topic-url a 				{ background: #eee; border-radius: 3px; padding: 3px 10px 4px; text-decoration: none; }
+.topic .topic-header .topic-title i 			{ position: relative; top: 6px; cursor: help; margin-left: 3px; }
 
 .topic .topic-header .topic-info 				{ color: #777; }
 .topic .topic-header .topic-info time 			{ margin-right: 15px; }
@@ -108,7 +109,7 @@
 
 /* Topic Photo */
 .topic.topic-type-photoset                                         {  }
-.topic.topic-type-photoset .topic-photo-preview                    { margin: 0 9px 15px; position: relative; margin-bottom: 15px; cursor: pointer; }
+.topic.topic-type-photoset .topic-photo-preview                    { margin: 0 9px 15px; min-height: 100px; background-color: #fafafa; position: relative; margin-bottom: 15px; cursor: pointer; }
 .topic.topic-type-photoset .topic-photo-preview img                { vertical-align: top; width: 100%; }
 .topic.topic-type-photoset .topic-photo-preview .topic-photo-count {
 	cursor: pointer;

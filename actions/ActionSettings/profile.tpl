@@ -4,7 +4,7 @@
 
 {include file='actions/ActionProfile/profile_top.tpl'}
 {include file='menu.settings.tpl'}
-
+<br />
 
 <script type="text/javascript">
 	jQuery(document).ready(function($){
@@ -16,13 +16,13 @@
 
 
 <p id="profile_user_field_template" style="display:none;" class="js-user-field-item">
-	<select name="profile_user_field_type[]" onchange="ls.userfield.changeFormField(this);">
+	<select name="profile_user_field_type[]" class="input-width-full" onchange="ls.userfield.changeFormField(this);">
 	{foreach from=$aUserFieldsContact item=oFieldAll}
 		<option value="{$oFieldAll->getId()}">{$oFieldAll->getTitle()|escape:'html'}</option>
 	{/foreach}
 	</select>
-	<input type="text" name="profile_user_field_value[]" value="" class="input-text input-width-200">
-	<a class="icon-remove" title="{$aLang.user_field_delete}" href="#" onclick="return ls.userfield.removeFormField(this);"></a>
+	<input type="text" name="profile_user_field_value[]" value="" class="input-text input-width-full">
+	<a class="link-dotted" title="{$aLang.user_field_delete}" href="#" onclick="return ls.userfield.removeFormField(this);">{$aLang.user_field_delete}</a>
 </p>
 
 {hook run='settings_profile_begin'}
@@ -39,7 +39,7 @@
 		<dl class="form-item">
 			<dt><label for="profile_name">{$aLang.settings_profile_name}:</label></dt>
 			<dd>
-				<input type="text" name="profile_name" id="profile_name" value="{$oUserCurrent->getProfileName()|escape:'html'}" class="input-text input-width-300">
+				<input type="text" name="profile_name" id="profile_name" value="{$oUserCurrent->getProfileName()|escape:'html'}" class="input-text input-width-full">
 				<small class="note">{$aLang.settings_profile_name_notice}</small>
 			</dd>
 		</dl>
@@ -47,7 +47,7 @@
 		<dl class="form-item">
 			<dt><label for="profile_sex">{$aLang.settings_profile_sex}:</label></dt>
 			<dd>
-				<select name="profile_sex" id="profile_sex" class="input-width-300">
+				<select name="profile_sex" id="profile_sex" class="input-width-full">
 					<option value="man" {if $oUserCurrent->getProfileSex()=='man'}selected{/if}>{$aLang.settings_profile_sex_man}</option>
 					<option value="woman" {if $oUserCurrent->getProfileSex()=='woman'}selected{/if}>{$aLang.settings_profile_sex_woman}</option>
 					<option value="other" {if $oUserCurrent->getProfileSex()=='other'}selected{/if}>{$aLang.settings_profile_sex_other}</option>
@@ -85,7 +85,7 @@
 			<dt><label for="">{$aLang.profile_place}:</label></dt>
 			<dd>
 				<p>
-					<select class="js-geo-country input-width-300" name="geo_country">
+					<select class="js-geo-country input-width-full" name="geo_country">
 						<option value="">{$aLang.geo_select_country}</option>
 						{if $aGeoCountries}
 							{foreach from=$aGeoCountries item=oGeoCountry}
@@ -96,7 +96,7 @@
 				</p>
 
 				<p>
-					<select class="js-geo-region input-width-300" name="geo_region" {if !$oGeoTarget or !$oGeoTarget->getCountryId()}style="display:none;"{/if}>
+					<select class="js-geo-region input-width-full" name="geo_region" {if !$oGeoTarget or !$oGeoTarget->getCountryId()}style="display:none;"{/if}>
 						<option value="">{$aLang.geo_select_region}</option>
 						{if $aGeoRegions}
 							{foreach from=$aGeoRegions item=oGeoRegion}
@@ -107,7 +107,7 @@
 				</p>
 
 				
-				<select class="js-geo-city input-width-300" name="geo_city" {if !$oGeoTarget or !$oGeoTarget->getRegionId()}style="display:none;"{/if}>
+				<select class="js-geo-city input-width-full" name="geo_city" {if !$oGeoTarget or !$oGeoTarget->getRegionId()}style="display:none;"{/if}>
 					<option value="">{$aLang.geo_select_city}</option>
 					{if $aGeoCities}
 						{foreach from=$aGeoCities item=oGeoCity}
@@ -120,7 +120,7 @@
 		
 		<dl class="form-item">
 			<dt><label for="profile_about">{$aLang.settings_profile_about}:</label></dt>
-			<dd><textarea name="profile_about" id="profile_about" class="input-text input-width-300" rows="5">{$oUserCurrent->getProfileAbout()|escape:'html'}</textarea></dd>
+			<dd><textarea name="profile_about" id="profile_about" class="input-text input-width-full" rows="5">{$oUserCurrent->getProfileAbout()|escape:'html'}</textarea></dd>
 		</dl>
 
 		{assign var="aUserFieldValues" value=$oUserCurrent->getUserFieldValues(false,'')}
@@ -128,7 +128,7 @@
 			{foreach from=$aUserFieldValues item=oField}
 				<dl class="form-item">
 					<dt><label for="profile_user_field_{$oField->getId()}">{$oField->getTitle()|escape:'html'}:</label></dt>
-					<dd><input type="text" class="input-text input-width-300" name="profile_user_field_{$oField->getId()}" id="profile_user_field_{$oField->getId()}" value="{$oField->getValue()|escape:'html'}"/></dd>
+					<dd><input type="text" class="input-text input-width-full" name="profile_user_field_{$oField->getId()}" id="profile_user_field_{$oField->getId()}" value="{$oField->getValue()|escape:'html'}"/></dd>
 				</dl>
 			{/foreach}
 		{/if}
@@ -144,18 +144,18 @@
 		<div id="user-field-contact-contener">
 		{foreach from=$aUserFieldContactValues item=oField}
 			<p class="js-user-field-item">
-				<select name="profile_user_field_type[]"  onchange="ls.userfield.changeFormField(this);">
+				<select name="profile_user_field_type[]" class="input-width-full"  onchange="ls.userfield.changeFormField(this);">
 				{foreach from=$aUserFieldsContact item=oFieldAll}
 					<option value="{$oFieldAll->getId()}" {if $oFieldAll->getId()==$oField->getId()}selected="selected"{/if}>{$oFieldAll->getTitle()|escape:'html'}</option>
 				{/foreach}
 				</select>
-				<input type="text" name="profile_user_field_value[]" value="{$oField->getValue()|escape:'html'}" class="input-text input-width-200">
-				<a class="icon-remove" title="{$aLang.user_field_delete}" href="#" onclick="return ls.userfield.removeFormField(this);"></a>
+				<input type="text" name="profile_user_field_value[]" value="{$oField->getValue()|escape:'html'}" class="input-text input-width-full">
+				<a title="{$aLang.user_field_delete}" href="#" class="link-dotted" onclick="return ls.userfield.removeFormField(this);">{$aLang.user_field_delete}</a>
 			</p>
 		{/foreach}
 		</div>
 		{if $aUserFieldsContact}
-			<a href="#" onclick="return ls.userfield.addFormField();">{$aLang.user_field_add}</a>
+			<a href="#" class="button" onclick="return ls.userfield.addFormField();">{$aLang.user_field_add}</a>
 		{/if}
 	</fieldset>
 
@@ -169,26 +169,60 @@
 	</script>
 
 
-	<div class="avatar-change">
-		<img src="{$oUserCurrent->getProfileAvatarPath(100)}" id="avatar-img" />
+	<fieldset>
+		<legend>{$aLang.settings_profile_photo_upload}</legend>
+	
+		<div class="avatar-change">
+			<img src="{$oUserCurrent->getProfileAvatarPath(100)}" id="avatar-img" />
 
-		<div>
-			<a href="#" id="avatar-upload" class="link-dotted">{if $oUserCurrent->getProfileAvatar()}{$aLang.settings_profile_avatar_change}{else}{$aLang.settings_profile_avatar_upload}{/if}</a><br />
-			<a href="#" id="avatar-remove" class="link-dotted" onclick="return ls.user.removeAvatar();" style="{if !$oUserCurrent->getProfileAvatar()}display:none;{/if}">{$aLang.settings_profile_avatar_delete}</a>
-		</div>
-		
-		<div id="avatar-resize" class="modal">
-			<header class="modal-header">
-				<h3>{$aLang.uploadimg}</h3>
-			</header>
+			<div>
+				<a href="#" id="avatar-upload" class="link-dotted">{if $oUserCurrent->getProfileAvatar()}{$aLang.settings_profile_avatar_change}{else}{$aLang.settings_profile_avatar_upload}{/if}</a>
+				<a href="#" id="avatar-remove" class="link-dotted" onclick="return ls.user.removeAvatar();" style="{if !$oUserCurrent->getProfileAvatar()}display:none;{/if}">{$aLang.settings_profile_avatar_delete}</a>
+			</div>
 			
-			<div class="modal-content">
-				<p><img src="" alt="" id="avatar-resize-original-img"></p>
-				<button type="submit" class="button button-primary" onclick="return ls.user.resizeAvatar();">{$aLang.settings_profile_avatar_resize_apply}</button>
-				<button type="submit" class="button" onclick="return ls.user.cancelAvatar();">{$aLang.settings_profile_avatar_resize_cancel}</button>
+			<div id="avatar-resize" class="slide">
+				<header class="modal-header">
+					<h3>{$aLang.uploadimg}</h3>
+				</header>
+				
+				<div class="modal-content">
+					<p><img src="" alt="" id="avatar-resize-original-img"></p>
+					<button type="submit" class="button button-primary" onclick="return ls.user.resizeAvatar();">{$aLang.settings_profile_avatar_resize_apply}</button>
+					<button type="submit" class="button" onclick="return ls.user.cancelAvatar();">{$aLang.settings_profile_avatar_resize_cancel}</button>
+				</div>
 			</div>
 		</div>
-	</div>
+		
+			
+		<div class="avatar-change">
+			<img src="{$oUserCurrent->getProfileFotoPath()}" alt="photo" class="profile-photo" id="foto-img" />
+		
+			<script type="text/javascript">
+				jQuery(function($){
+					$('#foto-upload').file({ name:'foto' }).choose(function(e, input) {
+						ls.user.uploadFoto(null,input);
+					});
+				});
+			</script>
+			
+			<p class="upload-photo">
+				<a href="#" id="foto-upload" class="link-dotted">{if $oUserCurrent->getProfileFoto()}{$aLang.settings_profile_photo_change}{else}{$aLang.settings_profile_photo_upload}{/if}</a>&nbsp;&nbsp;&nbsp;
+				<a href="#" id="foto-remove" class="link-dotted" onclick="return ls.user.removeFoto();" style="{if !$oUserCurrent->getProfileFoto()}display:none;{/if}">{$aLang.settings_profile_foto_delete}</a>
+			</p>
+
+			<div class="slide slide-bg-grey" id="foto-resize">
+				<header class="modal-header">
+					<h3>{$aLang.uploadimg}</h3>
+				</header>
+				
+				<div class="modal-content">
+					<img src="" alt="" id="foto-resize-original-img"><br />
+					<button type="submit" class="button button-primary" onclick="return ls.user.resizeFoto();">{$aLang.settings_profile_avatar_resize_apply}</button>
+					<button type="submit" class="button" onclick="return ls.user.cancelFoto();">{$aLang.settings_profile_avatar_resize_cancel}</button>
+				</div>
+			</div>
+		</div>
+	</fieldset>
 
 	
 	{hook run='form_settings_profile_end'}

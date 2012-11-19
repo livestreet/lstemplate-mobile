@@ -3,7 +3,7 @@
 	
 	<a href="{$oUserProfile->getUserWebPath()}"><img src="{$oUserProfile->getProfileAvatarPath(64)}" alt="avatar" class="avatar" itemprop="photo" /></a>
 	
-
+	{if $oUserProfile->isOnline()}<div class="status {if $oUserProfile->isOnline()}status-online{else}status-offline{/if}"></div>{/if}
 
 	<div class="user-profile-rating-wrapper">
 		<span class="user-profile-rating"><i class="icon-rating"></i> {$oUserProfile->getRating()}</span>

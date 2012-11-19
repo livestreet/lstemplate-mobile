@@ -23,6 +23,8 @@
 .slide.slide-write li a { color: #275ec2; border-bottom: 1px solid #beceed; }
 .slide.slide-write li i { margin-right: 5px; }
 
+.slide header h3 { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
+
 
 
 /* Голосование 
@@ -250,8 +252,8 @@
 
 /* Хелперы
 ---------------------------------------------------- */
-.mt-10 { margin-bottom: 10px !important; }
-.mt-20 { margin-bottom: 20px !important; }
+.mt-10 { margin-top: 10px !important; }
+.mt-20 { margin-top: 20px !important; }
 
 .mb-10 { margin-bottom: 10px !important; }
 .mb-15 { margin-bottom: 15px !important; }

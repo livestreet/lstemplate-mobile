@@ -11,7 +11,7 @@
 				{foreach from=$aPhotos item=oPhoto name=photos}
 					<li {if $iMainPhotoId == $oPhoto->getId()}class="sg-item-cover"{/if}>
 						<div class="sg-item-inner">
-							<img src="{$oPhoto->getWebPath(1000)}" alt="{$oPhoto->getDescription()}" />
+							<img src="" data-original="{$oPhoto->getWebPath(1000)}" alt="{$oPhoto->getDescription()}" />
 							{if $oPhoto->getDescription()}<div class="sg-item-desc">{$oPhoto->getDescription()}</div>{/if}
 						</div>
 					</li>

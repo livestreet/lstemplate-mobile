@@ -111,6 +111,11 @@
 {/if}
 
 
+<div class="profile-info-photo">
+	<a href="{$oUserProfile->getUserWebPath()}"><img src="{$oUserProfile->getProfileFotoPath()}" alt="photo" class="profile-photo" id="foto-img" /></a>
+</div>
+
+
 {assign var="aUserFieldContactValues" value=$oUserProfile->getUserFieldValues(true,array('contact'))}
 {if $aUserFieldContactValues}
 	<div class="table-profile-info-wrapper">

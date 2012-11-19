@@ -2,7 +2,7 @@
 {include file='header.tpl'}
 
 {include file='actions/ActionProfile/profile_top.tpl'}
-
+<br />
 
 {if count($aStreamEvents)}
 	<ul class="stream-list" id="stream-list">

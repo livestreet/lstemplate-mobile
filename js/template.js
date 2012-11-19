@@ -72,6 +72,164 @@ jQuery(document).ready(function($){
 
 	$('.swipegallery').swipegallery();
 
+
+
+	// Photo
+	ls.user.showResizeAvatar = function(sImgFile) {
+		if (this.jcropAvatar) {
+			this.jcropAvatar.destroy();
+		}
+		$('#avatar-resize-original-img').attr('src',sImgFile+'?'+Math.random());
+		$('#avatar-resize').show();
+		var $this=this;
+		$('#avatar-resize-original-img').Jcrop({
+			aspectRatio: 1,
+			minSize: [32,32]
+		},function(){
+			$this.jcropAvatar=this;
+			this.setSelect([0,0,500,500]);
+		});
+	};
+
+	/**
+	 * Выполняет ресайз аватарки
+	 */
+	ls.user.resizeAvatar = function() {
+		if (!this.jcropAvatar) {
+			return false;
+		}
+		var url = aRouter.settings+'profile/resize-avatar/';
+		var params = {size: this.jcropAvatar.tellSelect()};
+
+		ls.hook.marker('resizeAvatarBefore');
+		ls.ajax(url, params, function(result) {
+			if (result.bStateError) {
+				ls.msg.error(null,result.sMsg);
+			} else {
+				$('#avatar-img').attr('src',result.sFile+'?'+Math.random());
+				$('#avatar-resize').hide();
+				$('#avatar-remove').show();
+				$('#avatar-upload').text(result.sTitleUpload);
+				ls.hook.run('ls_user_resize_avatar_after', [params, result]);
+			}
+		});
+
+		return false;
+	};
+	/**
+	 * Отмена ресайза аватарки, подчищаем временный данные
+	 */
+	ls.user.cancelAvatar = function() {
+		var url = aRouter.settings+'profile/cancel-avatar/';
+		var params = {};
+
+		ls.hook.marker('cancelAvatarBefore');
+		ls.ajax(url, params, function(result) {
+			if (result.bStateError) {
+				ls.msg.error(null,result.sMsg);
+			} else {
+				$('#avatar-resize').hide();
+				ls.hook.run('ls_user_cancel_avatar_after', [params, result]);
+			}
+		});
+
+		return false;
+	};
+	/**
+	 * Загрузка временной фотки
+	 * @param form
+	 * @param input
+	 */
+	ls.user.uploadFoto = function(form,input) {
+		if (!form && input) {
+			var form = $('<form method="post" enctype="multipart/form-data"></form>').css({
+				'display': 'none'
+			}).appendTo('body');
+			var clone=input.clone(true);
+			input.hide();
+			clone.insertAfter(input);
+			input.appendTo(form);
+		}
+
+		ls.ajaxSubmit(aRouter['settings']+'profile/upload-foto/',form,function(data){
+			if (data.bStateError) {
+				ls.msg.error(data.sMsgTitle,data.sMsg);
+			} else {
+				this.showResizeFoto(data.sTmpFile);
+			}
+		}.bind(this));
+	};
+
+	/**
+	 * Показывает форму для ресайза фотки
+	 * @param sImgFile
+	 */
+	ls.user.showResizeFoto = function(sImgFile) {
+		if (this.jcropFoto) {
+			this.jcropFoto.destroy();
+		}
+		$('#foto-resize-original-img').attr('src',sImgFile+'?'+Math.random());
+		$('#foto-resize').show();
+		var $this=this;
+		$('#foto-resize-original-img').Jcrop({
+			minSize: [32,32]
+		},function(){
+			$this.jcropFoto=this;
+			this.setSelect([0,0,500,500]);
+		});
+	};
+	/**
+	 * Выполняет ресайз фотки
+	 */
+	ls.user.resizeFoto = function() {
+		if (!this.jcropFoto) {
+			return false;
+		}
+		var url = aRouter.settings+'profile/resize-foto/';
+		var params = {size: this.jcropFoto.tellSelect()};
+
+		ls.hook.marker('resizeFotoBefore');
+		ls.ajax(url, params, function(result) {
+			if (result.bStateError) {
+				ls.msg.error(null,result.sMsg);
+			} else {
+				$('#foto-img').attr('src',result.sFile+'?'+Math.random());
+				$('#foto-resize').hide();
+				$('#foto-remove').show();
+				$('#foto-upload').text(result.sTitleUpload);
+				ls.hook.run('ls_user_resize_foto_after', [params, result]);
+			}
+		});
+
+		return false;
+	};
+
+
+	/**
+	 * Отмена ресайза фотки, подчищаем временный данные
+	 */
+	ls.user.cancelFoto = function() {
+		var url = aRouter.settings+'profile/cancel-foto/';
+		var params = {};
+
+		ls.hook.marker('cancelFotoBefore');
+		ls.ajax(url, params, function(result) {
+			if (result.bStateError) {
+				ls.msg.error(null,result.sMsg);
+			} else {
+				$('#foto-resize').hide();
+				ls.hook.run('ls_user_cancel_foto_after', [params, result]);
+			}
+		});
+
+		return false;
+	};
+
+
+
+
+
+
 	// Vote
 	ls.vote.onVote = function(idTarget, objVote, value, type, result) {
 		if (result.bStateError) {
@@ -192,6 +350,77 @@ jQuery(document).ready(function($){
 	};
 
 
+	ls.userfield.showAddForm = function(obj){
+		$('#userfield_form').insertAfter($(obj));
+		$('#user_fields_form_name').val('');
+		$('#user_fields_form_title').val('');
+		$('#user_fields_form_id').val('');
+		$('#user_fields_form_pattern').val('');
+		$('#user_fields_form_type').val('');
+		$('#user_fields_form_action').val('add');
+		$('#userfield_form').slideDown(); 
+	};
+	
+	ls.userfield.showEditForm = function(id, obj) {
+		console.log($(obj));
+		$('#userfield_form').insertAfter($(obj).parent().parent());
+		$('#user_fields_form_action').val('update');
+		var name = $('#field_'+id+' .userfield_admin_name').text();
+		var title = $('#field_'+id+' .userfield_admin_title').text();
+		var pattern = $('#field_'+id+' .userfield_admin_pattern').text();
+		var type = $('#field_'+id+' .userfield_admin_type').text();
+		$('#user_fields_form_name').val(name);
+		$('#user_fields_form_title').val(title);
+		$('#user_fields_form_pattern').val(pattern);
+		$('#user_fields_form_type').val(type);
+		$('#user_fields_form_id').val(id);
+		$('#userfield_form').slideDown(); 
+	};
+
+	ls.userfield.applyForm = function(){
+		$('#userfield_form').slideDown(); 
+		if ($('#user_fields_form_action').val() == 'add') {
+			this.addUserfield();
+		} else if ($('#user_fields_form_action').val() == 'update')  {
+			this.updateUserfield();
+		}
+	};
+
+	ls.userfield.hideForm = function(){
+		$('#userfield_form').slideUp();
+		return false;
+	};
+
+	ls.userfield.addUserfield = function() {
+		var name = $('#user_fields_form_name').val();
+		var title = $('#user_fields_form_title').val();
+		var pattern = $('#user_fields_form_pattern').val();
+		var type = $('#user_fields_form_type').val();
+
+		var url = aRouter['admin']+'userfields';
+		var params = {'action':'add', 'name':name,  'title':title,  'pattern':pattern,  'type':type};
+		
+		ls.hook.marker('addUserfieldBefore');
+		ls.ajax(url, params, function(data) { 
+			if (!data.bStateError) {
+				liElement = $('<div class="userfield-item" id="field_'+data.id+'"><span class="userfield_admin_name"></span > / <span class="userfield_admin_title"></span> / <span class="userfield_admin_pattern"></span> / <span class="userfield_admin_type"></span>'
+					+'<div class="userfield-actions"><a class="icon-edit" href="javascript:ls.userfield.showEditForm('+data.id+')"></a> '
+					+'<a class="icon-delete" href="javascript:ls.userfield.deleteUserfield('+data.id+')"></a></div>')
+				;
+				$('#user_field_list').append(liElement);
+				$('#field_'+data.id+' .userfield_admin_name').text(name);
+				$('#field_'+data.id+' .userfield_admin_title').text(title);
+				$('#field_'+data.id+' .userfield_admin_pattern').text(pattern);
+				$('#field_'+data.id+' .userfield_admin_type').text(type);
+				ls.msg.notice(data.sMsgTitle,data.sMsg);
+				ls.hook.run('ls_userfield_add_userfield_after',[params, data],liElement);
+			} else {
+				ls.msg.error(data.sMsgTitle,data.sMsg);
+			}
+		});
+	};
+
+
 	ls.msg = (function ($) {
 		/**
 		* Опции
@@ -229,7 +458,7 @@ jQuery(document).ready(function($){
 
 	$('.js-registration-form-show').click(function(){
 		if (ls.blocks.switchTab('registration','popup-login')) {
-			$('#window_login_form').jqmShow();
+			$('#window_login_form').show();
 		} else {
 			window.location=aRouter.registration;
 		}
@@ -238,7 +467,7 @@ jQuery(document).ready(function($){
 
 	$('.js-login-form-show').click(function(){
 		if (ls.blocks.switchTab('login','popup-login')) {
-			$('#window_login_form').jqmShow();
+			$('#window_login_form').show();
 		} else {
 			window.location=aRouter.login;
 		}

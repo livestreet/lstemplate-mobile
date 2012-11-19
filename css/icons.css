@@ -53,6 +53,8 @@
 .icon-userbar          { width: 44px; height: 44px; background: url(../images/icons/userbar.png) no-repeat; }
 .icon-userbar.active   { width: 44px; height: 44px; background: url(../images/icons/userbar-active.png) no-repeat; }
 .icon-views            { width: 20px; height: 16px; background: url(../images/icons/views.png) no-repeat; }
+.icon-edit             { width: 30px; height: 30px; background: #eee url(../images/icons/edit.png) no-repeat; }
+.icon-delete           { width: 30px; height: 30px; background: #eee url(../images/icons/delete.png) no-repeat; }
 
 .icon-profile-submit-white     { width: 16px; height: 16px; background: url(../images/icons/profile-submit-white.png) no-repeat; }
 .icon-profile-activity-white   { width: 16px; height: 16px; background: url(../images/icons/profile-activity-white.png) no-repeat; }
@@ -77,6 +79,10 @@
 .icon-submit-blog        { width: 25px; height: 25px; background: url(../images/icons/submit-blog.png) no-repeat; }
 .icon-submit-message     { width: 25px; height: 25px; background: url(../images/icons/submit-message.png) no-repeat; }
 .icon-submit-draft       { width: 25px; height: 25px; background: url(../images/icons/submit-draft.png) no-repeat; }
+
+.icon-topic-private      { width: 17px; height: 17px; background: url(../images/icons/topic-private.png) no-repeat; }
+.icon-topic-link         { width: 17px; height: 17px; background: url(../images/icons/topic-link.png) no-repeat; }
+.icon-topic-draft        { width: 17px; height: 17px; background: url(../images/icons/topic-draft.png) no-repeat; }
 
 .icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
 .icon-contact-default		{ background-position: 0 0; } 

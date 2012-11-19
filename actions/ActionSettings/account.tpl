@@ -3,7 +3,7 @@
 
 {include file='actions/ActionProfile/profile_top.tpl'}
 {include file='menu.settings.tpl'}
-
+<br />
 
 {hook run='settings_account_begin'}
 
@@ -19,7 +19,7 @@
 		<dl class="form-item">
 			<dt><label for="mail">{$aLang.settings_profile_mail}:</label></dt>
 			<dd>	
-				<input type="email" name="mail" id="mail" value="{$oUserCurrent->getMail()|escape:'html'}" class="input-text input-width-300" required />
+				<input type="email" name="mail" id="mail" value="{$oUserCurrent->getMail()|escape:'html'}" class="input-text input-width-full" required />
 				<small class="note">{$aLang.settings_profile_mail_notice}</small>
 			</dd>
 		</dl>
@@ -33,17 +33,17 @@
 			
 		<dl class="form-item">
 			<dt><label for="password_now">{$aLang.settings_profile_password_current}:</label></dt>
-			<dd><input type="password" name="password_now" id="password_now" value="" class="input-text input-width-200" /></dd>
+			<dd><input type="password" name="password_now" id="password_now" value="" class="input-text input-width-full" /></dd>
 		</dl>
 		
 		<dl class="form-item">
 			<dt><label for="password">{$aLang.settings_profile_password_new}:</label></dt>
-			<dd><input type="password" id="password" name="password" value="" class="input-text input-width-200" /></dd>
+			<dd><input type="password" id="password" name="password" value="" class="input-text input-width-full" /></dd>
 		</dl>
 		
 		<dl class="form-item">
 			<dt><label for="password_confirm">{$aLang.settings_profile_password_confirm}:</label></dt>
-			<dd><input type="password" id="password_confirm" name="password_confirm" value="" class="input-text input-width-200" /></dd>
+			<dd><input type="password" id="password_confirm" name="password_confirm" value="" class="input-text input-width-full" /></dd>
 		</dl>
 	</fieldset>
 	

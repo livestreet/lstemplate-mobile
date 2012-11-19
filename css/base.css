@@ -28,7 +28,7 @@ a.link-dotted:hover { border-color: #06e; }
 
 /* Заголовки
 ---------------------------------------------------- */
-h2.page-header { color: #333; font-size: 15px; line-height: 1em; font-weight: bold; margin-bottom: 20px; }
+h2.page-header { color: #333; font-size: 17px; line-height: 1em; font-weight: 600; margin-bottom: 20px; }
 h2.page-header span { color: #aaa; }
 
 h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
@@ -47,7 +47,20 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 	z-index: 0;
 }
 #header a            { text-decoration: none; }
-#header .site-name   { font-size: 22px; text-transform: lowercase; position: absolute; top: 5px; left: 10px; }
+#header .site-name   { height: 44px; font-size: 22px; line-height: 43px; overflow: hidden; position: relative; margin-left: 10px; margin-right: 88px; }
+#header .site-name:before {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 24px;
+	height: 44px;
+	background-image: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(#1C2135));
+	background-image: -webkit-linear-gradient(left, transparent, #1C2135);
+	background-image: -moz-linear-gradient(left, transparent, #1C2135);
+	background-image: -o-linear-gradient(left, transparent, #1C2135);
+	background-image: linear-gradient(left, transparent, #1C2135);
+}
 #header .site-name a { color: #fff; }
 
 #header .userbar-trigger { display: none; position: absolute; top: 0; left: 0; width: 44px; height: 44px; cursor: pointer; z-index: 100; }
@@ -66,7 +79,7 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 #header .nav-userbar li.item-submit.active { background-image: url(../images/icons/submit-active.png); }
 #header .nav-userbar li.item-messages      { background-image: url(../images/icons/messages.png); background-repeat: no-repeat; }
 
-.ls-user-role-user #header .site-name       { left: 54px; }
+.ls-user-role-user #header .site-name       { margin-left: 54px; }
 .ls-user-role-user #header .userbar-trigger { display: block; }
 
 
@@ -105,7 +118,15 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 	text-align: center;
 	vertical-align: middle;
 }
-
+#userbar ul li.userbar-item-messages .userbar-item-messages-number {
+	position: absolute;
+	top: 10px; right: 11px;
+	color: #fff;
+	border: 2px solid #d8b124;
+	font: normal 12px/1em Verdana, Arial, sans-serif;
+	padding: 2px 6px 3px;
+	border-radius: 10px;
+}
 
 
 
@@ -172,13 +193,14 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 
 /* Userfields
 ---------------------------------------------------- */
-.userfield-list                          { width: 450px; }
-.userfield-list li                       { background: #eee; margin-bottom: 1px; padding: 10px 10px; overflow: hidden; zoom: 1; line-height: 12px; color: #777; }
-.userfield-list li .userfield-actions    { float: right; }
-.userfield-list li .userfield_admin_name { font-weight: bold; color: #333; }
+.userfield-list                                       {  }
+.userfield-list .userfield-item                       { position: relative; background: #f7f7f7; margin-bottom: 1px; padding: 11px 100px 11px 10px; overflow: hidden; zoom: 1; color: #777; }
+.userfield-list .userfield-item .userfield-actions    { position: absolute; right: 5px; top: 5px; }
+.userfield-list .userfield-item .userfield-actions a  { margin-left: 7px; }
+.userfield-list .userfield-item .userfield_admin_name { font-weight: bold; color: #333; }
 
-.userfield-add                           { text-decoration: none; border-bottom: 1px dashed #70AAE0; }
-.userfield-add:hover                     { color: #333; border-color: #333; }
+.userfield-add                                        { text-decoration: none; border-bottom: 1px dashed #70AAE0; }
+.userfield-add:hover                                  { color: #333; border-color: #333; }
 
 
 
@@ -204,10 +226,11 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 .swipegallery                     { margin: 0 9px 15px; overflow: hidden; }
 .swipegallery .sg-inner,
 .swipegallery .sg-item-inner      { overflow: hidden; }
-.swipegallery .sg-inner.loader    { height: 200px; background: #fafafa url(../images/loader.gif) 50% 50% no-repeat; }
+.swipegallery .sg-inner.loader    { height: 200px !important; background: #fafafa url(../images/loader.gif) 50% 50% no-repeat; }
 .swipegallery .sg-inner.loader ul { display: none; }
 .swipegallery li                  { display: table-cell; vertical-align: top; }
 .swipegallery img                 { width: 100%; vertical-align: top; margin-bottom: 6px; }
+.swipegallery li:first-child img  { }
 .swipegallery .sg-item-desc       { background: #f6f8fa; font-size: 11px; padding: 10px 15px; border-bottom: 1px solid #dde5ed; }
 
 .swipegallery .sg-nav             {

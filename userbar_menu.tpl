@@ -2,7 +2,7 @@
 	<div class="userbar-menu-inner" id="userbar-inner">
 		<div class="userbar-menu-user">
 			<a href="{$oUserCurrent->getUserWebPath()}"><img src="{$oUserCurrent->getProfileAvatarPath(48)}" alt="avatar" class="avatar" /></a>
-			<h3 class="login"><a href="#">{$oUserCurrent->getLogin()}</a></h3>
+			<h3 class="login"><a href="{$oUserCurrent->getUserWebPath()}">{$oUserCurrent->getLogin()}</a></h3>
 		</div>
 
 		<div class="userbar-menu-rating-wrapper">
@@ -11,10 +11,16 @@
 		</div>
 
 		<ul class="">
-			{* {hook run='profile_sidebar_menu_item_first' oUserProfile=$oUserProfile} *}
+			{hook run='profile_sidebar_menu_item_first' oUserProfile=$oUserProfile}
 
 			<li {if $sAction=='profile' && ($aParams[0]=='whois' or $aParams[0]=='')}class="active"{/if}>
 				<a href="{router page='topic'}add"><div class="holder"><i class="icon-profile-submit-white"></i></div>{$aLang.block_create}</a>
+			</li>
+			<li class="userbar-item-messages {if $sAction=='talk'}active{/if}">
+				<a href="{router page='talk'}"><div class="holder"><i class="icon-profile-messages-white"></i></div>{$aLang.talk_menu_inbox}</a>
+				{if $iUserCurrentCountTalkNew} 
+					<a href="#" class="userbar-item-messages-number">+{$iUserCurrentCountTalkNew}</a>
+				{/if}
 			</li>
 			<li {if $sAction=='profile' && ($aParams[0]=='whois' or $aParams[0]=='')}class="active"{/if}>
 				<a href="{$oUserCurrent->getUserWebPath()}"><div class="holder"><i class="icon-profile-profile-white"></i></div>{$aLang.user_menu_profile_whois}</a>
@@ -34,14 +40,11 @@
 			<li {if $sAction=='profile' && $aParams[0]=='stream'}class="active"{/if}>
 				<a href="{$oUserCurrent->getUserWebPath()}stream/"><div class="holder"><i class="icon-profile-activity-white"></i></div>{$aLang.user_menu_profile_stream}</a>
 			</li>
-			<li {if $sAction=='talk'}class="active"{/if}>
-				<a href="{router page='talk'}"><div class="holder"><i class="icon-profile-messages-white"></i></div>{$aLang.talk_menu_inbox}{if $iUserCurrentCountTalkNew} ({$iUserCurrentCountTalkNew}){/if}</a>
-			</li>
 			<li {if $sAction=='settings'}class="active"{/if}>
 				<a href="{router page='settings'}"><div class="holder"><i class="icon-profile-settings-white"></i></div>{$aLang.settings_menu}</a>
 			</li>
 
-			{* {hook run='profile_sidebar_menu_item_last' oUserProfile=$oUserProfile} *}
+			{hook run='profile_sidebar_menu_item_last' oUserProfile=$oUserProfile}
 
 			<li><a href="{router page='login'}exit/?security_ls_key={$LIVESTREET_SECURITY_KEY}">{$aLang.exit}</a></li>
 		</ul>

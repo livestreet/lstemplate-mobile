@@ -13,20 +13,13 @@
 			{/if}
 
 			{if $oTopic->getPublish() == 0}   
-				<i class="icon-tag" title="{$aLang.topic_unpublish}"></i>
+				<i class="icon-topic-draft" title="{$aLang.topic_unpublish}"></i>
 			{/if}
 			
 			{if $oTopic->getType() == 'link'} 
-				<i class="icon-share-alt" title="{$aLang.topic_link}"></i>
+				<i class="icon-topic-link" title="{$aLang.topic_link}"></i>
 			{/if}
 		</h1>
-		
-		
-		{if $oTopic->getType() == 'link'}
-			<div class="topic-url">
-				<a href="{router page='link'}go/{$oTopic->getId()}/" title="{$aLang.topic_link_count_jump}: {$oTopic->getLinkCountJump()}">{$oTopic->getLinkUrl()}</a>
-			</div>
-		{/if}
 		
 		
 		<div class="topic-info">

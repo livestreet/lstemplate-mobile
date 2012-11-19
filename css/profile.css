@@ -5,6 +5,15 @@
 .profile                                 { min-height: 48px; margin-bottom: 0; padding: 0 0 20px 72px; position: relative; }
 
 .profile .avatar                         { position: absolute; top: 0; left: 0; width: 60px; height: 60px; }
+.profile .status                         {
+	position: absolute;
+	top: 3px;
+	left: 50px;
+	width: 7px;
+	height: 7px;
+	border-radius: 100%;
+	background: #53DE2E;
+}
 
 .vote.vote-blog                          { margin: 0 0 15px; }
 .vote.vote-blog .vote-item               { float: right; margin-right: 0; margin-left: 15px; }
@@ -31,3 +40,6 @@
 .profile-info-note .actions a            { color: #184e8a; text-decoration: underline; }
 
 .profile-info-about                      { padding: 20px 0; color: #000; font-size: 11px; border-bottom: 1px solid #E1E8EF; }
+
+.profile-info-photo                      { text-align: center; border-bottom: 1px solid #E1E8EF; }
+.profile-info-photo img { vertical-align: top; max-width: 100%; }

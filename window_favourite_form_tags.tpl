@@ -1,11 +1,5 @@
 {if $oUserCurrent}
 	<div id="favourite-form-tags" class="slide slide-bg-grey">
-		<header class="modal-header">
-			<h3>{$aLang.add_favourite_tags}</h3>
-			<a href="#" class="close jqmClose"></a>
-		</header>
-		
-		
 		<form onsubmit="return ls.favourite.saveTags(this);" class="modal-content">
 			<input type="hidden" name="target_type" value="" id="favourite-form-tags-target-type">
 			<input type="hidden" name="target_id" value="" id="favourite-form-tags-target-id">

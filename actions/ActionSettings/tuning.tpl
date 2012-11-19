@@ -4,7 +4,7 @@
 
 {include file='actions/ActionProfile/profile_top.tpl'}
 {include file='menu.settings.tpl'}
-
+<br />
 
 {hook run='settings_tuning_begin'}
 
@@ -26,13 +26,12 @@
 	<fieldset>
 		<legend>{$aLang.settings_tuning_general}</legend>
 
-		<label>{$aLang.settings_tuning_general_timezone}:
-			<select name="settings_general_timezone" class="input-width-400">
-			{foreach from=$aTimezoneList item=sTimezone}
-				<option value="{$sTimezone}" {if $_aRequest.settings_general_timezone==$sTimezone}selected="selected"{/if}>{$aLang.timezone_list[$sTimezone]}</option>
-			{/foreach}
-			</select>
-		</label>
+		<label>{$aLang.settings_tuning_general_timezone}:</label>
+		<select name="settings_general_timezone" class="input-width-full">
+		{foreach from=$aTimezoneList item=sTimezone}
+			<option value="{$sTimezone}" {if $_aRequest.settings_general_timezone==$sTimezone}selected="selected"{/if}>{$aLang.timezone_list[$sTimezone]}</option>
+		{/foreach}
+		</select>
 	</fieldset>
 	
 	{hook run='form_settings_tuning_end'}

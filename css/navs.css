@@ -121,6 +121,8 @@
 .nav-foldable-wrapper .nav-foldable-trigger.active:before        { background: url(../images/icons/arrow-active.png) no-repeat; }
 .nav-foldable-wrapper .nav-foldable-trigger.inactive             { color: #888; }
 .nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary { border-color: #8BD0FF; color: #058be9; }
+.nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary:before { background: url(../images/icons/arrow-blue.png) no-repeat; opacity: .5; }
+.nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary.active:before { background: url(../images/icons/arrow-blue-active.png) no-repeat; }
 .nav-foldable-wrapper .slide                                     { padding: 5px 0; border: 1px solid #eee; border-top: none; }
 .nav-foldable-wrapper .slide li                                  { padding: 10px 15px; margin: 0; }
 .nav-foldable-wrapper .slide li a                                { display: block; font-size: 17px; text-decoration: underline; color: #275ec2; }

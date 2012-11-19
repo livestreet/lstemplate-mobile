@@ -4,7 +4,7 @@
 
 {include file='actions/ActionProfile/profile_top.tpl'}
 {include file='menu.settings.tpl'}
-
+<br />
 
 <small class="note note-header input-width-400">{$aLang.settings_invite_notice} "{$aLang.settings_invite_submit}"</small>
 

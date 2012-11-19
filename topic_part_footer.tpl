@@ -8,31 +8,39 @@
 	{/if}
 
 	<footer class="topic-footer">
-		<ul class="topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
-			<li><strong>{$aLang.topic_tags}:</strong></li>
-			
-			{strip}
-				{if $oTopic->getTagsArray()}
-					{foreach from=$oTopic->getTagsArray() item=sTag name=tags_list}
-						<li>{if !$smarty.foreach.tags_list.first}, {/if}<a rel="tag" href="{router page='tag'}{$sTag|escape:'url'}/">{$sTag|escape:'html'}</a></li>
-					{/foreach}
-				{else}
-					<li>{$aLang.topic_tags_empty}</li>
-				{/if}
+		{if $oTopic->getType() == 'link'}
+			<div class="topic-url">
+				<a href="{router page='link'}go/{$oTopic->getId()}/" title="{$aLang.topic_link_count_jump}: {$oTopic->getLinkCountJump()}">{$oTopic->getLinkUrl()}</a>
+			</div>
+		{/if}
+	
+		{if !$bTopicList}
+			<ul class="topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
+				<li><strong>{$aLang.topic_tags}:</strong></li>
 				
-				{if $oUserCurrent}
-					{if $oFavourite}
-						{foreach from=$oFavourite->getTagsArray() item=sTag name=tags_list_user}
-							<li class="topic-tags-user js-favourite-tag-user">, <a rel="tag" href="{$oUserCurrent->getUserWebPath()}favourites/topics/tag/{$sTag|escape:'url'}/">{$sTag|escape:'html'}</a></li>
+				{strip}
+					{if $oTopic->getTagsArray()}
+						{foreach from=$oTopic->getTagsArray() item=sTag name=tags_list}
+							<li>{if !$smarty.foreach.tags_list.first}, {/if}<a rel="tag" href="{router page='tag'}{$sTag|escape:'url'}/">{$sTag|escape:'html'}</a></li>
 						{/foreach}
+					{else}
+						<li>{$aLang.topic_tags_empty}</li>
 					{/if}
 					
-					<li class="topic-tags-edit js-favourite-tag-edit" {if !$oFavourite}style="display:none;"{/if}>
-						<a href="#" onclick="return ls.favourite.showEditTags({$oTopic->getId()},'topic',this);" class="link-dotted">{$aLang.favourite_form_tags_button_show}</a>
-					</li>
-				{/if}
-			{/strip}
-		</ul>
+					{if $oUserCurrent}
+						{if $oFavourite}
+							{foreach from=$oFavourite->getTagsArray() item=sTag name=tags_list_user}
+								<li class="topic-tags-user js-favourite-tag-user">, <a rel="tag" href="{$oUserCurrent->getUserWebPath()}favourites/topics/tag/{$sTag|escape:'url'}/">{$sTag|escape:'html'}</a></li>
+							{/foreach}
+						{/if}
+						
+						<li class="topic-tags-edit js-favourite-tag-edit" {if !$oFavourite}style="display:none;"{/if}>
+							<a href="#" onclick="return ls.favourite.showEditTags({$oTopic->getId()},'topic',this);" class="link-dotted">{$aLang.favourite_form_tags_button_show}</a>
+						</li>
+					{/if}
+				{/strip}
+			</ul>
+		{/if}
 
 
 		<ul class="topic-info clearfix">
@@ -142,9 +150,11 @@
 				</time>
 			</li>
 
-			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#topic-extra-target-{$oTopic->getId()}'), $(this));">
-				<i class="icon-topic-menu"></i>
-			</li>
+			{if $oUserCurrent}
+				<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#topic-extra-target-{$oTopic->getId()}'), $(this));">
+					<i class="icon-topic-menu"></i>
+				</li>
+			{/if}
 			
 			{hook run='topic_show_info' topic=$oTopic}
 		</ul>
@@ -152,7 +162,7 @@
 
 		<ul class="slide slide-topic-info-extra" id="topic-extra-target-{$oTopic->getId()}">
 			{if $oUserCurrent}
-				<li><a href="{router page='talk'}add/?talk_users={$oUser->getLogin()}">Написать автору</a></li>{*TODO*}
+				<li><a href="{router page='talk'}add/?talk_users={$oUser->getLogin()}">{$aLang.send_message_to_author}</a></li>
 			{/if}
 
 			{if $oUserCurrent and ($oUserCurrent->getId()==$oTopic->getUserId() or $oUserCurrent->isAdministrator() or $oBlog->getUserIsAdministrator() or $oBlog->getUserIsModerator() or $oBlog->getOwnerId()==$oUserCurrent->getId())}

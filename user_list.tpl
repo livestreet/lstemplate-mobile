@@ -19,9 +19,7 @@
 					</td>
 					<td class="cell-actions">
 						{if $oUserCurrent}
-							{strip}
-								<a href="{router page='talk'}add/?talk_users={$oUserList->getLogin()}" class="icon-send-message"></a>
-							{/strip}
+							<a href="{router page='talk'}add/?talk_users={$oUserList->getLogin()}" class="icon-send-message"></a>
 						{/if}
 					</td>
 				</tr>
@@ -29,13 +27,11 @@
 		</tbody>
 	</table>
 {else}
-	<div class="wrapper">
-		{if $sUserListEmpty}
-			{$sUserListEmpty}
-		{else}
-			{$aLang.user_empty}
-		{/if}
-	</div>
+	{if $sUserListEmpty}
+		{$sUserListEmpty}
+	{else}
+		{$aLang.user_empty}
+	{/if}
 {/if}
 
 

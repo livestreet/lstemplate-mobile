@@ -1,6 +1,9 @@
-{include file='header.tpl'}
+{include file='header.tpl' noBg=true}
 
-{include file='actions/ActionProfile/profile_top.tpl'}
-{include file='user_list.tpl' aUsersList=$aFriends}
+<div class="wrapper mb-10">
+	{include file='actions/ActionProfile/profile_top.tpl'}
+	<br />
+	{include file='user_list.tpl' aUsersList=$aFriends}
+</div>
 
 {include file='footer.tpl'}
