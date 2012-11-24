@@ -84,9 +84,11 @@
 
 						onclick="ls.tools.slide($('#vote_area_comment_{$oComment->getId()}'), $(this)); return false;"
 
-						class="link-dotted">Оценить</a>{*TODO*}
+						class="link-dotted">{$aLang.comment_rate}</a>
 					</li>
 				{/if}
+				
+				<li><a href="{if $oConfig->GetValue('module.comment.nested_per_page')}{router page='comments'}{else}#comment{/if}{$oComment->getId()}" class="link-dotted">{$aLang.comment_link}</a></li>
 			
 				{if $oUserCurrent and !$bNoCommentFavourites}
 					<li class="comment-favourite" onclick="return ls.favourite.toggle({$oComment->getId()},'#fav_comment_{$oComment->getId()}','comment');">

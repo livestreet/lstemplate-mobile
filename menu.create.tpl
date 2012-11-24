@@ -6,9 +6,6 @@
 
 
 {if $sMenuItemSelect=='topic'}
-	{if $iUserCurrentCountTopicDraft}
-		<a href="{router page='topic'}saved/" class="drafts">{$aLang.topic_menu_saved} ({$iUserCurrentCountTopicDraft})</a>
-	{/if}
 	<ul class="nav-foldable">
 		<li {if $sMenuSubItemSelect=='topic'}class="active"{/if}><a href="{router page='topic'}add/">{$aLang.topic_menu_add_topic}</a></li>
 		<li {if $sMenuSubItemSelect=='question'}class="active"{/if}><a href="{router page='question'}add/">{$aLang.topic_menu_add_question}</a></li>

@@ -3,9 +3,11 @@
 
 {include file='actions/ActionProfile/profile_top.tpl'}
 {include file='menu.talk.tpl'}
-
+<br />
 
 {include file='actions/ActionTalk/friends.tpl'}
+<br />
+<br />
 
 {hook run='talk_add_begin'}
 

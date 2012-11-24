@@ -18,9 +18,6 @@
 	background-color: #eee;
 }
 
-.icon-dummy-size-16 { width: 16px; height: 16px; line-height: 16px; }
-.icon-dummy { background: #aaa; }
-
 .icon-blog             { background: url(../images/icons/blog.png) no-repeat; }
 .icon-blog.active      { background: url(../images/icons/blog-active.png) no-repeat; }
 .icon-blog-private     { width: 30px; height: 30px; background: url(../images/icons/blog-private.png) no-repeat; }
@@ -55,6 +52,8 @@
 .icon-views            { width: 20px; height: 16px; background: url(../images/icons/views.png) no-repeat; }
 .icon-edit             { width: 30px; height: 30px; background: #eee url(../images/icons/edit.png) no-repeat; }
 .icon-delete           { width: 30px; height: 30px; background: #eee url(../images/icons/delete.png) no-repeat; }
+.icon-edit:active             { width: 30px; height: 30px; background: #eee url(../images/icons/edit-active.png) no-repeat; }
+.icon-delete:active           { width: 30px; height: 30px; background: #eee url(../images/icons/delete-active.png) no-repeat; }
 
 .icon-profile-submit-white     { width: 16px; height: 16px; background: url(../images/icons/profile-submit-white.png) no-repeat; }
 .icon-profile-activity-white   { width: 16px; height: 16px; background: url(../images/icons/profile-activity-white.png) no-repeat; }
@@ -80,21 +79,13 @@
 .icon-submit-message     { width: 25px; height: 25px; background: url(../images/icons/submit-message.png) no-repeat; }
 .icon-submit-draft       { width: 25px; height: 25px; background: url(../images/icons/submit-draft.png) no-repeat; }
 
+.icon-submit-topic-userbar       { width: 15px; height: 15px; background: url(../images/icons/submit-topic-userbar.png) no-repeat; }
+.icon-submit-blog-userbar        { width: 15px; height: 15px; background: url(../images/icons/submit-blog-userbar.png) no-repeat; }
+.icon-submit-message-userbar     { width: 15px; height: 15px; background: url(../images/icons/submit-message-userbar.png) no-repeat; }
+.icon-submit-draft-userbar       { width: 15px; height: 15px; background: url(../images/icons/submit-draft-userbar.png) no-repeat; }
+
 .icon-topic-private      { width: 17px; height: 17px; background: url(../images/icons/topic-private.png) no-repeat; }
 .icon-topic-link         { width: 17px; height: 17px; background: url(../images/icons/topic-link.png) no-repeat; }
 .icon-topic-draft        { width: 17px; height: 17px; background: url(../images/icons/topic-draft.png) no-repeat; }
-
-.icon-contact				{ width: 16px; height: 16px; background: url(../images/icons-contact.png) no-repeat; } 
-.icon-contact-default		{ background-position: 0 0; } 
-.icon-contact-mail			{ background-position: -20px 0; } 
-.icon-contact-icq			{ background-position: -40px 0; } 
-.icon-contact-jabber		{ background-position: -60px 0; } 
-.icon-contact-phone			{ background-position: -80px 0; } 
-.icon-contact-skype			{ background-position: -100px 0; } 
-.icon-contact-vkontakte		{ background-position: -120px 0; } 
-.icon-contact-twitter		{ background-position: -140px 0; } 
-.icon-contact-facebook		{ background-position: -160px 0; } 
-.icon-contact-odnoklassniki	{ background-position: -180px 0; } 
-.icon-contact-www			{ background-position: -200px 0; } 
 
 .icon-ok-green 			{ width: 14px; height: 14px; background: url(../images/icon-ok-green.png) no-repeat; }

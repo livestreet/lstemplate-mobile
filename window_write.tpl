@@ -1,7 +1,7 @@
 <ul class="slide slide-write" id="write">
 	{if $iUserCurrentCountTopicDraft}
 		<li class="write-item-type-draft">
-			<i class="icon-submit-topic"></i>
+			<i class="icon-submit-draft"></i>
 			<a href="{router page='topic'}saved/" class="write-item-link">{$aLang.topic_menu_saved} ({$iUserCurrentCountTopicDraft})</a>
 		</li>
 	{/if}
@@ -15,7 +15,7 @@
 	</li>
 	<li class="write-item-type-message">
 		<i class="icon-submit-message"></i>
-		<a href="{router page='blog'}add" class="write-item-link">{$aLang.block_create_talk}</a>
+		<a href="{router page='talk'}add" class="write-item-link">{$aLang.block_create_talk}</a>
 	</li>
 	{hook run='write_item' isPopup=true}
 </ul>

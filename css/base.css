@@ -28,7 +28,7 @@ a.link-dotted:hover { border-color: #06e; }
 
 /* Заголовки
 ---------------------------------------------------- */
-h2.page-header { color: #333; font-size: 17px; line-height: 1em; font-weight: 600; margin-bottom: 20px; }
+h2.page-header { color: #333; font-size: 17px; line-height: 1.3em; font-weight: 600; margin-bottom: 20px; }
 h2.page-header span { color: #aaa; }
 
 h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
@@ -106,10 +106,10 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 #userbar .userbar-menu-rating-wrapper { padding: 11px 9px; border-bottom: 1px solid #333435; }
 #userbar .userbar-menu-rating-wrapper .user-profile-rating { color: #788087; }
 
-#userbar ul { border-top: 1px solid #48494a; }
-#userbar ul li { font-size: 15px; line-height: 16px; position: relative; }
-#userbar ul li a { display: block; color: #fff; padding: 12px 9px 12px 47px; }
-#userbar ul li .holder            {
+#userbar .userbar-menu-items { border-top: 1px solid #48494a; }
+#userbar .userbar-menu-items .userbar-item { font-size: 15px; line-height: 16px; position: relative; }
+#userbar .userbar-menu-items .userbar-item a { display: block; color: #fff; padding: 12px 9px 12px 47px; }
+#userbar .userbar-menu-items .userbar-item .holder            {
 	position: absolute;
 	left: 13px; top: 12px;
 	width: 20px;
@@ -118,7 +118,7 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 	text-align: center;
 	vertical-align: middle;
 }
-#userbar ul li.userbar-item-messages .userbar-item-messages-number {
+#userbar .userbar-menu-items .userbar-item.userbar-item-messages .userbar-item-messages-number {
 	position: absolute;
 	top: 10px; right: 11px;
 	color: #fff;
@@ -127,6 +127,30 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 	padding: 2px 6px 3px;
 	border-radius: 10px;
 }
+
+.userbar-submit-menu {
+	display: none;
+	position: relative;
+	padding: 14px;
+	margin: 7px;
+	background: #474849;
+	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,.5);
+	-moz-box-shadow: 0 2px 3px rgba(0,0,0,.5);
+	box-shadow: 0 2px 3px rgba(0,0,0,.5);
+}
+.userbar-submit-menu:before {
+	content: "";
+	position: absolute;
+	top: -16px; left: 37px;
+	width: 0; height: 0;
+	border-color: transparent transparent #474849 transparent;
+	border-width: 8px;
+	border-style: solid;
+}
+.userbar-submit-menu li { margin-bottom: 10px; }
+.userbar-submit-menu li:last-child { margin-bottom: 0; }
+.userbar-submit-menu li a { display: inline-block; color: #fff; font: normal 11px/1em Verdana, Arial, sans-serif; }
+.userbar-submit-menu li i { vertical-align: middle; position: relative; top: -1px; margin-right: 8px; }
 
 
 
@@ -209,7 +233,7 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 .message-list                       {  }
 .message-list li                    { position: relative; padding: 15px 10px 15px 27px; border-bottom: 1px solid #eee; }
 .message-list li:last-child         { border: none; }
-.message-list li .input-checkbox    { position: absolute; top: 22px; left: 0; }
+.message-list li .input-checkbox    { position: absolute; top: 18px; left: 0; }
 .message-list li h2                 { font-weight: normal; font-size: 16px; line-height: 18px; margin-bottom: 4px; }
 .message-list li h2 a               {  }
 .message-list li.message-unread h2  { font-weight: 600; }
@@ -218,6 +242,26 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 .message-list li .message-info time { color: #788087; }
 .message-list li .message-info i 	{ vertical-align: middle; position: relative; top: -1px; margin-left: 5px; }
 .message-list li .message-user		{ font-family: Verdana; font-size: 11px; color: #000; text-decoration: underline; }
+
+
+
+/* Blog List
+---------------------------------------------------- */
+.blog-list {}
+.blog-list li {
+	position: relative;
+	min-height: 50px;
+	padding: 10px;
+	border-bottom: 1px solid #e1e8ef;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+.blog-list li:last-child { border: none; padding-bottom: 0; }
+.blog-list li .avatar { position: absolute; top: 10px; left: 0; width: 50px; height: 50px; }
+.blog-list li h3      { font-size: 16px; font-weight: 600; line-height: 1.2em; margin-bottom: 5px; margin-top: 4px; }
+.blog-list li h3 a    { text-decoration: underline; }
+.blog-list li p       { overflow: hidden; color: #788087; font-size: 11px; }
+.blog-list li i       { position: absolute; top: 20px; right: 0; }
 
 
 

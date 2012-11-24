@@ -84,6 +84,9 @@
 .vote-result.vote-count-positive                         { background: #95ea61; -webkit-box-shadow: 0 2px 2px #7ac447 inset; box-shadow: 0 2px 2px #7ac447 inset; color: #148c11; }
 .vote-result.vote-count-zero                             { background: #f2f5f8; -webkit-box-shadow: 0 2px 2px #ccc inset; box-shadow: 0 2px 2px #ccc inset; color: #96a3b0; }
 
+.vote-result.vote-no-rating                              { padding: 0 30px 0 0 !important; }
+.vote-result.vote-no-rating:before                       { border: none !important; }
+
 
 
 /* Избранное 
@@ -158,32 +161,6 @@
 
 
 
-/* Toolbar 
----------------------------------------------------- */
-.toolbar 					{ float: right; position: fixed; top: 220px; right: 10px; z-index: 100; }
-.toolbar section 			{ width: 34px; line-height: 14px; background: #fff; -webkit-box-shadow: 0 0 5px rgba(0,0,0,.05); box-shadow: 0 0 5px rgba(0,0,0,.05); margin-bottom: 10px; }
-.toolbar section a			{ display: block; padding: 10px; }
-.toolbar section a:hover	{ background: #fafafa; }
-.toolbar section i			{ display: block; }
-
-/* Admin button */
-.toolbar .toolbar-admin a { display: block; }
-
-/* Update comments button */
-.toolbar .toolbar-update {  }
-.toolbar .toolbar-update .update-comments 			{ padding: 9px; }
-.toolbar .toolbar-update .update-comments i 		{ display: block; width: 16px; height: 16px; background: url(../images/update.gif) no-repeat; }
-.toolbar .toolbar-update .update-comments.active i 	{ background-position: -16px 0; }
-.toolbar .toolbar-update .new-comments 				{ border-top: 1px solid #eee; padding: 10px 0; color: #333; text-align: center; font-size: 11px; }
-
-/* Topic navigation */
-.toolbar .toolbar-topic a.toolbar-topic-prev { border-bottom: 1px solid #eee; }
-
-/* Scroll up */
-.toolbar .toolbar-scrollup { display: none; }
-
-
-
 /* Список пользователей 
 ---------------------------------------------------- */
 .user-list-avatar 			{ overflow: hidden; zoom: 1; }
@@ -207,6 +184,8 @@
 .search-abc li.active a 		{ color: #333; border: none; }
 
 .search-tags 					{ margin-bottom: 15px; }
+
+.search-header .button { margin: 0; }
 
 
 
@@ -260,7 +239,7 @@
 .mb-20 { margin-bottom: 20px !important; }
 .mb-30 { margin-bottom: 30px !important; }
 
-.no-mg { margin-bottom: 0 !important; }
+.no-mg { margin: 0 !important; }
 
 .ta-c { text-align: center !important; }
 .ta-r { text-align: right !important; }
@@ -296,3 +275,5 @@
 .user, .ls-user 	{ font-weight: bold; color: #333; }
 .ls-user:before 	{ content: ''; display: inline-block; width: 14px; height: 14px; margin-right: 3px; background: url(../images/icons.png) -168px 0 no-repeat; vertical-align: middle; }
 .user.inactive 		{ color: #aaa; }
+
+.toolbar-update { display: none; }

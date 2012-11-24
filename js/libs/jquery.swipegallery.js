@@ -23,18 +23,18 @@
 			items.width(item_width);
 			container.width(items_count * item_width);
 			inner.height(items.eq(index).find('.sg-item-inner').height());
-			go_to_slide(index);
+			goToSlide(index);
 		};
 
 		// Update counter
-		update_counter = function() {
+		updateCounter = function() {
 			counter.text(index + 1);
 		};
 
 		// Go to slide
-		go_to_slide = function(slide_index) {
+		goToSlide = function(slide_index) {
 			inner.addClass('loader');
-			update_counter();
+			updateCounter();
 
 			var img = items.eq(slide_index).find('img');
 
@@ -62,13 +62,13 @@
 		// Go to the next slide
 		next = function() {
 			index < items_count - 1 ? index++ : index = 0;
-			go_to_slide(index);
+			goToSlide(index);
 		};
 
 		// Go to the previous slide
 		prev = function() {
 			index > 0 ? index-- : index = items_count - 1;
-			go_to_slide(index);
+			goToSlide(index);
 		};
 
 
@@ -86,10 +86,10 @@
 			items_count = items.length;
 			
 			resize();
-			update_counter();
+			updateCounter();
 
 			// Bind gestures
-			obj.swipe({
+			inner.swipe({
 				swipeLeft: function(event, direction, distance, duration, fingerCount) {
 					next();
 				},

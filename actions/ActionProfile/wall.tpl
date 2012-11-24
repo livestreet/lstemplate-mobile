@@ -16,9 +16,11 @@
 </script>
 
 {if $oUserCurrent}
-	<a href="#" class="button button-primary" onclick="return jQuery(this).next().toggle();">{$aLang.wall_action_reply}</a>
-
-	<form class="wall-submit wall-submit-reply">
+	<div class="wall-add-post">
+		<a href="#" class="button button-primary" onclick="return jQuery('#wall-submit-form').toggle();">{$aLang.wall_action_reply_add}</a>
+	</div>
+	
+	<form class="wall-submit wall-submit-reply" id="wall-submit-form">
 		<p><textarea rows="4" id="wall-text" class="input-text input-width-full js-wall-reply-parent-text"></textarea></p>
 
 		<button type="button" onclick="ls.wall.add(jQuery('#wall-text').val(),0);" class="button button-primary js-button-wall-submit">{$aLang.wall_add_submit}</button>

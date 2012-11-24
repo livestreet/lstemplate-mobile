@@ -25,7 +25,8 @@
 				</ul>
 				
 				<div class="copyright">
-					{hook run='copyright'}
+					{hook run='copyright'}<br />
+					Дизайн от <a href="http://designmobile.ru">DesignMobile</a>
 				</div>
 			</div>
 			

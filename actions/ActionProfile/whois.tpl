@@ -8,6 +8,7 @@
 
 
 {include file='actions/ActionProfile/profile_top.tpl'}
+<br />
 
 {assign var="aUserFieldValues" value=$oUserProfile->getUserFieldValues(true,array(''))}
 

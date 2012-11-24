@@ -45,45 +45,47 @@
 
 		<ul class="topic-info clearfix">
 			{if !$bTopicList}
-				<li class="vote-result
-							{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
-								{if $oTopic->getRating() > 0}
-									vote-count-positive
-								{elseif $oTopic->getRating() < 0}
-									vote-count-negative
-								{elseif $oTopic->getRating() == 0}
-									vote-count-zero
+				<li class="topic-info-vote">
+					<div class="vote-result
+								{if $oVote || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId()) || strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time')}
+									{if $oTopic->getRating() > 0}
+										vote-count-positive
+									{elseif $oTopic->getRating() < 0}
+										vote-count-negative
+									{elseif $oTopic->getRating() == 0}
+										vote-count-zero
+									{/if}
 								{/if}
-							{/if}
-							
-							{if $oVote} 
-								voted
-																		
-								{if $oVote->getDirection() > 0}
-									voted-up
-								{elseif $oVote->getDirection() < 0}
-									voted-down
-								{elseif $oVote->getDirection() == 0}
-									voted-zero
+								
+								{if $oVote} 
+									voted
+																			
+									{if $oVote->getDirection() > 0}
+										voted-up
+									{elseif $oVote->getDirection() < 0}
+										voted-down
+									{elseif $oVote->getDirection() == 0}
+										voted-zero
+									{/if}
 								{/if}
-							{/if}
-
-							{if (strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time') && !$oVote) || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId())}
-								vote-nobuttons
-							{/if}" 
-
-					id="vote_total_topic_{$oTopic->getId()}" 
-
-					{if !$oVote && !$bVoteInfoShow}
-						onclick="ls.tools.slide($('#vote_area_topic_{$oTopic->getId()}'), $(this));"
-					{/if}
-
-					{if false}
-						onclick="ls.tools.slide($('#vote-info-topic-{$oTopic->getId()}'), $(this));"
-					{/if}>
-					{if $bVoteInfoShow}
-						{if $oTopic->getRating() > 0}+{/if}{$oTopic->getRating()}
-					{/if}
+				
+								{if (strtotime($oTopic->getDateAdd()) < $smarty.now-$oConfig->GetValue('acl.vote.topic.limit_time') && !$oVote) || ($oUserCurrent && $oTopic->getUserId() == $oUserCurrent->getId())}
+									vote-nobuttons
+								{/if}" 
+				
+						id="vote_total_topic_{$oTopic->getId()}" 
+				
+						{if !$oVote && !$bVoteInfoShow}
+							onclick="ls.tools.slide($('#vote_area_topic_{$oTopic->getId()}'), $(this));"
+						{/if}
+				
+						{if false}
+							onclick="ls.tools.slide($('#vote-info-topic-{$oTopic->getId()}'), $(this));"
+						{/if}>
+						{if $bVoteInfoShow}
+							{if $oTopic->getRating() > 0}+{/if}{$oTopic->getRating()}
+						{/if}
+					</div>
 				</li>
 			{/if}
 			
@@ -92,8 +94,8 @@
 			</li>
 
 			<li class="topic-info-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}" onclick="return ls.favourite.toggle({$oTopic->getId()},'#fav_topic_{$oTopic->getId()}','topic');">
-				<div id="fav_topic_{$oTopic->getId()}" class="favourite icon-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></div>
-				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
+				<i id="fav_topic_{$oTopic->getId()}" class="favourite icon-favourite {if $oUserCurrent && $oTopic->getIsFavourite()}active{/if}"></i>
+				<span class="favourite-count" id="fav_count_topic_{$oTopic->getId()}">{if $oTopic->getCountFavourite() > 0}{$oTopic->getCountFavourite()}{/if}</span>
 			</li>
 			
 			{if $bTopicList}

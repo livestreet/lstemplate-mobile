@@ -6,7 +6,7 @@
 	{if $oUserProfile->isOnline()}<div class="status {if $oUserProfile->isOnline()}status-online{else}status-offline{/if}"></div>{/if}
 
 	<div class="user-profile-rating-wrapper">
-		<span class="user-profile-rating"><i class="icon-rating"></i> {$oUserProfile->getRating()}</span>
+		<span class="user-profile-rating"><i class="icon-rating"></i> <span id="vote_total_user_alt_{$oUserProfile->getId()}">{$oUserProfile->getRating()}</span></span>
 		<span class="user-profile-rating user-profile-strength"><i class="icon-strength"></i> {$oUserProfile->getSkill()}</span>
 	</div>
 	
@@ -24,32 +24,36 @@
 	<ul class="profile-actions clearfix" id="profile_actions">
 		{include file='actions/ActionProfile/friend_item.tpl' oUserFriend=$oUserProfile->getUserFriend()}
 		<li><a href="{router page='talk'}add/?talk_users={$oUserProfile->getLogin()}" class="icon-send-message"></a></li>
-		<li class="vote-result vote-result-blog 
-			{if $oUserProfile->getRating() > 0}
-				vote-count-positive
-			{elseif $oUserProfile->getRating() < 0}
-				vote-count-negative
-			{elseif $oUserProfile->getRating() == 0}
-				vote-count-zero
-			{/if}
-
-			{if $oVote} 
-				voted
-														
-				{if $oVote->getDirection() > 0}
-					voted-up
-				{elseif $oVote->getDirection() < 0}
-					voted-down
+		
+		{if $oUserCurrent && $oUserProfile->getId() != $oUserCurrent->getId()}
+			<li class="vote-result vote-no-rating
+				{if $oVote}
+					{if $oUserProfile->getRating() > 0}
+						vote-count-positive
+					{elseif $oUserProfile->getRating() < 0}
+						vote-count-negative
+					{elseif $oUserProfile->getRating() == 0}
+						vote-count-zero
+					{/if}
 				{/if}
-			{/if}"
 
-			 id="vote_total_user_{$oUserProfile->getId()}"
+				{if $oVote} 
+					voted
+															
+					{if $oVote->getDirection() > 0}
+						voted-up
+					{elseif $oVote->getDirection() < 0}
+						voted-down
+					{/if}
+				{/if}"
 
-			{if $oUserCurrent && !$oVote}
-				onclick="ls.tools.slide($('#vote_area_user_{$oUserProfile->getId()}'), $(this));"
-			{/if}>
-			{if $oUserProfile->getRating() > 0}+{/if}{$oUserProfile->getRating()}
-		</li>
+				id="vote_total_user_{$oUserProfile->getId()}"
+
+				{if $oUserCurrent && !$oVote}
+					onclick="ls.tools.slide($('#vote_area_user_{$oUserProfile->getId()}'), $(this));"
+				{/if}>
+			</li>
+		{/if}
 	</ul>
 {/if}
 

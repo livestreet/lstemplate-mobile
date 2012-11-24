@@ -7,7 +7,7 @@
 		{/if}
 		
 		{assign var="iPerPage" value={cfg name='module.topic.per_page'}}
-		<div class="pagination-current"><span>{$aPaging.iCurrentPage}</span> / {$aPaging.iCountPage}</div>
+		<div class="pagination-current"><span>{$aPaging.iCurrentPage}</span> {$aLang.paging_out_of} {$aPaging.iCountPage}</div>
 		
 		{if $aPaging.iNextPage}
 			<a href="{$aPaging.sBaseUrl}/page{$aPaging.iNextPage}/{$aPaging.sGetParams}" class="pagination-arrow pagination-arrow-next js-paging-next-page" title="{$aLang.paging_next}"><span></span></a>

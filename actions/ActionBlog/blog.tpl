@@ -46,6 +46,7 @@
 		
 		<h2>{$oBlog->getTitle()|escape:'html'}</h2>
 		<p>
+			{$aLang.blogs_rating}: <span id="vote_total_blog_alt_{$oBlog->getId()}">{$oBlog->getRating()}</span>,
 			{$aLang.blogs_readers}: {$oBlog->getCountUser()}
 		</p>
 
@@ -131,12 +132,16 @@
 
 
 		<li id="vote_total_blog_{$oBlog->getId()}" class="vote-result 
-			{if $oBlog->getRating() > 0}
-				vote-count-positive
-			{elseif $oBlog->getRating() < 0}
-				vote-count-negative
-			{elseif $oBlog->getRating() == 0}
-				vote-count-zero
+			vote-no-rating
+				
+			{if $oVote || ($oUserCurrent && $oUserOwner->getId() == $oUserCurrent->getId())}
+				{if $oBlog->getRating() > 0}
+					vote-count-positive
+				{elseif $oBlog->getRating() < 0}
+					vote-count-negative
+				{elseif $oBlog->getRating() == 0}
+					vote-count-zero
+				{/if}
 			{/if}
 
 			{if $oVote} 
@@ -154,8 +159,6 @@
 			{/if}
 
 			title="{$aLang.blog_vote_count}: {$oBlog->getCountVote()}">
-
-			{if $oBlog->getRating() > 0}+{/if}{$oBlog->getRating()}
 		</li>
 	</ul>
 

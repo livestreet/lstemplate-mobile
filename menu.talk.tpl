@@ -1,5 +1,5 @@
 <ul class="nav-foldable">					
-	<li {if $sMenuSubItemSelect=='inbox'}class="active"{/if}><a href="{router page='talk'}">{$aLang.talk_menu_inbox}</a></li>
+	<li {if $sMenuSubItemSelect=='inbox'}class="active"{/if}><a href="{router page='talk'}">{$aLang.talk_menu_inbox_all}</a></li>
 	{if $iUserCurrentCountTalkNew}
 		<li {if $sMenuSubItemSelect=='new'}class="active"{/if}><a href="{router page='talk'}inbox/new/">{$aLang.talk_menu_inbox_new}</a></li>
 	{/if}

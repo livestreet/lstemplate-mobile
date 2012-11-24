@@ -20,6 +20,9 @@
 .wall-comment-wrapper { border-bottom: 1px solid #e2e7ec; margin-bottom: 10px; }
 .wall-comment-wrapper:last-child { margin-bottom: 0; }
 
+.wall-add-post { background: #fafafa; padding: 8px; margin-top: 10px; }
+.wall-add-post .button { margin: 0; }
+
 .wall-submit 									{ display: none; }
 .wall-submit.wall-submit-reply 					{ padding: 10px; position: relative; background: #f1f3fc; margin-top: 10px; }
 .wall-submit.wall-submit-reply:before {
@@ -27,7 +30,7 @@
 	position: absolute;
 	top: -16px; left: 10px;
 	width: 0; height: 0;
-	border-color: transparent transparent #f1f3fc transparent;
+	border-color: rgba(255,255,255,0) rgba(255,255,255,0) #f1f3fc rgba(255,255,255,0);
 	border-width: 8px;
 	border-style: solid;
 }
@@ -58,7 +61,7 @@
 	position: absolute;
 	top: -16px; left: 10px;
 	width: 0; height: 0;
-	border-color: transparent transparent #f1f3fc transparent;
+	border-color: rgba(255,255,255,0) rgba(255,255,255,0) #f1f3fc rgba(255,255,255,0);
 	border-width: 8px;
 	border-style: solid;
 }

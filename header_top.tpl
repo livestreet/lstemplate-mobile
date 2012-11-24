@@ -16,7 +16,6 @@
 
 		{if $oUserCurrent}
 			<li class="item-submit item-primary" id="item-submit" onclick="ls.tools.slide($('#write'), $(this), true);"></li>
-
 		{else}
 			<li class="item-auth item-primary" id="item-auth" onclick="ls.tools.slide($('#window_login_form'), $(this), true);"></li>
 		{/if}
@@ -31,9 +30,13 @@
 {/if}
 
 
-<form action="{router page='search'}topics/" class="slide" id="search">
-	<input type="text" placeholder="{$aLang.search}" maxlength="255" name="q" class="input-text">
-	<button type="submit" class="button button-primary">{$aLang.search_submit}</button>
+<form action="{router page='search'}topics/" class="slide search-header" id="search">
+	<div class="input-holder input-holder-text">
+		<input type="text" placeholder="{$aLang.search}" maxlength="255" name="q" class="input-text input-width-full">
+	</div>
+	<div class="input-holder">
+		<button type="submit" class="button button-primary">{$aLang.search_submit}</button>
+	</div>
 </form>
 
 

@@ -30,13 +30,13 @@
 
 .profile-actions                         { padding: 9px; background: #fafafa; margin-bottom: 10px; }
 .profile-actions li                      { float: left; margin-right: 9px; }
-.profile-actions li.profile-actions-vote { float: right; margin-right: 0; }
+.profile-actions li.vote-result          { float: right; margin-right: 0; }
 
 .profile-page-header                     { font-size: 12px; font-weight: bold; margin-bottom: 20px; background: #f5f5f5; border-top: 1px solid #eee; color: #555; padding: 5px 10px 6px; }
 
-.profile-info-note                       { padding: 20px; background: #fffcd6; border-radius: 5px; color: #000; font-size: 11px; border-bottom: 1px solid #E1E8EF; }
+.profile-info-note                       { padding: 10px 10px; background: #fffcd6; border-radius: 5px; color: #000; font-size: 11px; border-bottom: 1px solid #E1E8EF; }
 .profile-info-note h2                    { margin-bottom: 5px; }
-.profile-info-note .actions              { margin-bottom: 0; padding-top: 15px; font-size: 12px; line-height: 18px; }
+.profile-info-note .actions              { margin-bottom: 0; padding-top: 5px; font-size: 12px; line-height: 18px; }
 .profile-info-note .actions a            { color: #184e8a; text-decoration: underline; }
 
 .profile-info-about                      { padding: 20px 0; color: #000; font-size: 11px; border-bottom: 1px solid #E1E8EF; }

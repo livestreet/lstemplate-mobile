@@ -58,17 +58,31 @@ jQuery(document).ready(function($){
 
 
 	if ($('#userbar').length > 0) {
-		$(window).swipe( {
+		$(document).swipe( {
 			swipeLeft: function(event, direction, distance, duration, fingerCount) {
 				ls.tools.hideuserbar();
 			},
 			swipeRight: function(event, direction, distance, duration, fingerCount) {
 				ls.tools.showuserbar();
 			},
-			excludedElements:$.fn.swipe.defaults.excludedElements+", #slider"
+			click: function(event, target) {
+				return false;
+			},
+			excludedElements: $.fn.swipe.defaults.excludedElements+", #slider, li, i, .nav-foldable-trigger, #userbar-trigger",
+			fallbackToMouseEvents: false,
+			threshold: 200,
 		});
 	}
 
+	$(window).swipe( {
+		swipeStatus:function(event, phase, direction, distance, fingerCount){
+			if ($('#notifier').length > 0) $('#notifier').empty();
+		},
+		excludedElements: $.fn.swipe.defaults.excludedElements+", #slider, li, i, .nav-foldable-trigger, #userbar-trigger",
+		triggerOnTouchEnd: false,
+		allowPageScroll: 'vertical',
+		fallbackToMouseEvents: false,
+	});
 
 	$('.swipegallery').swipegallery();
 
@@ -275,6 +289,11 @@ jQuery(document).ready(function($){
 				divTotal.text(0);
 			}
 
+			if (type == 'blog' || type == 'user') {
+				$('#'+this.options.prefix_total+type+'_alt_'+idTarget).text(result.iRating);
+				divTotal.empty();
+			}
+
 			var method='onVote'+ls.tools.ucfirst(type);
 			if ($.type(this[method])=='function') {
 				this[method].apply(this,[idTarget, objVote, value, type, result]);
@@ -426,33 +445,42 @@ jQuery(document).ready(function($){
 		* Опции
 		*/
 		this.options = {
-			class_notice: 'system-message-notice',
-			class_error: 'system-message-error'
-		};
-
-		this.show = function(title, msg, msg_class){
-			$("div[class^='system-message-']").remove();
-			if (title == null) title = "";
-			$('#content').prepend('<div class="' + msg_class +'"><h4>' + title + '</h4><p>' + msg + '</p></div>');
-			$.scrollTo(0, 500);
+			class_notice: 'n-notice',
+			class_error: 'n-error'
 		};
 
 		/**
 		* Отображение информационного сообщения
 		*/
-		this.notice = function(title, msg){
-			this.show(title, msg, this.options.class_notice);
+		this.notice = function(title,msg){
+			this.init();
+			$.notifier.broadcast(title, msg, this.options.class_notice);
 		};
 
 		/**
 		* Отображение сообщения об ошибке
 		*/
-		this.error = function(title, msg){
-			this.show(title, msg, this.options.class_error);
+		this.error = function(title,msg){
+			this.init();
+			$.notifier.broadcast(title, msg, this.options.class_error);
+		};
+
+		this.init = function(){
+			if ($('#notifier').length == 0) $('body').append('<div id="notifier" />');
+			$('#notifier').width($(window).width());
+			var doc = document.documentElement, body = document.body;
+			$('#notifier').css('top', (doc && doc.scrollTop || body && body.scrollTop || 0));
 		};
 
 		return this;
 	}).call(ls.msg || {},jQuery);
+
+	$(window).resize(function () {
+		$('#notifier').empty();
+	});
+	$(window).scroll(function () {
+		$('#notifier').empty();
+	});
 
 
 
@@ -502,12 +530,6 @@ jQuery(document).ready(function($){
 	
 	// Скролл
 	$(window)._scrollable();
-
-	
-	// Тул-бар топиков
-	ls.toolbar.topic.init();
-	// Кнопка "UP"
-	ls.toolbar.up.init();
 
 	
 	// Всплывающие сообщения

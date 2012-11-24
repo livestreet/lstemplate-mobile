@@ -6,22 +6,9 @@
 .table th 				{ text-align: left; background: #fafafa; }
 .table td, .table th 	{ border-bottom: 1px solid #eee; padding: 10px; }
 .table tr.active td 	{ background: #ACFAFE; }
-/* .table tr:last-child td { border: none; padding-bottom: 0; } */
 
 .table a.asc:after		{ content: "▲"; }
 .table a.desc:after		{ content: "▼"; }
-
-/* Table Blogs */
-.table.table-blogs td                 { padding: 10px 0; }
-.table.table-blogs tr:last-child td   { border: none; padding-bottom: 0; }
-.table.table-blogs .cell-name .avatar { float: left; margin-right: 10px; clear: right; }
-.table.table-blogs .cell-name p       { overflow: hidden; color: #788087; font-size: 11px; }
-.table.table-blogs .cell-name h3      { font-size: 16px; font-weight: 600; }
-.table.table-blogs .cell-name h3 a    { text-decoration: underline; }
-.table.table-blogs .cell-rating       { width: 70px; font-weight: bold; }
-.table.table-blogs .cell-readers      { width: 70px; text-align: center; vertical-align: middle; }
-.table.table-blogs .cell-join         { width: 30px; text-align: center; vertical-align: middle; }
-.table.table-blogs .cell-rating       { text-align: center; vertical-align: middle; }
 
 /* Table Plugins */
 .table.table-plugins 	                { margin-bottom: 15px; }

@@ -49,6 +49,11 @@
 	{$aLang.blog_admin_users_empty}
 {/if}
 
+<br />
+<br />
+
+{include file='actions/ActionBlog/invited.tpl'}
+
 
 
 {include file='footer.tpl'}

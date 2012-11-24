@@ -3,7 +3,7 @@
 
 {include file='actions/ActionProfile/profile_top.tpl'}
 {include file='menu.talk.tpl'}
-
+<br />
 
 {if $aTalks}
 	{include file='actions/ActionTalk/filter.tpl'}
@@ -14,9 +14,25 @@
 		<input type="hidden" name="submit_talk_del" id="form_talks_list_submit_del" value="" />
 
 		<div class="action-button-wrapper">
-			<button type="submit" onclick="ls.talk.makeReadTalks()" class="button">{$aLang.talk_inbox_make_read}</button>
-			<button type="submit" onclick="if (confirm('{$aLang.talk_inbox_delete_confirm}')){ ls.talk.removeTalks() };" class="button">{$aLang.talk_inbox_delete}</button>
+			<span id="talk-action-buttons" style="display: none">
+				<button type="submit" onclick="ls.talk.makeReadTalks()" class="button">{$aLang.talk_inbox_make_read}</button>
+				<button type="submit" onclick="if (confirm('{$aLang.talk_inbox_delete_confirm}')){ ls.talk.removeTalks() };" class="button">{$aLang.talk_inbox_delete}</button>
+			</span>
+			<a href="{router page='talk'}add/" class="button button-primary">{$aLang.talk_inbox_new}</a>
 		</div>
+		
+		
+		<script>
+			jQuery(document).ready(function($){
+				$('.form_talks_checkbox').change(function() {		
+					if ($('.form_talks_checkbox:checked').length == 0) {
+						$('#talk-action-buttons').hide();
+					} else {
+						$('#talk-action-buttons').show();
+					}
+				});
+			});
+		</script>
 
 
 		<ul class="message-list">
