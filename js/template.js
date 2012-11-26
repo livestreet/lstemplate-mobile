@@ -370,7 +370,7 @@ jQuery(document).ready(function($){
 
 
 	ls.userfield.showAddForm = function(obj){
-		$('#userfield_form').insertAfter($(obj));
+		$('#userfield_form').insertAfter($('#userfield_form_show'));
 		$('#user_fields_form_name').val('');
 		$('#user_fields_form_title').val('');
 		$('#user_fields_form_id').val('');

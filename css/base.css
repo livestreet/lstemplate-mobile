@@ -69,15 +69,15 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 #header .nav-userbar                       { position: absolute; right: 0; top: 0; }
 #header .nav-userbar li                    { float: left; width: 44px; height: 44px; cursor: pointer; }
 #header .nav-userbar li a                  { display: block; width: 44px; height: 44px; }
-#header .nav-userbar li.item-primary       { background-color: #05aae9; }
-#header .nav-userbar li.active             { background-color: #fff; }
-#header .nav-userbar li.item-auth          { background-image: url(../images/icons/auth.png); background-repeat: no-repeat; }
-#header .nav-userbar li.item-auth.active   { background-image: url(../images/icons/auth-active.png); }
-#header .nav-userbar li.item-search        { background-image: url(../images/icons/search.png); background-repeat: no-repeat; }
-#header .nav-userbar li.item-search.active { background-image: url(../images/icons/search-active.png); }
-#header .nav-userbar li.item-submit        { background-image: url(../images/icons/submit.png); background-repeat: no-repeat; }
-#header .nav-userbar li.item-submit.active { background-image: url(../images/icons/submit-active.png); }
-#header .nav-userbar li.item-messages      { background-image: url(../images/icons/messages.png); background-repeat: no-repeat; }
+#header .nav-userbar li.item-primary       { background-color: #05aae9 !important; }
+#header .nav-userbar li.active             { background-color: #fff !important; }
+#header .nav-userbar li.item-auth          { background: url(../images/icons.png) -0px -0px no-repeat /* icon: auth.png */; }
+#header .nav-userbar li.item-auth.active   { background: url(../images/icons/auth-active.png) no-repeat; }
+#header .nav-userbar li.item-search        { background: url(../images/icons.png) -132px -0px no-repeat /* icon: search.png */; }
+#header .nav-userbar li.item-search.active { background: url(../images/icons/search-active.png) no-repeat; }
+#header .nav-userbar li.item-submit        { background: url(../images/icons.png) -220px -0px no-repeat /* icon: submit.png */; }
+#header .nav-userbar li.item-submit.active { background: url(../images/icons/submit-active.png) no-repeat; }
+#header .nav-userbar li.item-messages      { background: url(../images/icons.png) -88px -0px no-repeat /* icon: messages.png */; }
 
 .ls-user-role-user #header .site-name       { margin-left: 54px; }
 .ls-user-role-user #header .userbar-trigger { display: block; }

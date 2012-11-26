@@ -1,91 +1,95 @@
-/* -------------------------------------------------------------------
-
-	ИКОНКИ
-	
-	Пример использования:
-	
-	<a href="#"><i class="icon icon-remove"></i> Remove</a>
-
-------------------------------------------------------------------- */
-
 [class^="icon-"],
-[class*=" icon-"]  { 
+[class*=" icon-"] {
 	display: inline-block;
 	vertical-align: text-top;
-	width: 16px;
-	height: 16px;
-	line-height: 16px;
-	background-color: #eee;
+	background: url(../images/icons.png) no-repeat;
 }
 
-.icon-blog             { background: url(../images/icons/blog.png) no-repeat; }
-.icon-blog.active      { background: url(../images/icons/blog-active.png) no-repeat; }
-.icon-blog-private     { width: 30px; height: 30px; background: url(../images/icons/blog-private.png) no-repeat; }
-.icon-blog-owner       { width: 30px; height: 30px; background: url(../images/icons/blog-owner.png) no-repeat; }
-.icon-blog-join        { width: 30px; height: 30px; background: url(../images/icons/blog-join.png) no-repeat; }
-.icon-blog-join.active { background: url(../images/icons/blog-join-active.png) no-repeat; }
-
-.icon-friend           { width: 30px; height: 30px; background: url(../images/icons/friend.png) no-repeat; }
-.icon-friend-waiting   { width: 30px; height: 30px; background: url(../images/icons/friend-waiting.png) no-repeat; }
-.icon-friend.active    { background: url(../images/icons/friend-active.png) no-repeat; }
-.icon-send-message     { width: 30px; height: 30px; background: url(../images/icons/send-message.png) no-repeat; }
-
-.icon-rating           { width: 12px; height: 12px; background: url(../images/icons/rating.png) no-repeat; }
-.icon-rating-grey      { width: 12px; height: 12px; background: url(../images/icons/rating-grey.png) no-repeat; }
-.icon-strength         { width: 12px; height: 12px; background: url(../images/icons/strength.png) no-repeat; }
-.icon-note             { width: 11px; height: 11px; background: url(../images/icons/note.png) no-repeat; }
-.icon-vote             { width: 30px; height: 30px; background: url(../images/icons/vote.png) no-repeat; cursor: pointer; }
-.icon-rss              { width: 30px; height: 30px; background: url(../images/icons/rss.png) no-repeat; }
-.icon-blog-more        { width: 30px; height: 30px; background: url(../images/icons/blog-more.png) no-repeat; }
-.icon-favourite        { width: 16px; height: 16px; background: url(../images/icons/favourite.png) no-repeat; }
-.icon-favourite.active { background: url(../images/icons/favourite-active.png) no-repeat; }
-.icon-in               { width: 12px; height: 12px; background: url(../images/icons/in.png) no-repeat; }
-.icon-out              { width: 12px; height: 12px; background: url(../images/icons/out.png) no-repeat; }
-.icon-comments         { width: 16px; height: 16px; background: url(../images/icons/comments.png) no-repeat; }
-.icon-comments.active  { width: 16px; height: 16px; background: url(../images/icons/comments-active.png) no-repeat; }
-.icon-topic-menu       { width: 38px; height: 38px; background: url(../images/icons/topic-menu.png) no-repeat; }
-.icon-share            { width: 38px; height: 38px; background: url(../images/icons/share.png) no-repeat; }
-.icon-prev             { width: 28px; height: 28px; background: url(../images/icons/paging-prev.png) no-repeat; }
-.icon-next             { width: 28px; height: 28px; background: url(../images/icons/paging-next.png) no-repeat; }
-.icon-userbar          { width: 44px; height: 44px; background: url(../images/icons/userbar.png) no-repeat; }
-.icon-userbar.active   { width: 44px; height: 44px; background: url(../images/icons/userbar-active.png) no-repeat; }
-.icon-views            { width: 20px; height: 16px; background: url(../images/icons/views.png) no-repeat; }
-.icon-edit             { width: 30px; height: 30px; background: #eee url(../images/icons/edit.png) no-repeat; }
-.icon-delete           { width: 30px; height: 30px; background: #eee url(../images/icons/delete.png) no-repeat; }
-.icon-edit:active             { width: 30px; height: 30px; background: #eee url(../images/icons/edit-active.png) no-repeat; }
-.icon-delete:active           { width: 30px; height: 30px; background: #eee url(../images/icons/delete-active.png) no-repeat; }
-
-.icon-profile-submit-white     { width: 16px; height: 16px; background: url(../images/icons/profile-submit-white.png) no-repeat; }
-.icon-profile-activity-white   { width: 16px; height: 16px; background: url(../images/icons/profile-activity-white.png) no-repeat; }
-.icon-profile-favourites-white { width: 16px; height: 16px; background: url(../images/icons/profile-favourites-white.png) no-repeat; }
-.icon-profile-friends-white    { width: 19px; height: 16px; background: url(../images/icons/profile-friends-white.png) no-repeat; }
-.icon-profile-messages-white   { width: 18px; height: 16px; background: url(../images/icons/profile-messages-white.png) no-repeat; }
-.icon-profile-profile-white    { width: 18px; height: 16px; background: url(../images/icons/profile-profile-white.png) no-repeat; }
-.icon-profile-submited-white   { width: 16px; height: 16px; background: url(../images/icons/profile-submited-white.png) no-repeat; }
-.icon-profile-settings-white   { width: 16px; height: 16px; background: url(../images/icons/profile-settings-white.png) no-repeat; }
-.icon-profile-wall-white       { width: 16px; height: 16px; background: url(../images/icons/profile-wall-white.png) no-repeat; }
-
-.icon-profile-activity   { width: 16px; height: 16px; background: url(../images/icons/profile-activity.png) no-repeat; }
-.icon-profile-favourites { width: 16px; height: 16px; background: url(../images/icons/profile-favourites.png) no-repeat; }
-.icon-profile-friends    { width: 19px; height: 16px; background: url(../images/icons/profile-friends.png) no-repeat; }
-.icon-profile-messages   { width: 18px; height: 16px; background: url(../images/icons/profile-messages.png) no-repeat; }
-.icon-profile-profile    { width: 18px; height: 16px; background: url(../images/icons/profile-profile.png) no-repeat; }
-.icon-profile-submited   { width: 16px; height: 16px; background: url(../images/icons/profile-submited.png) no-repeat; }
-.icon-profile-settings   { width: 16px; height: 16px; background: url(../images/icons/profile-settings.png) no-repeat; }
-.icon-profile-wall       { width: 16px; height: 16px; background: url(../images/icons/profile-wall.png) no-repeat; }
-
-.icon-submit-topic       { width: 25px; height: 25px; background: url(../images/icons/submit-topic.png) no-repeat; }
-.icon-submit-blog        { width: 25px; height: 25px; background: url(../images/icons/submit-blog.png) no-repeat; }
-.icon-submit-message     { width: 25px; height: 25px; background: url(../images/icons/submit-message.png) no-repeat; }
-.icon-submit-draft       { width: 25px; height: 25px; background: url(../images/icons/submit-draft.png) no-repeat; }
-
-.icon-submit-topic-userbar       { width: 15px; height: 15px; background: url(../images/icons/submit-topic-userbar.png) no-repeat; }
-.icon-submit-blog-userbar        { width: 15px; height: 15px; background: url(../images/icons/submit-blog-userbar.png) no-repeat; }
-.icon-submit-message-userbar     { width: 15px; height: 15px; background: url(../images/icons/submit-message-userbar.png) no-repeat; }
-.icon-submit-draft-userbar       { width: 15px; height: 15px; background: url(../images/icons/submit-draft-userbar.png) no-repeat; }
-
-.icon-topic-private      { width: 17px; height: 17px; background: url(../images/icons/topic-private.png) no-repeat; }
-.icon-topic-link         { width: 17px; height: 17px; background: url(../images/icons/topic-link.png) no-repeat; }
-.icon-topic-draft        { width: 17px; height: 17px; background: url(../images/icons/topic-draft.png) no-repeat; }
-
-.icon-ok-green 			{ width: 14px; height: 14px; background: url(../images/icon-ok-green.png) no-repeat; }
+.icon-auth                     { width: 44px; height: 44px; background-position: -0px -0px; }
+.icon-auth.active              { width: 44px; height: 44px; background-position: -44px -0px; }
+.icon-messages                 { width: 44px; height: 44px; background-position: -88px -0px; }
+.icon-search                   { width: 44px; height: 44px; background-position: -132px -0px; }
+.icon-search.active            { width: 44px; height: 44px; background-position: -176px -0px; }
+.icon-submit                   { width: 44px; height: 44px; background-position: -220px -0px; }
+.icon-submit.active            { width: 44px; height: 44px; background-position: -264px -0px; }
+.icon-userbar                  { width: 44px; height: 44px; background-position: -308px -0px; }
+.icon-userbar.active           { width: 44px; height: 44px; background-position: -352px -0px; }
+.icon-share                    { width: 38px; height: 38px; background-position: -0px -44px; }
+.icon-share.active             { width: 38px; height: 38px; background-position: -38px -44px; }
+.icon-topic-menu               { width: 38px; height: 38px; background-position: -76px -44px; }
+.icon-topic-menu.active        { width: 38px; height: 38px; background-position: -114px -44px; }
+.icon-blog-join                { width: 30px; height: 30px; background-position: -0px -82px; }
+.icon-blog-join.active         { width: 30px; height: 30px; background-position: -30px -82px; }
+.icon-blog-more                { width: 30px; height: 30px; background-position: -60px -82px; }
+.icon-blog-owner               { width: 30px; height: 30px; background-position: -90px -82px; }
+.icon-blog-private             { width: 30px; height: 30px; background-position: -120px -82px; }
+.icon-delete                   { width: 30px; height: 30px; background-position: -150px -82px; }
+.icon-delete.active            { width: 30px; height: 30px; background-position: -180px -82px; }
+.icon-edit                     { width: 30px; height: 30px; background-position: -210px -82px; }
+.icon-edit.active              { width: 30px; height: 30px; background-position: -240px -82px; }
+.icon-friend                   { width: 30px; height: 30px; background-position: -270px -82px; }
+.icon-friend.active            { width: 30px; height: 30px; background-position: -300px -82px; }
+.icon-friend-waiting           { width: 30px; height: 30px; background-position: -330px -82px; }
+.icon-rss                      { width: 30px; height: 30px; background-position: -360px -82px; }
+.icon-send-message             { width: 30px; height: 30px; background-position: -390px -82px; }
+.icon-vote                     { width: 30px; height: 30px; background-position: -420px -82px; }
+.icon-vote-down-green          { width: 30px; height: 30px; background-position: -450px -82px; }
+.icon-vote-down-red            { width: 30px; height: 30px; background-position: -480px -82px; }
+.icon-vote-down-white          { width: 30px; height: 30px; background-position: -510px -82px; }
+.icon-vote-down-zero           { width: 30px; height: 30px; background-position: -540px -82px; }
+.icon-vote-up-green            { width: 30px; height: 30px; background-position: -570px -82px; }
+.icon-vote-up-red              { width: 30px; height: 30px; background-position: -600px -82px; }
+.icon-vote-up-white            { width: 30px; height: 30px; background-position: -630px -82px; }
+.icon-vote-up-zero             { width: 30px; height: 30px; background-position: -660px -82px; }
+.icon-vote-zero                { width: 30px; height: 30px; background-position: -690px -82px; }
+.icon-vote-zero-zero           { width: 30px; height: 30px; background-position: -720px -82px; }
+.icon-paging-next              { width: 28px; height: 28px; background-position: -0px -112px; }
+.icon-paging-prev              { width: 28px; height: 28px; background-position: -28px -112px; }
+.icon-submit-blog              { width: 25px; height: 25px; background-position: -0px -140px; }
+.icon-submit-draft             { width: 25px; height: 25px; background-position: -25px -140px; }
+.icon-submit-message           { width: 25px; height: 25px; background-position: -50px -140px; }
+.icon-submit-topic             { width: 25px; height: 25px; background-position: -75px -140px; }
+.icon-topic-draft              { width: 17px; height: 17px; background-position: -0px -165px; }
+.icon-topic-link               { width: 17px; height: 17px; background-position: -17px -165px; }
+.icon-topic-private            { width: 17px; height: 17px; background-position: -34px -165px; }
+.icon-blog                     { width: 16px; height: 16px; background-position: -0px -182px; }
+.icon-blog.active              { width: 16px; height: 16px; background-position: -16px -182px; }
+.icon-comments                 { width: 16px; height: 16px; background-position: -32px -182px; }
+.icon-comments.active          { width: 16px; height: 16px; background-position: -48px -182px; }
+.icon-favourite                { width: 16px; height: 16px; background-position: -64px -182px; }
+.icon-favourite.active         { width: 16px; height: 16px; background-position: -80px -182px; }
+.icon-profile-activity         { width: 15px; height: 16px; background-position: -96px -182px; }
+.icon-profile-activity-white   { width: 15px; height: 16px; background-position: -111px -182px; }
+.icon-profile-favourites       { width: 16px; height: 16px; background-position: -126px -182px; }
+.icon-profile-favourites-white { width: 16px; height: 16px; background-position: -142px -182px; }
+.icon-profile-friends          { width: 19px; height: 16px; background-position: -158px -182px; }
+.icon-profile-friends-white    { width: 19px; height: 16px; background-position: -177px -182px; }
+.icon-profile-messages         { width: 18px; height: 16px; background-position: -196px -182px; }
+.icon-profile-messages-white   { width: 18px; height: 16px; background-position: -214px -182px; }
+.icon-profile-profile          { width: 18px; height: 16px; background-position: -232px -182px; }
+.icon-profile-profile-white    { width: 18px; height: 16px; background-position: -250px -182px; }
+.icon-profile-settings         { width: 16px; height: 16px; background-position: -268px -182px; }
+.icon-profile-settings-white   { width: 16px; height: 16px; background-position: -284px -182px; }
+.icon-profile-submited         { width: 16px; height: 16px; background-position: -300px -182px; }
+.icon-profile-submited-white   { width: 16px; height: 16px; background-position: -316px -182px; }
+.icon-profile-submit-white     { width: 16px; height: 16px; background-position: -332px -182px; }
+.icon-profile-wall             { width: 16px; height: 16px; background-position: -348px -182px; }
+.icon-profile-wall-white       { width: 16px; height: 16px; background-position: -364px -182px; }
+.icon-views                    { width: 20px; height: 16px; background-position: -380px -182px; }
+.icon-submit-blog-userbar      { width: 15px; height: 15px; background-position: -0px -198px; }
+.icon-submit-draft-userbar     { width: 15px; height: 15px; background-position: -15px -198px; }
+.icon-submit-message-userbar   { width: 15px; height: 15px; background-position: -30px -198px; }
+.icon-submit-topic-userbar     { width: 15px; height: 15px; background-position: -45px -198px; }
+.icon-ok-green                 { width: 14px; height: 14px; background-position: -0px -213px; }
+.icon-voted-down-comment       { width: 14px; height: 14px; background-position: -14px -213px; }
+.icon-voted-up-comment         { width: 14px; height: 14px; background-position: -28px -213px; }
+.icon-in                       { width: 12px; height: 12px; background-position: -0px -227px; }
+.icon-out                      { width: 12px; height: 12px; background-position: -12px -227px; }
+.icon-note                     { width: 11px; height: 11px; background-position: -0px -239px; }
+.icon-arrow                    { width: 10px; height: 10px; background-position: -0px -250px; }
+.icon-arrow.active             { width: 10px; height: 10px; background-position: -10px -250px; }
+.icon-arrow-blue               { width: 10px; height: 10px; background-position: -20px -250px; }
+.icon-arrow-blue.active        { width: 10px; height: 10px; background-position: -30px -250px; }
+.icon-rating                   { width: 10px; height: 10px; background-position: -40px -250px; }
+.icon-rating-grey              { width: 10px; height: 10px; background-position: -50px -250px; }
+.icon-strength                 { width: 12px; height: 10px; background-position: -60px -250px; }
