@@ -152,6 +152,16 @@
 {/if}
 
 
+
+{if $aUsersFriend}
+	<div class="table-profile-info-wrapper">
+		<h2 class="header-table mb-15"><a href="{$oUserProfile->getUserWebPath()}friends/">{$aLang.profile_friends}</a> {$iCountFriendsUser}</h2>
+		
+		{include file='user_list_avatar.tpl' aUsersList=$aUsersFriend}
+	</div>
+{/if}
+
+
 {hook run='profile_whois_item' oUserProfile=$oUserProfile}
 
 
@@ -257,16 +267,6 @@
 		{hook run='profile_whois_activity_item' oUserProfile=$oUserProfile}
 	</table>
 </div>
-
-
-
-{if $aUsersFriend}
-	<div class="table-profile-info-wrapper">
-		<h2 class="header-table mb-15"><a href="{$oUserProfile->getUserWebPath()}friends/">{$aLang.profile_friends}</a> {$iCountFriendsUser}</h2>
-		
-		{include file='user_list_avatar.tpl' aUsersList=$aUsersFriend}
-	</div>
-{/if}
 
 {hook run='profile_whois_item_end' oUserProfile=$oUserProfile}
 
