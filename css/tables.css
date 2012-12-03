@@ -30,6 +30,9 @@
 .table.table-profile-info 				{ font-size: 11px; }
 .table.table-profile-info td 			{ vertical-align: top; padding: 3px 3px 3px 0; border: none; }
 .table.table-profile-info .cell-label 	{ width: 120px; }
+.table.table-profile-info .cell-latest-post { padding-top: 20px; }
+.table.table-profile-info .cell-latest-post span { color: #788087; }
+.table.table-profile-info .cell-latest-post a { text-decoration: underline; }
 
 /* Table Users */
 .table.table-users td                         { padding: 13px 0; font-size: 11px; }

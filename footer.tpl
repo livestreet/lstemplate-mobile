@@ -18,15 +18,21 @@
 			<div class="footer-inner">
 				<ul class="footer-links clearfix">
 					<li><a href="{cfg name='path.root.web'}">{$aLang.desktop_version}</a></li>
-					{if $oUserCurrent && $oUserCurrent->isAdministrator()}
-						<li><a href="{router page='admin'}">{$aLang.admin_header}</a></li>
-					{/if}
 					<li><a href="{$aHtmlRssAlternate.url}">RSS</a></li>
 				</ul>
 				
 				<div class="copyright">
+					&copy; {cfg name='view.name'}
+					
+					<br />
+					<br />
+				
 					{hook run='copyright'}<br />
 					Дизайн от <a href="http://designmobile.ru">DesignMobile</a>
+					
+					{if $oUserCurrent && $oUserCurrent->isAdministrator()}
+						<br /><a href="{router page='admin'}">{$aLang.admin_header}</a>
+					{/if}
 				</div>
 			</div>
 			

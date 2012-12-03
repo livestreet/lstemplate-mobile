@@ -20,6 +20,9 @@ return array(
 	'blog_admin_users_moderator' => 'мод.',
 	'blog_admin_users_reader' => 'чит.',
 	'blog_admin_users_bun' => 'бан',
+	'profile_privat' => 'Данные',
+	'profile_note_header' => 'Моя заметка',
+	'profile_latest_post' => 'Последний пост',
 );
 
 ?>

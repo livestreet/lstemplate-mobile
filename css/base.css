@@ -31,7 +31,8 @@ a.link-dotted:hover { border-color: #06e; }
 h2.page-header { color: #333; font-size: 17px; line-height: 1.3em; font-weight: 600; margin-bottom: 20px; }
 h2.page-header span { color: #aaa; }
 
-h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
+h2.header-table { margin-bottom: 3px; font-size: 19px; font-weight: 600; }
+h2.header-table a { text-decoration: underline; }
 
 
 
@@ -156,13 +157,15 @@ h2.header-table { margin-bottom: 0; font-size: 19px; font-weight: 600; }
 
 /* Футер
 ---------------------------------------------------- */
-#footer                          { font-size: 11px; }
-#footer a                        { text-decoration: underline; }
-#footer .footer-inner            { border-top: 1px solid #e2e7ec; padding: 9px; }
-#footer .footer-links            { margin-bottom: 15px; }
-#footer .footer-links li         { float: left; margin-right: 15px; }
-#footer .footer-profile-links    { padding-bottom: 40px; }
-#footer .footer-profile-links li { float: left; width: 14.23%; text-align: center; }
+#footer                              { font-size: 11px; overflow: hidden; }
+#footer a                            { text-decoration: underline; }
+#footer .copyright                   { padding-right: 135px; }
+#footer .footer-inner                { border-top: 1px solid #e2e7ec; padding: 9px; }
+#footer .footer-links                { width: 135px; margin-bottom: 15px; float: right; text-align: right; }
+#footer .footer-links li:first-child { margin-left: 0; }
+#footer .footer-links li             { display: inline-block; margin-left: 15px; }
+#footer .footer-profile-links        { padding-bottom: 40px; }
+#footer .footer-profile-links li     { float: left; width: 14.23%; text-align: center; }
 
 
 /* Stat

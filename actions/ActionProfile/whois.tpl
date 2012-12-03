@@ -80,6 +80,8 @@
 				ls.usernote.sText = {json var = $oUserNote->getText()};
 			</script>
 		{/if}
+		
+		<h2 class="header-table">{$aLang.profile_note_header}</h2>
 
 		<div id="usernote-note" class="profile-note" {if !$oUserNote}style="display: none;"{/if}>
 			<p id="usernote-note-text">
@@ -139,14 +141,13 @@
 <div class="table-profile-info-wrapper">
 	<h2 class="header-table">{$aLang.profile_social}</h2>
 	
-	<table class="table table-profile-info">
+	<ul class="profile-contacts">
 		{foreach from=$aUserFieldContactValues item=oField}
-			<tr>
-				<td class="cell-label">{$oField->getTitle()|escape:'html'}:</td>
-				<td>{$oField->getValue(true,true)}</td>
-			</tr>
+			<li class="contact-{$oField->getName()}">
+				{$oField->getValue(true,true)}
+			</li>
 		{/foreach}
-	</table>
+	</ul>
 </div>
 {/if}
 
@@ -155,9 +156,21 @@
 
 
 <div class="table-profile-info-wrapper">
-	<h2 class="header-table">{$aLang.profile_activity}</h2>
+	<h2 class="header-table"><a href="{$oUserProfile->getUserWebPath()}stream/">{$aLang.profile_activity}</a></h2>
 
 	<table class="table table-profile-info">
+		<tr>
+			<td class="cell-label">{$aLang.profile_date_registration}:</td>
+			<td>{date_format date=$oUserProfile->getDateRegister()}</td>
+		</tr>	
+		
+		
+		{if $oSession}				
+			<tr>
+				<td class="cell-label">{$aLang.profile_date_last}:</td>
+				<td>{date_format date=$oSession->getDateLast()}</td>
+			</tr>
+		{/if}
 
 		{if $oConfig->GetValue('general.reg.invite') and $oUserInviteFrom}
 			<tr>
@@ -230,37 +243,32 @@
 				</td>
 			</tr>
 		{/if}
-
 		
-		{hook run='profile_whois_activity_item' oUserProfile=$oUserProfile}
-		
-		
-		<tr>
-			<td class="cell-label">{$aLang.profile_date_registration}:</td>
-			<td>{date_format date=$oUserProfile->getDateRegister()}</td>
-		</tr>	
-		
-		
-		{if $oSession}				
+		{* @todo: latest post *}
+		{if true}
 			<tr>
-				<td class="cell-label">{$aLang.profile_date_last}:</td>
-				<td>{date_format date=$oSession->getDateLast()}</td>
+				<td colspan="2" class="cell-latest-post">
+					{$aLang.profile_latest_post} — <span>1 августа 2012, 10:39</span><br />
+					<a href="#">Topic name</a>
+				</td>
 			</tr>
 		{/if}
+		
+		{hook run='profile_whois_activity_item' oUserProfile=$oUserProfile}
 	</table>
 </div>
 
 
 
-	{if $aUsersFriend}
-		<div class="table-profile-info-wrapper">
-			<h2 class="header-table mb-15"><a href="{$oUserProfile->getUserWebPath()}friends/">{$aLang.profile_friends}</a> {$iCountFriendsUser}</h2>
-			
-			{include file='user_list_avatar.tpl' aUsersList=$aUsersFriend}
-		</div>
-	{/if}
+{if $aUsersFriend}
+	<div class="table-profile-info-wrapper">
+		<h2 class="header-table mb-15"><a href="{$oUserProfile->getUserWebPath()}friends/">{$aLang.profile_friends}</a> {$iCountFriendsUser}</h2>
+		
+		{include file='user_list_avatar.tpl' aUsersList=$aUsersFriend}
+	</div>
+{/if}
 
-	{hook run='profile_whois_item_end' oUserProfile=$oUserProfile}
+{hook run='profile_whois_item_end' oUserProfile=$oUserProfile}
 
 
 {include file='footer.tpl'}

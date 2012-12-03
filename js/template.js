@@ -746,7 +746,7 @@ jQuery(document).ready(function($){
 			obj.parent().children('li').not(obj).removeClass('active');
 		}
 
-		$('.slide-trigger').removeClass('active');
+		$('.slide-trigger').not(obj).removeClass('active');
 		$('.slide').not(target).removeClass('active').hide();
 		target.slideToggle(); 
 		obj.toggleClass('active');
