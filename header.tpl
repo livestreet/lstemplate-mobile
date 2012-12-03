@@ -116,6 +116,7 @@
 
 			<div id="content" role="main" 
 				class="{if $noBg}no-bg{/if} 
+				       {if $aPaging and $aPaging.iCountPage > 1 and !$noBg}multipage{/if}
 					   {if $sidebarPosition == 'left'}content-right{/if} {hook run='wrapper_class'}"
 				{if $sMenuItemSelect=='profile'}itemscope itemtype="http://data-vocabulary.org/Person"{/if}>
 				

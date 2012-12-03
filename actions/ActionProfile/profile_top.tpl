@@ -21,7 +21,7 @@
 
 
 {if $oUserCurrent && $oUserCurrent->getId() != $oUserProfile->getId()}
-	<ul class="profile-actions clearfix" id="profile_actions">
+	<ul class="profile-actions full-width clearfix" id="profile_actions">
 		{include file='actions/ActionProfile/friend_item.tpl' oUserFriend=$oUserProfile->getUserFriend()}
 		<li><a href="{router page='talk'}add/?talk_users={$oUserProfile->getLogin()}" class="icon-send-message"></a></li>
 		

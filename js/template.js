@@ -56,8 +56,7 @@ jQuery(document).ready(function($){
 		}
 	});
 
-
-	if ($('#userbar').length > 0) {
+	ls.tools.bindswipe = function() {
 		$(document).swipe( {
 			swipeLeft: function(event, direction, distance, duration, fingerCount) {
 				ls.tools.hideuserbar();
@@ -70,9 +69,17 @@ jQuery(document).ready(function($){
 			},
 			excludedElements: $.fn.swipe.defaults.excludedElements+", #slider, li, i, .nav-foldable-trigger, #userbar-trigger",
 			fallbackToMouseEvents: false,
-			threshold: 200,
+			threshold: $(window).width() * .4,
 		});
 	}
+
+	if ($('#userbar').length > 0) {
+		ls.tools.bindswipe();
+	}
+
+	$(window).resize(function () {
+		ls.tools.bindswipe();
+	});
 
 	$(window).swipe( {
 		swipeStatus:function(event, phase, direction, distance, fingerCount){
@@ -86,34 +93,59 @@ jQuery(document).ready(function($){
 
 	$('.swipegallery').swipegallery();
 
+	ls.photoset.showForm = function() {
+		$('#topic-photo-upload-input').appendTo('#photoset-wrapper');
+		$('#topic-photo-upload-input').show();
+	};
+
+	ls.photoset.closeForm = function() {
+		$('#topic-photo-upload-input').appendTo('#photoset-upload-form');
+		$('#photoset-upload-form').hide();
+	};
+
+	ls.photoset.upload = function()
+	{
+		ls.photoset.closeForm();
+		ls.photoset.addPhotoEmpty();
+		ls.ajaxSubmit(aRouter['photoset']+'upload/',$('#photoset-upload-form'),function(data){
+			if (data.bStateError) {
+				$('#photoset_photo_empty').remove();
+				ls.msg.error(data.sMsgTitle,data.sMsg);
+			} else {
+				ls.photoset.addPhoto(data);
+			}
+		});
+	};
 
 
-	// Photo
+
+
 	ls.user.showResizeAvatar = function(sImgFile) {
-		if (this.jcropAvatar) {
-			this.jcropAvatar.destroy();
-		}
+		// if (this.jcropAvatar) {
+		// 	this.jcropAvatar.destroy();
+		// }
 		$('#avatar-resize-original-img').attr('src',sImgFile+'?'+Math.random());
 		$('#avatar-resize').show();
 		var $this=this;
-		$('#avatar-resize-original-img').Jcrop({
-			aspectRatio: 1,
-			minSize: [32,32]
-		},function(){
-			$this.jcropAvatar=this;
-			this.setSelect([0,0,500,500]);
-		});
+		// $('#avatar-resize-original-img').Jcrop({
+		// 	aspectRatio: 1,
+		// 	minSize: [32,32]
+		// },function(){
+		// 	$this.jcropAvatar=this;
+		// 	this.setSelect([0,0,500,500]);
+		// });
 	};
 
 	/**
 	 * Выполняет ресайз аватарки
 	 */
 	ls.user.resizeAvatar = function() {
-		if (!this.jcropAvatar) {
-			return false;
-		}
+		// if (!this.jcropAvatar) {
+		// 	return false;
+		// }
 		var url = aRouter.settings+'profile/resize-avatar/';
-		var params = {size: this.jcropAvatar.tellSelect()};
+		// var params = {size: this.jcropAvatar.tellSelect()};
+		var params = {};
 
 		ls.hook.marker('resizeAvatarBefore');
 		ls.ajax(url, params, function(result) {
@@ -179,28 +211,29 @@ jQuery(document).ready(function($){
 	 * @param sImgFile
 	 */
 	ls.user.showResizeFoto = function(sImgFile) {
-		if (this.jcropFoto) {
-			this.jcropFoto.destroy();
-		}
+		// if (this.jcropFoto) {
+		// 	this.jcropFoto.destroy();
+		// }
 		$('#foto-resize-original-img').attr('src',sImgFile+'?'+Math.random());
 		$('#foto-resize').show();
 		var $this=this;
-		$('#foto-resize-original-img').Jcrop({
-			minSize: [32,32]
-		},function(){
-			$this.jcropFoto=this;
-			this.setSelect([0,0,500,500]);
-		});
+		// $('#foto-resize-original-img').Jcrop({
+		// 	minSize: [32,32]
+		// },function(){
+		// 	$this.jcropFoto=this;
+		// 	this.setSelect([0,0,500,500]);
+		// });
 	};
 	/**
 	 * Выполняет ресайз фотки
 	 */
 	ls.user.resizeFoto = function() {
-		if (!this.jcropFoto) {
-			return false;
-		}
+		// if (!this.jcropFoto) {
+		// 	return false;
+		// }
 		var url = aRouter.settings+'profile/resize-foto/';
-		var params = {size: this.jcropFoto.tellSelect()};
+		// var params = {size: this.jcropFoto.tellSelect()};
+		var params = {};
 
 		ls.hook.marker('resizeFotoBefore');
 		ls.ajax(url, params, function(result) {
@@ -566,9 +599,6 @@ jQuery(document).ready(function($){
 		liveEvents: true,
 		showTimeout: 500
 	});
-
-	// подсветка кода
-	prettyPrint();
 	
 	// эмуляция border-sizing в IE
 	var inputs = $('input.input-text, textarea');
@@ -716,6 +746,7 @@ jQuery(document).ready(function($){
 			obj.parent().children('li').not(obj).removeClass('active');
 		}
 
+		$('.slide-trigger').removeClass('active');
 		$('.slide').not(target).removeClass('active').hide();
 		target.slideToggle(); 
 		obj.toggleClass('active');

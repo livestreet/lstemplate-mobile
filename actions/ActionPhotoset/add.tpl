@@ -7,40 +7,11 @@
 
 
 {include file='editor.tpl'}
-
-
-<script type="text/javascript">
-	jQuery(function($){
-		if (jQuery.browser.flash) {
-			ls.photoset.initSwfUpload({
-				post_params: { 'topic_id': {json var=$_aRequest.topic_id} }
-			});
-		}
-	});
-</script>
-
-
-<form id="photoset-upload-form" method="POST" enctype="multipart/form-data" onsubmit="return false;" class="modal modal-image-upload">
-	<header class="modal-header">
-		<h3>{$aLang.uploadimg}</h3>
-		<a href="#" class="close jqmClose"></a>
-	</header>
 	
-	<div id="topic-photo-upload-input" class="topic-photo-upload-input modal-content">
-		<label for="photoset-upload-file">{$aLang.topic_photoset_choose_image}:</label>
-		<input type="file" id="photoset-upload-file" name="Filedata" /><br><br>
 
-		<button type="submit" class="button button-primary" onclick="ls.photoset.upload();">{$aLang.topic_photoset_upload_choose}</button>
-		<button type="submit" class="button" onclick="ls.photoset.closeForm();">{$aLang.topic_photoset_upload_close}</button>
-		
-		<input type="hidden" name="is_iframe" value="true" />
-		<input type="hidden" name="topic_id" value="{$_aRequest.topic_id}" />
-	</div>
-</form>
-	
+
 
 {hook run='add_topic_photoset_begin'}
-
 
 <form action="" method="POST" enctype="multipart/form-data" id="form-topic-add">
 	{hook run='form_add_topic_photoset_begin'}
@@ -113,8 +84,11 @@
 			{/if}
 		</ul>
 		
-		<a href="javascript:ls.photoset.showForm()" id="photoset-start-upload">{$aLang.topic_photoset_upload_choose}</a>
+		<a href="#" id="photoset-start-upload" class="link-dotted" onclick="ls.photoset.showForm(); return false;">{$aLang.topic_photoset_upload_choose}</a>
 	</div>
+	
+	
+	<div id="photoset-wrapper"></div>
 	
 	  
 	<p><label for="topic_tags">{$aLang.topic_create_tags}:</label>
@@ -140,11 +114,27 @@
 	{hook run='form_add_topic_photoset_end'}
 			
 			
-	<button type="submit" name="submit_topic_publish" id="submit_topic_publish" class="button button-primary fl-r">{$aLang.topic_create_submit_publish}</button>
 	<button type="submit" name="submit_preview" onclick="jQuery('#text_preview').parent().show(); ls.topic.preview('form-topic-add','text_preview'); return false;" class="button">{$aLang.topic_create_submit_preview}</button>
 	<button type="submit" name="submit_topic_save" id="submit_topic_save" class="button">{$aLang.topic_create_submit_save}</button>
+	<button type="submit" name="submit_topic_publish" id="submit_topic_publish" class="button button-primary">{$aLang.topic_create_submit_publish}</button>
 </form>
 
+	
+<form id="photoset-upload-form" method="POST" enctype="multipart/form-data" onsubmit="return false;">
+	<div id="topic-photo-upload-input" class="topic-photo-upload-input slide slide-bg-grey">
+		<h3 class="mb-10"><strong>{$aLang.uploadimg}</strong></h3>
+	
+		<label for="photoset-upload-file">{$aLang.topic_photoset_choose_image}:</label>
+		<input type="file" id="photoset-upload-file" name="Filedata" /><br><br>
+
+		<button type="submit" class="button button-primary" onclick="ls.photoset.upload();">{$aLang.topic_photoset_upload_choose}</button>
+		<button type="submit" class="button" onclick="ls.photoset.closeForm(); return false;">{$aLang.topic_photoset_upload_close}</button>
+		
+		<input type="hidden" name="is_iframe" value="true" />
+		<input type="hidden" name="topic_id" value="{$_aRequest.topic_id}" />
+	</div>
+</form>
+	
 <div class="topic-preview" id="text_preview"></div>
 	
 {hook run='add_topic_photoset_end'}

@@ -7,10 +7,10 @@
 	<form method="post" enctype="multipart/form-data" class="mb-20">
 		<input type="hidden" name="security_ls_key" value="{$LIVESTREET_SECURITY_KEY}" />
 		
-		<table class="table table-users">
+		<table class="table mb-15">
 			<thead>
 				<tr>
-					<th class="cell-name">{$aLang.blog_admin_users}</th>
+					<th class="cell-name"></th>
 					<th class="ta-c">{$aLang.blog_admin_users_administrator}</th>
 					<th class="ta-c">{$aLang.blog_admin_users_moderator}</th>
 					<th class="ta-c">{$aLang.blog_admin_users_reader}</th>
@@ -24,8 +24,9 @@
 					
 					<tr>
 						<td class="cell-name">
-							<a href="{$oUser->getUserWebPath()}"><img src="{$oUser->getProfileAvatarPath(24)}" alt="avatar" class="avatar" /></a>
-							<a href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a>
+							<div class="word-wrap">
+								<a href="{$oUser->getUserWebPath()}">{$oUser->getLogin()}</a>
+							</div>
 						</td>
 						
 						{if $oUser->getId()==$oUserCurrent->getId()}

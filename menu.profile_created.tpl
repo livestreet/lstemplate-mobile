@@ -15,4 +15,5 @@
 	
 	{hook run='menu_profile_created_item' oUserProfile=$oUserProfile}
 </ul>
+
 {hook run='menu_profile_created' oUserProfile=$oUserProfile}

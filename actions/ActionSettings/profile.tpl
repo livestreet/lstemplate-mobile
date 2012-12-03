@@ -65,7 +65,7 @@
 					{/section}
 				</select>
 				
-				<select name="profile_birthday_month" style="width: 165px">
+				<select name="profile_birthday_month" style="width: 145px">
 					<option value="">{$aLang.date_month}</option>
 					{section name=date_month start=1 loop=13 step=1}
 						<option value="{$smarty.section.date_month.index}" {if $smarty.section.date_month.index==$oUserCurrent->getProfileBirthday()|date_format:"%m"}selected{/if}>{$aLang.month_array[$smarty.section.date_month.index][0]}</option>
@@ -180,13 +180,13 @@
 				<a href="#" id="avatar-remove" class="link-dotted" onclick="return ls.user.removeAvatar();" style="{if !$oUserCurrent->getProfileAvatar()}display:none;{/if}">{$aLang.settings_profile_avatar_delete}</a>
 			</div>
 			
-			<div id="avatar-resize" class="slide">
+			<div id="avatar-resize" class="slide slide-bg-grey mt-10">
 				<header class="modal-header">
 					<h3>{$aLang.uploadimg}</h3>
 				</header>
 				
 				<div class="modal-content">
-					<p><img src="" alt="" id="avatar-resize-original-img"></p>
+					<img src="" alt="" id="avatar-resize-original-img"><br />
 					<button type="submit" class="button button-primary" onclick="return ls.user.resizeAvatar();">{$aLang.settings_profile_avatar_resize_apply}</button>
 					<button type="submit" class="button" onclick="return ls.user.cancelAvatar();">{$aLang.settings_profile_avatar_resize_cancel}</button>
 				</div>
@@ -205,10 +205,10 @@
 				});
 			</script>
 			
-			<p class="upload-photo">
+			<div class="upload-photo mb-15">
 				<a href="#" id="foto-upload" class="link-dotted">{if $oUserCurrent->getProfileFoto()}{$aLang.settings_profile_photo_change}{else}{$aLang.settings_profile_photo_upload}{/if}</a>&nbsp;&nbsp;&nbsp;
 				<a href="#" id="foto-remove" class="link-dotted" onclick="return ls.user.removeFoto();" style="{if !$oUserCurrent->getProfileFoto()}display:none;{/if}">{$aLang.settings_profile_foto_delete}</a>
-			</p>
+			</div>
 
 			<div class="slide slide-bg-grey" id="foto-resize">
 				<header class="modal-header">

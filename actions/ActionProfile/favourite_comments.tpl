@@ -7,6 +7,8 @@
 
 {include file='menu.profile_favourite.tpl'}
 
+<br />
+
 {include file='comment_list.tpl'}
 
 

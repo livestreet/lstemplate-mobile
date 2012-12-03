@@ -1,4 +1,4 @@
-{*{if $oConfig->GetValue('view.tinymce')}
+{if $oConfig->GetValue('view.tinymce')}
 	{if !$sSettingsTinymce}
 		{assign var="sSettingsTinymce" value="ls.settings.getTinymce()"}
 	{/if}
@@ -25,4 +25,4 @@
 			$('.markitup-editor').markItUp({$sSettingsMarkitup});
 		});
 	</script>
-{/if}*}
+{/if}

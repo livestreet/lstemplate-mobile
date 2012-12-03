@@ -4,10 +4,52 @@ $config = array();
 
 $config['view']['theme'] = 'default';
 
-$config['head']['default']['js'] = Config::Get('head.default.js');
-$config['head']['default']['js'][] = '___path.static.skin___/js/template.js';
-$config['head']['default']['js'][] = '___path.static.skin___/js/libs/jquery.touchswipe.js';
-$config['head']['default']['js'][] = '___path.static.skin___/js/libs/jquery.swipegallery.js';
+
+$config['head']['default']['js']  = array(
+	"___path.root.engine_lib___/external/html5shiv.js" => array('browser'=>'lt IE 9'),
+	"___path.root.engine_lib___/external/jquery/jquery.js",
+	"___path.root.engine_lib___/external/jquery/jquery-ui.js",
+	"___path.root.engine_lib___/external/jquery/jquery.notifier.js",
+	"___path.root.engine_lib___/external/jquery/jquery.scrollto.js",
+	"___path.root.engine_lib___/external/jquery/jquery.rich-array.min.js",
+	"___path.root.engine_lib___/external/jquery/markitup/jquery.markitup.js",
+	"___path.root.engine_lib___/external/jquery/jquery.form.js",
+	"___path.root.engine_lib___/external/jquery/jquery.jqplugin.js",
+	"___path.root.engine_lib___/external/jquery/jquery.cookie.js",
+	"___path.root.engine_lib___/external/jquery/jquery.serializejson.js",
+	"___path.root.engine_lib___/external/jquery/jquery.file.js",
+	"___path.root.engine_lib___/external/jquery/jcrop/jquery.Jcrop.js",
+	"___path.root.engine_lib___/external/jquery/poshytip/jquery.poshytip.js",
+	"___path.root.engine_lib___/external/jquery/jquery.placeholder.min.js",
+	"___path.root.engine_lib___/external/jquery/jquery.charcount.js",
+	"___path.root.engine_lib___/internal/template/js/main.js",
+	"___path.root.engine_lib___/internal/template/js/favourite.js",
+	"___path.root.engine_lib___/internal/template/js/blocks.js",
+	"___path.root.engine_lib___/internal/template/js/talk.js",
+	"___path.root.engine_lib___/internal/template/js/vote.js",
+	"___path.root.engine_lib___/internal/template/js/poll.js",
+	"___path.root.engine_lib___/internal/template/js/subscribe.js",
+	"___path.root.engine_lib___/internal/template/js/infobox.js",
+	"___path.root.engine_lib___/internal/template/js/geo.js",
+	"___path.root.engine_lib___/internal/template/js/wall.js",
+	"___path.root.engine_lib___/internal/template/js/usernote.js",
+	"___path.root.engine_lib___/internal/template/js/comments.js",
+	"___path.root.engine_lib___/internal/template/js/blog.js",
+	"___path.root.engine_lib___/internal/template/js/user.js",
+	"___path.root.engine_lib___/internal/template/js/userfeed.js",
+	"___path.root.engine_lib___/internal/template/js/userfield.js",
+	"___path.root.engine_lib___/internal/template/js/stream.js",
+	"___path.root.engine_lib___/internal/template/js/photoset.js",
+	"___path.root.engine_lib___/internal/template/js/toolbar.js",
+	"___path.root.engine_lib___/internal/template/js/settings.js",
+	"___path.root.engine_lib___/internal/template/js/topic.js",
+	"___path.root.engine_lib___/internal/template/js/hook.js",
+	"___path.static.skin___/js/template.js",
+	"___path.static.skin___/js/libs/jquery.touchswipe.js",
+	"___path.static.skin___/js/libs/jquery.swipegallery.js",
+	"http://yandex.st/share/share.js" => array('merge'=>false),
+);
+
 
 $config['head']['default']['css'] = array(
 	"___path.static.skin___/css/reset.css",

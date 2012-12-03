@@ -64,6 +64,10 @@ dl.form-item dd { }
 
 .mceEditor { display: block; margin-bottom: 20px; }
 
+.full-width { width: 100%; padding-left: 9px !important; padding-right: 9px !important; margin-left: -9px; }
+
+.markItUpHeader { display: none; }
+
 
 /* Валидатор 
 ---------------------------------------------------------------*/

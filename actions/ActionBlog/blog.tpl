@@ -102,7 +102,7 @@
 	</div>
 
 
-	<ul class="actions">
+	<ul class="actions clearfix">
 		{if $oUserCurrent}
 			{if $oBlog->getType() == 'close'}
 				<li><i title="{$aLang.blog_closed}" class="icon-blog-private"></i></li>
@@ -130,36 +130,37 @@
 			{/if}
 		{/if}
 
-
-		<li id="vote_total_blog_{$oBlog->getId()}" class="vote-result 
-			vote-no-rating
-				
-			{if $oVote || ($oUserCurrent && $oUserOwner->getId() == $oUserCurrent->getId())}
-				{if $oBlog->getRating() > 0}
-					vote-count-positive
-				{elseif $oBlog->getRating() < 0}
-					vote-count-negative
-				{elseif $oBlog->getRating() == 0}
-					vote-count-zero
+		{if $oUserCurrent && $oUserCurrent->getId() != $oBlog->getOwnerId()}
+			<li id="vote_total_blog_{$oBlog->getId()}" class="vote-result 
+				vote-no-rating
+					
+				{if $oVote || ($oUserCurrent && $oUserOwner->getId() == $oUserCurrent->getId())}
+					{if $oBlog->getRating() > 0}
+						vote-count-positive
+					{elseif $oBlog->getRating() < 0}
+						vote-count-negative
+					{elseif $oBlog->getRating() == 0}
+						vote-count-zero
+					{/if}
 				{/if}
-			{/if}
 
-			{if $oVote} 
-				voted
-														
-				{if $oVote->getDirection() > 0}
-					voted-up
-				{elseif $oVote->getDirection() < 0}
-					voted-down
+				{if $oVote} 
+					voted
+															
+					{if $oVote->getDirection() > 0}
+						voted-up
+					{elseif $oVote->getDirection() < 0}
+						voted-down
+					{/if}
+				{/if}" 
+
+				{if $oUserCurrent && !$oVote}
+					onclick="ls.tools.slide($('#vote_area_blog_{$oBlog->getId()}'), $(this));"
 				{/if}
-			{/if}" 
 
-			{if $oUserCurrent && !$oVote}
-				onclick="ls.tools.slide($('#vote_area_blog_{$oBlog->getId()}'), $(this));"
-			{/if}
-
-			title="{$aLang.blog_vote_count}: {$oBlog->getCountVote()}">
-		</li>
+				title="{$aLang.blog_vote_count}: {$oBlog->getCountVote()}">
+			</li>
+		{/if}
 	</ul>
 
 	<div id="vote_area_blog_{$oBlog->getId()}" class="vote">

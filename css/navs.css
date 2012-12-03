@@ -99,6 +99,7 @@
 
 
 /* Foldable */
+.nav-foldable { display: none; }
 .nav-foldable-wrapper { margin: 4px 4px 0; }
 .nav-foldable-wrapper .nav-foldable-trigger {
 	padding: 10px 15px;
@@ -118,11 +119,11 @@
 	background: url(../images/icons.png) -0px -250px no-repeat /* icon: arrow.png */;
 	color: #ccc;
 }
-.nav-foldable-wrapper .nav-foldable-trigger.active:before        { background: url(../images/icons/arrow-active.png) no-repeat; }
+.nav-foldable-wrapper .nav-foldable-trigger.active:before        { background: url(../images/icons.png) -10px -250px no-repeat /* icon: arrow-active.png */; }
 .nav-foldable-wrapper .nav-foldable-trigger.inactive             { color: #888; }
 .nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary { border-color: #8BD0FF; color: #058be9; }
 .nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary:before { background: url(../images/icons.png) -20px -250px no-repeat /* icon: arrow-blue.png */; opacity: .5; }
-.nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary.active:before { background: url(../images/icons/arrow-blue-active.png) no-repeat; }
+.nav-foldable-wrapper .nav-foldable-trigger.nav-foldable-primary.active:before { background: url(../images/icons.png) -30px -250px no-repeat /* icon: arrow-blue-active.png */; }
 .nav-foldable-wrapper .slide                                     { padding: 5px 0; border: 1px solid #eee; border-top: none; }
 .nav-foldable-wrapper .slide li                                  { padding: 10px 15px; margin: 0; }
 .nav-foldable-wrapper .slide li a                                { display: block; font-size: 17px; text-decoration: underline; color: #275ec2; }

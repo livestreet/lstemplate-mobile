@@ -84,7 +84,7 @@
 .vote-result.vote-count-positive                         { background: #95ea61; -webkit-box-shadow: 0 2px 2px #7ac447 inset; box-shadow: 0 2px 2px #7ac447 inset; color: #148c11; }
 .vote-result.vote-count-zero                             { background: #f2f5f8; -webkit-box-shadow: 0 2px 2px #ccc inset; box-shadow: 0 2px 2px #ccc inset; color: #96a3b0; }
 
-.vote-result.vote-no-rating                              { padding: 0 30px 0 0 !important; }
+.vote-result.vote-no-rating                              { width: 0; padding: 0 30px 0 0 !important; }
 .vote-result.vote-no-rating:before                       { border: none !important; }
 
 
@@ -149,7 +149,7 @@
 
 /* Actions 
 ---------------------------------------------------- */
-.actions 						{ overflow: hidden; zoom: 1; margin-bottom: 10px; }
+.actions 						{ zoom: 1; margin-bottom: 10px; }
 .actions li 					{ float: left; margin-right: 10px; }
 .actions li a 					{ color: #D23232; }
 .actions li a:hover 			{ text-decoration: underline; }
@@ -277,3 +277,17 @@
 .user.inactive 		{ color: #aaa; }
 
 .toolbar-update { display: none; }
+
+.multipage { position: relative; overflow: visible; margin-bottom: 13px; }
+.multipage:after,
+.multipage:before { 
+	content: "";
+	position: absolute;
+	left: 0; bottom: -13px;
+	width: 100%;
+	height: 13px;
+	background: url(../images/multipage.png) no-repeat;
+	opacity: .6;
+}
+.multipage:before { width: 13px; background-position: 0 -13px; }
+.multipage:after { left: 13px; background-position: 100% 0; }

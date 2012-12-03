@@ -16,6 +16,10 @@ return array(
 	'talk_inbox_make_read' => 'В прочитанные',
 	'talk_inbox_delete' => 'Удалить',
 	'talk_menu_inbox_all' => 'Весь список',
+	'blog_admin_users_administrator' => 'адм.',
+	'blog_admin_users_moderator' => 'мод.',
+	'blog_admin_users_reader' => 'чит.',
+	'blog_admin_users_bun' => 'бан',
 );
 
 ?>

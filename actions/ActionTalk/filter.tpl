@@ -18,8 +18,8 @@
 			<small class="note">{$aLang.talk_filter_notice_keyword}</small></p>
 
 		<p><label for="talk_filter_start">{$aLang.talk_filter_label_date}:</label>
-		<input type="text" id="talk_filter_start" name="start" value="{$_aRequest.start}" style="width: 43%" class="input-text date-picker" readonly="readonly" /> &mdash;
-		<input type="text" id="talk_filter_end" name="end" value="{$_aRequest.end}" style="width: 43%" class="input-text date-picker" readonly="readonly" /></p>
+		<input type="text" id="talk_filter_start" name="start" value="{$_aRequest.start}" style="width: 43%; max-width: 150px;" class="input-text date-picker" readonly="readonly" /> &mdash;
+		<input type="text" id="talk_filter_end" name="end" value="{$_aRequest.end}" style="width: 43%; max-width: 150px;" class="input-text date-picker" readonly="readonly" /></p>
 
 		<p><label for="talk_filter_favourite"><input type="checkbox" {if $_aRequest.favourite}checked="checked" {/if} class="input-checkbox" name="favourite" value="1" id="talk_filter_favourite" />
 		{$aLang.talk_filter_label_favourite}</label></p>

@@ -74,7 +74,7 @@
 
 
 {if $oUserCurrent && $oUserCurrent->getId() != $oUserProfile->getId()}
-	<section class="profile-info-note">
+	<section class="profile-info-note full-width">
 		{if $oUserNote}
 			<script type="text/javascript">
 				ls.usernote.sText = {json var = $oUserNote->getText()};
@@ -88,7 +88,7 @@
 				{/if}
 			</p>
 			
-			<ul class="actions">
+			<ul class="actions clearfix">
 				<li><a href="#" onclick="return ls.usernote.showForm();" class="link-dotted">{$aLang.user_note_form_edit}</a></li>
 				<li><a href="#" onclick="return ls.usernote.remove({$oUserProfile->getId()});" class="link-dotted">{$aLang.user_note_form_delete}</a></li>
 			</ul>
@@ -111,11 +111,11 @@
 	</div>
 {/if}
 
-
+{*
 <div class="profile-info-photo">
 	<a href="{$oUserProfile->getUserWebPath()}"><img src="{$oUserProfile->getProfileFotoPath()}" alt="photo" class="profile-photo" id="foto-img" /></a>
 </div>
-
+*}
 
 {assign var="aUserFieldContactValues" value=$oUserProfile->getUserFieldValues(true,array('contact'))}
 {if $aUserFieldContactValues}

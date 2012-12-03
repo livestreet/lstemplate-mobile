@@ -10,7 +10,7 @@
 					<li><a href="{$oUserCurrent->getUserWebPath()}created/topics/"><i class="icon-profile-submited"></i></a></li>
 					<li><a href="{$oUserCurrent->getUserWebPath()}favourites/topics/"><i class="icon-profile-favourites"></i></a></li>
 					<li><a href="{$oUserCurrent->getUserWebPath()}friends/"><i class="icon-profile-friends"></i></a></li>
-					<li><a href="{$oUserCurrent->getUserWebPath()}stream/"><i class="icon-profile-activity"></i></a></li>
+					<li><a href="{router page='stream'}"><i class="icon-profile-activity"></i></a></li>
 					<li><a href="{router page='settings'}"><i class="icon-profile-settings"></i></a></li>
 				</ul>
 			{/if}

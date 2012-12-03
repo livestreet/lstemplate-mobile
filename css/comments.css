@@ -20,7 +20,9 @@
 
 
 /* Стили для списка комментариев на странице http://ваш_сайт/comments/ */
+.comments.comment-list                          { margin-bottom: 0; }
 .comments.comment-list .comment                 { margin-bottom: 20px; }
+.comments.comment-list .comment:last-child      { border-bottom: 0; margin-bottom: 0; }
 .comments.comment-list .comment-path            { }
 .comments.comment-list .comment-path a          { text-decoration: underline; }
 .comments.comment-list .comment-path .blog-name { color: #22b500; }

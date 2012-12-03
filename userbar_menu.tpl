@@ -42,7 +42,7 @@
 			<li class="userbar-item userbar-item-messages {if $sAction=='talk'}active{/if}">
 				<a href="{router page='talk'}"><div class="holder"><i class="icon-profile-messages-white"></i></div>{$aLang.talk_menu_inbox}</a>
 				{if $iUserCurrentCountTalkNew} 
-					<a href="{router page='talk'}" class="userbar-item-messages-number">+{$iUserCurrentCountTalkNew}</a>
+					<a href="{router page='talk'}inbox/new" class="userbar-item-messages-number">+{$iUserCurrentCountTalkNew}</a>
 				{/if}
 			</li>
 			<li class="userbar-item {if $sAction=='profile' && ($aParams[0]=='whois' or $aParams[0]=='')}active{/if}">

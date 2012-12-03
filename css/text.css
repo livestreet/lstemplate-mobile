@@ -17,7 +17,7 @@
 .text p               { margin-bottom: 1em; }
 .text abbr[title]     { border-bottom: 1px dotted; }
 .text b, .text strong { font-weight: bold; }
-.text blockquote      { margin: 0; padding: 5px 10px; font-style: italic; clear: both; border-left: 3px solid #4ec2ef; }
+.text blockquote      { margin: 0; padding: 3px 10px; font-style: italic; clear: both; border-left: 3px solid #4ec2ef; }
 .text dfn             { font-style: italic; }
 .text hr              { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
 .text ins             { background: #ff9; color: #000; text-decoration: none; }
@@ -25,9 +25,9 @@
 
 .text pre {
 	margin: 0;
-	padding: 5px 10px;
-	border: none;
-	background: #fafafa;
+	padding: 9px 12px;
+	border: 1px dotted #87c5da;
+	background: #f9fafc;
 	font-size: 11px;
 	line-height: 1.6em;
 	overflow: auto;
