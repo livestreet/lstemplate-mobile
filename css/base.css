@@ -110,6 +110,7 @@ h2.header-table a { text-decoration: underline; }
 #userbar .userbar-menu-items { border-top: 1px solid #48494a; }
 #userbar .userbar-menu-items .userbar-item { font-size: 15px; line-height: 16px; position: relative; }
 #userbar .userbar-menu-items .userbar-item a { display: block; color: #fff; padding: 12px 9px 12px 47px; }
+#userbar .userbar-menu-items .userbar-item a:hover { color: #ddd; }
 #userbar .userbar-menu-items .userbar-item .holder            {
 	position: absolute;
 	left: 13px; top: 12px;
@@ -151,6 +152,7 @@ h2.header-table a { text-decoration: underline; }
 .userbar-submit-menu li { margin-bottom: 10px; }
 .userbar-submit-menu li:last-child { margin-bottom: 0; }
 .userbar-submit-menu li a { display: inline-block; color: #fff; font: normal 11px/1em Verdana, Arial, sans-serif; }
+.userbar-submit-menu li a:hover { color: #ddd; }
 .userbar-submit-menu li i { vertical-align: middle; position: relative; top: -1px; margin-right: 8px; }
 
 
