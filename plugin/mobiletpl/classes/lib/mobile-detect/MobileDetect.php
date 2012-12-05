@@ -46,7 +46,7 @@ class MobileDetect {
 				}
 			}
 		}
-		$aRequest['user-agent']='Alcatel-CTH3/1.0 UP.Browser/6.2.ALCATEL MMP/1.0';
+		//$aRequest['user-agent']='Alcatel-CTH3/1.0 UP.Browser/6.2.ALCATEL MMP/1.0';
 		$sResult=self::RequestApi($aRequest);
 		$oXml=@simplexml_load_string($sResult);
 		if ((is_object($oXml) == false)) {
