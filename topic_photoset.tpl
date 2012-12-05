@@ -20,8 +20,8 @@
 			</div>
 			
 			<div class="sg-nav">
-				<i class="icon-prev sg-prev"></i>
-				<i class="icon-next sg-next"></i>
+				<i class="icon-paging-prev sg-prev"></i>
+				<i class="icon-paging-next sg-next"></i>
 				
 				<span class="sg-counter"><span class="sg-pos">1</span> / {$oTopic->getPhotosetCount()}</span>
 			</div>

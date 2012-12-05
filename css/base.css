@@ -289,9 +289,9 @@ h2.header-table a { text-decoration: underline; }
 	color: #9da9b5;
 	font-size: 11px;
 }
-.swipegallery .sg-nav i           { cursor: pointer; position: absolute; top: 3px; }
-.swipegallery .sg-nav i.icon-prev { left: 0; }
-.swipegallery .sg-nav i.icon-next { right: 0; }
+.swipegallery .sg-nav i                  { cursor: pointer; position: absolute; top: 3px; }
+.swipegallery .sg-nav i.icon-paging-prev { left: 0; }
+.swipegallery .sg-nav i.icon-paging-next { right: 0; }
 
 
 /* Misc
