@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>
+		<lang name="default">Mobile template</lang>
+	</name>
+	<author>
+		<lang name="default">LiveStreet Team</lang>
+	</author>
+	<homepage></homepage>
+	<version>1.0</version>
+	<requires>
+		<livestreet>1.*</livestreet>
+		<plugins>
+
+		</plugins>
+	</requires>
+	<description>
+		<lang name="default">Plugin for mobile template</lang>
+		<lang name="russian">Плагин для работы мобильного шаблона</lang>
+	</description>
+</plugin>
