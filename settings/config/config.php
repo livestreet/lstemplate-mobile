@@ -44,7 +44,7 @@ $config['head']['default']['js']  = array(
 	"___path.root.engine_lib___/internal/template/js/settings.js",
 	"___path.root.engine_lib___/internal/template/js/topic.js",
 	"___path.root.engine_lib___/internal/template/js/hook.js",
-	"___path.static.skin___/js/template.js",
+	"___path.static.skin___/js/template.js?v=1",
 	"___path.static.skin___/js/libs/jquery.touchswipe.js",
 	"___path.static.skin___/js/libs/jquery.swipegallery.js",
 	"http://yandex.st/share/share.js" => array('merge'=>false),
@@ -53,7 +53,7 @@ $config['head']['default']['js']  = array(
 
 $config['head']['default']['css'] = array(
 	"___path.static.skin___/css/reset.css",
-	"___path.static.skin___/css/base.css",
+	"___path.static.skin___/css/base.css?v=1",
 	"___path.root.engine_lib___/external/jquery/markitup/skins/simple/style.css",
 	"___path.root.engine_lib___/external/jquery/markitup/sets/default/style.css",
 	"___path.root.engine_lib___/external/jquery/jcrop/jquery.Jcrop.css",
