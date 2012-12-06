@@ -290,3 +290,4 @@
 }
 .multipage:before { width: 13px; background-position: 0 -13px; }
 .multipage:after { left: 13px; background-position: 100% 0; }
+.multipage .pagination { margin-top: 20px; }

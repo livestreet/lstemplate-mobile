@@ -47,6 +47,7 @@ $config['head']['default']['js']  = array(
 	"___path.static.skin___/js/template.js?v=1",
 	"___path.static.skin___/js/libs/jquery.touchswipe.js",
 	"___path.static.skin___/js/libs/jquery.swipegallery.js",
+	"___path.static.skin___/js/libs/jquery.fitvids.js",
 	"http://yandex.st/share/share.js" => array('merge'=>false),
 );
 

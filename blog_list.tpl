@@ -29,7 +29,7 @@
 				{/if}
 			</li>
 		{/foreach}
-	</div>
+	</ul>
 {else}
 	{if $sBlogsEmptyList}
 		<div class="notice-empty">

@@ -104,7 +104,8 @@
 
 /* Actions */
 .comment .comment-actions                      { font-size: 11px; font-family: Verdana; }
-.comment .comment-actions li                   { float: left; margin-right: 25px; margin-bottom: 5px; }
+.comment .comment-actions li                   { float: left; margin-right: 20px; margin-bottom: 5px; }
+.comment .comment-actions li:last-child        { margin-right: 0; }
 .comment .comment-actions li.comment-favourite { cursor: pointer; }
 .comment .comment-actions li .favourite-count  { position: relative; top: 1px; }
 .comment .comment-actions li a                 { color: #788087; }
