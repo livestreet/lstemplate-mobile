@@ -41,7 +41,7 @@ $config['head']['default']['js']  = array(
 	"___path.root.engine_lib___/internal/template/js/settings.js",
 	"___path.root.engine_lib___/internal/template/js/topic.js",
 	"___path.root.engine_lib___/internal/template/js/hook.js",
-	"___path.static.skin___/js/template.js?v=1",
+	"___path.static.skin___/js/template.js?v=2",
 	"___path.static.skin___/js/libs/jquery.touchswipe.js",
 	"___path.static.skin___/js/libs/jquery.swipegallery.js",
 	"___path.static.skin___/js/libs/jquery.fitvids.js",
@@ -51,7 +51,7 @@ $config['head']['default']['js']  = array(
 
 $config['head']['default']['css'] = array(
 	"___path.static.skin___/css/reset.css",
-	"___path.static.skin___/css/base.css?v=1",
+	"___path.static.skin___/css/base.css?v=2",
 	"___path.root.engine_lib___/external/jquery/markitup/skins/simple/style.css",
 	"___path.root.engine_lib___/external/jquery/markitup/sets/default/style.css",
 	"___path.static.skin___/css/grid.css",
