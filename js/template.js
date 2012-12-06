@@ -71,7 +71,7 @@ jQuery(document).ready(function($){
 			},
 			excludedElements: $.fn.swipe.defaults.excludedElements+", #slider, li, i, .nav-foldable-trigger, #userbar-trigger",
 			fallbackToMouseEvents: true,
-			threshold: $(window).width() * .4,
+			threshold: $(window).width() * .4
 		});
 	}
 
