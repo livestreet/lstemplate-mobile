@@ -55,7 +55,8 @@
 .text img.image-center   { display: block; margin: 0 auto; }
 
 .text object,
-.text img                { max-width: 100%; }
+.text iframe,
+.text img { max-width: 100%; }
 
 .text .ls-user           { color: #333; }
 .text .ls-user:visited   { color: #333; }

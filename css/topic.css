@@ -91,6 +91,8 @@
 
 
 
+
+
 /* Share */
 .topic .topic-share { display: none; padding: 10px; margin-bottom: 10px; background: #fffdef; }
 
@@ -158,7 +160,8 @@
 
 /* Topic Talk */
 .topic.topic-type-talk { }
-.topic.topic-type-talk .topic-info-extra li.topic-info-author { padding-left: 0; }
+.topic.topic-type-talk .topic-info-extra li.topic-info-author { float: none; width: auto; padding-left: 0; }
+.topic.topic-type-talk .topic-footer .topic-info-extra li.topic-info-author p { max-width: auto; }
 
 /* Topic Preview */
 .topic-preview { margin-top: 30px; }

@@ -37,7 +37,7 @@
 				</time>
 			</li>
 
-			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#talk-extra-target-{$oTalk->getId()}'), $(this));"></li>
+			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#talk-extra-target-{$oTalk->getId()}'), $(this));"><i class="icon-topic-menu"></i></li>
 		</ul>
 
 

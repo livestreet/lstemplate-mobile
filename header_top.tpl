@@ -1,7 +1,7 @@
 <nav id="header" class="clearfix">
 	<div class="icon-userbar userbar-trigger" id="userbar-trigger"></div>
 
-	<h1 class="site-name"><a href="{cfg name='path.root.web'}">{cfg name='view.name'}</a></h1>
+	<h1 class="site-name" {if $iUserCurrentCountTalkNew}style="margin-right: 132px"{/if}><a href="{cfg name='path.root.web'}">{cfg name='view.name'}</a></h1>
 
 	{hook run='userbar_nav'}
 	
@@ -40,7 +40,5 @@
 </form>
 
 
-{*
-	{hook run='header_banner_begin'}
-	{hook run='header_banner_end'}
-*}
+{hook run='header_banner_begin'}
+{hook run='header_banner_end'}
