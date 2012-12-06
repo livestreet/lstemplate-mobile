@@ -37,13 +37,13 @@
 				</time>
 			</li>
 
-			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#talk-extra-target-{$oTalk->getId()}'), $(this));"><i class="icon-topic-menu"></i></li>
+			<li class="topic-info-extra-trigger" onclick="ls.tools.slide($('#talk-extra-target-{$oTalk->getId()}'), $(this)); return false;"><i class="icon-topic-menu"></i></li>
 		</ul>
 
 
 		<ul class="slide slide-topic-info-extra" id="talk-extra-target-{$oTalk->getId()}">
 			{if $oTalk->getUserId()==$oUserCurrent->getId() or $oUserCurrent->isAdministrator()}
-				<li><a href="#" class="link-dotted" onclick="return ls.tools.slide($('#talk_recipients'), $(this));">{$aLang.talk_speaker_edit}</a></li>
+				<li><a href="#" class="link-dotted" onclick="ls.tools.slide($('#talk_recipients'), $(this)); return false;">{$aLang.talk_speaker_edit}</a></li>
 			{/if}
 			<li><a href="{router page='talk'}delete/{$oTalk->getId()}/?security_ls_key={$LIVESTREET_SECURITY_KEY}" onclick="return confirm('{$aLang.talk_inbox_delete_confirm}');" class="delete">{$aLang.delete}</a></li>
 			{hook run='talk_read_info_item' talk=$oTalk}

@@ -567,42 +567,6 @@ jQuery(document).ready(function($){
 	
 	// Скролл
 	$(window)._scrollable();
-
-	
-	// Всплывающие сообщения
-	$('.js-title-comment, .js-title-topic').poshytip({
-		className: 'infobox-standart',
-		alignTo: 'target',
-		alignX: 'left',
-		alignY: 'center',
-		offsetX: 5,
-		liveEvents: true,
-		showTimeout: 1500
-	});
-
-	$('.js-infobox-vote-topic').poshytip({
-		content: function() {
-			var id = $(this).attr('id').replace('vote_total_topic_','vote-info-topic-');
-			return $('#'+id).html();
-		},
-		className: 'infobox-standart',
-		alignTo: 'target',
-		alignX: 'center',
-		alignY: 'top',
-		offsetX: 2,
-		liveEvents: true,
-		showTimeout: 100
-	});
-	
-	$('.js-tip-help').poshytip({
-		className: 'infobox-standart',
-		alignTo: 'target',
-		alignX: 'right',
-		alignY: 'center',
-		offsetX: 5,
-		liveEvents: true,
-		showTimeout: 500
-	});
 	
 	// эмуляция border-sizing в IE
 	var inputs = $('input.input-text, textarea');

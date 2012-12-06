@@ -331,3 +331,5 @@ h2.header-table a { text-decoration: underline; }
 .help .help-item:last-child { margin-bottom: 0; }
 .help .help-item h4 { font-family: monospace; font-weight: bold; margin-bottom: 3px; }
 .help .help-item h4 a { color: #5055B2; border-bottom: 1px dotted #727a90; }
+
+.fluid-width-video-wrapper { overflow: hidden; }
