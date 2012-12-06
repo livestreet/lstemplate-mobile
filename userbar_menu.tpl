@@ -49,16 +49,16 @@
 				<a href="{$oUserCurrent->getUserWebPath()}"><div class="holder"><i class="icon-profile-profile-white"></i></div>{$aLang.user_menu_profile_whois}</a>
 			</li>
 			<li class="userbar-item {if $sAction=='profile' && $aParams[0]=='wall'}active{/if}">
-				<a href="{$oUserCurrent->getUserWebPath()}wall/"><div class="holder"><i class="icon-profile-wall-white"></i></div>{$aLang.user_menu_profile_wall}{if ($iCountWallUser)>0} ({$iCountWallUser}){/if}</a>
+				<a href="{$oUserCurrent->getUserWebPath()}wall/"><div class="holder"><i class="icon-profile-wall-white"></i></div>{$aLang.user_menu_profile_wall}{if ($iCountWallUserCurrent)>0} ({$iCountWallUserCurrent}){/if}</a>
 			</li>
 			<li class="userbar-item {if $sAction=='profile' && $aParams[0]=='created'}active{/if}">
-				<a href="{$oUserCurrent->getUserWebPath()}created/topics/"><div class="holder"><i class="icon-profile-submited-white"></i></div>{$aLang.user_menu_publication}{if ($iCountCreated)>0} ({$iCountCreated}){/if}</a>
+				<a href="{$oUserCurrent->getUserWebPath()}created/topics/"><div class="holder"><i class="icon-profile-submited-white"></i></div>{$aLang.user_menu_publication}{if ($iCountCreatedUserCurrent)>0} ({$iCountCreatedUserCurrent}){/if}</a>
 			</li>
 			<li class="userbar-item {if $sAction=='profile' && $aParams[0]=='favourites'}active{/if}">
-				<a href="{$oUserCurrent->getUserWebPath()}favourites/topics/"><div class="holder"><i class="icon-profile-favourites-white"></i></div>{$aLang.user_menu_profile_favourites}{if ($iCountFavourite)>0} ({$iCountFavourite}){/if}</a>
+				<a href="{$oUserCurrent->getUserWebPath()}favourites/topics/"><div class="holder"><i class="icon-profile-favourites-white"></i></div>{$aLang.user_menu_profile_favourites}{if ($iCountFavouriteUserCurrent)>0} ({$iCountFavouriteUserCurrent}){/if}</a>
 			</li>
 			<li class="userbar-item {if $sAction=='profile' && $aParams[0]=='friends'}active{/if}">
-				<a href="{$oUserCurrent->getUserWebPath()}friends/"><div class="holder"><i class="icon-profile-friends-white"></i></div>{$aLang.user_menu_profile_friends}{if ($iCountFriendsUser)>0} ({$iCountFriendsUser}){/if}</a>
+				<a href="{$oUserCurrent->getUserWebPath()}friends/"><div class="holder"><i class="icon-profile-friends-white"></i></div>{$aLang.user_menu_profile_friends}{if ($iCountFriendsUserCurrent)>0} ({$iCountFriendsUserCurrent}){/if}</a>
 			</li>
 			<li class="userbar-item {if $sAction=='profile' && $aParams[0]=='stream'}active{/if}">
 				<a href="{$oUserCurrent->getUserWebPath()}stream/"><div class="holder"><i class="icon-profile-activity-white"></i></div>{$aLang.user_menu_profile_stream}</a>
