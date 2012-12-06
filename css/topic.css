@@ -64,7 +64,7 @@
 .topic .topic-footer .topic-info li.topic-info-vote { padding: 0; }
 
 
-.topic .topic-footer .topic-info li.topic-info-share                          { position: absolute; top: 2px; right: 0; width: 38px; height: 40px; cursor: pointer; padding: 0; margin: 0; }
+.topic .topic-footer .topic-info li.topic-info-share                          { position: absolute; bottom: 0; right: 0; width: 38px; height: 40px; cursor: pointer; padding: 0; margin: 0; }
 .topic .topic-footer .topic-info li.topic-info-share.active                   { background-color: #fffdef; }
 .topic .topic-footer .topic-info li.topic-info-share.active i                 { background: url(../images/icons.png) -38px -44px no-repeat /* icon: share-active.png */; }
 
@@ -76,7 +76,7 @@
 .topic .topic-footer .topic-info-extra li.topic-info-author p               { font-size: 11px; line-height: 14px; max-width: 200px; overflow: hidden; }
 .topic .topic-footer .topic-info-extra li.topic-info-author p a             { border-bottom: 1px solid #b3c5d8; display: inline-block; line-height: 1.15; }
 .topic .topic-footer .topic-info-extra li.topic-info-author time            { display: block; font-size: 11px; color: #788087; }
-.topic .topic-footer .topic-info-extra li.topic-info-extra-trigger          { position: absolute; top: 2px; right: 0; width: 38px; height: 40px; cursor: pointer; }
+.topic .topic-footer .topic-info-extra li.topic-info-extra-trigger          { position: absolute; bottom: 0; right: 0; width: 38px; height: 40px; cursor: pointer; }
 .topic .topic-footer .topic-info-extra li.topic-info-extra-trigger.active   { background-color: #fffdef; }
 .topic .topic-footer .topic-info-extra li.topic-info-extra-trigger.active i { background: url(../images/icons.png) -114px -44px no-repeat /* icon: topic-menu-active.png */; }
 
@@ -160,8 +160,8 @@
 
 /* Topic Talk */
 .topic.topic-type-talk { }
-.topic.topic-type-talk .topic-info-extra li.topic-info-author { float: none; width: auto; padding-left: 0; }
-.topic.topic-type-talk .topic-footer .topic-info-extra li.topic-info-author p { max-width: auto; }
+.topic.topic-type-talk .topic-info-extra li.topic-info-author { float: none; width: auto; height: auto; padding-left: 0; }
+.topic.topic-type-talk .topic-footer .topic-info-extra li.topic-info-author p { max-width: none; }
 
 /* Topic Preview */
 .topic-preview { margin-top: 30px; }
