@@ -8,7 +8,9 @@ class PluginMobiletpl_HookMain extends Hook {
 		$this->AddHook('viewer_init_start', 'ViewerInitStart');
 		$this->AddHook('lang_init_start', 'LangInitStart');
 		$this->AddHook('template_footer_menu_navigate_item', 'MenuItem');
+		$this->AddHook('template_profile_whois_activity_item', 'WhoisActivityItem');
 		$this->AddHook('init_action', 'InitAction');
+		$this->AddHook('topic_show', 'TopicShow');
 
 		if (!class_exists('MobileDetect')) {
 			require_once(Plugin::GetPath(__CLASS__).'classes/lib/mobile-detect/MobileDetect.php');
@@ -64,6 +66,37 @@ class PluginMobiletpl_HookMain extends Hook {
 		if (Config::Get('view.skin')!='mobile') {
 			return $this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__).'inject.navigate-item.tpl');
 		}
+	}
+
+	public function WhoisActivityItem($aParams) {
+		if (Config::Get('view.skin')=='mobile') {
+			/**
+			 * Получаем последний топик пользователя
+			 */
+			$oUser=$aParams['oUserProfile'];
+			$oTopic=$this->PluginMobiletpl_Main_GetTopicLastbyUserId($oUser->getId());
+			$this->Viewer_Assign('oTopicUserProfileLast',$oTopic);
+			return $this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__).'inject.profile.whois.activity-item.tpl');
+		}
+	}
+
+	public function TopicShow($aParams) {
+		$oTopic=$aParams['oTopic'];
+		/**
+		 * Если активен плагин "ViewCount", то ничего не делаем
+		 */
+		$aPlugins=Engine::getInstance()->GetPlugins();
+		if (array_key_exists('viewcount',$aPlugins)) {
+			return;
+		}
+		/**
+		 * Если топик просматривает его автор - пропускаем
+		 */
+		$oUserCurrent=$this->User_GetUserCurrent();
+		if ($oUserCurrent and $oUserCurrent->getId()==$oTopic->getUserId()) {
+			return;
+		}
+		$this->PluginMobiletpl_Main_IncTopicCountRead($oTopic);
 	}
 
 }

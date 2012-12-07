@@ -254,16 +254,6 @@
 			</tr>
 		{/if}
 		
-		{* @todo: latest post *}
-		{if true}
-			<tr>
-				<td colspan="2" class="cell-latest-post">
-					{$aLang.profile_latest_post} — <span>1 августа 2012, 10:39</span><br />
-					<a href="#">Topic name</a>
-				</td>
-			</tr>
-		{/if}
-		
 		{hook run='profile_whois_activity_item' oUserProfile=$oUserProfile}
 	</table>
 </div>

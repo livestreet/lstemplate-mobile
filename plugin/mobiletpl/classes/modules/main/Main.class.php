@@ -17,13 +17,14 @@
 
 class PluginMobiletpl_ModuleMain extends Module {
 
+	protected $oMapper;
 	protected $sApiUrl='http://phd.yandex.net/detect';
 	protected $aHeaderForDetect=array(
 		'user-agent','profile','wap-profile','x-wap-profile','x-operamini-phone-ua'
 	);
 
 	public function Init() {
-
+		$this->oMapper=Engine::GetMapper(__CLASS__);
 	}
 	/**
 	 * Выполняет запрос к API сервиса
@@ -75,6 +76,33 @@ class PluginMobiletpl_ModuleMain extends Module {
 		$bDetect=$this->DetectMobileDevice();
 
 		return $bDetect;
+	}
+
+	public function GetTopicLastbyUserId($iUserId) {
+		$aTopicTypes=$this->Topic_GetTopicTypes();
+		$aFilter=array(
+			'blog_type' => array(
+				'personal',
+				'open'
+			),
+			'topic_publish' => 1,
+			'user_id'  => $iUserId
+		);
+		if ($aTopicTypes) {
+			$aFilter['topic_type']=$aTopicTypes;
+		}
+		$aResult=$this->Topic_GetTopicsByFilter($aFilter,1,1);
+		if ($aResult['collection']) {
+			return array_shift($aResult['collection']);
+		}
+		return null;
+	}
+
+	public function IncTopicCountRead($oTopic) {
+		$this->oMapper->IncTopicCountRead($oTopic->getId());
+		//чистим зависимые кеши
+		$this->Cache_Clean(Zend_Cache::CLEANING_MODE_MATCHING_TAG,array('topic_update',"topic_update_user_{$oTopic->getUserId()}"));
+		$this->Cache_Delete("topic_{$oTopic->getId()}");
 	}
 
 }
