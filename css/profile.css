@@ -11,8 +11,8 @@
 	left: 50px;
 	width: 7px;
 	height: 7px;
-	border-radius: 100%;
 	background: #53DE2E;
+	border-radius: 7px;
 }
 
 .vote.vote-blog                       { margin: 0 0 15px; }
