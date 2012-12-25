@@ -28,8 +28,11 @@ jQuery(document).ready(function($){
 		if ( ! $('#wrapper').hasClass('hidden')) {
 			$('#userbar-trigger').toggleClass('active');
 
+			// Костыль для андроида
+			$('iframe').hide();
+
 			$('#wrapper').addClass('hidden');
-			$('#wrapper').css('width', $('#container').width());
+			$('#wrapper').css('width', $(window).width());
 
 			$('#userbar').addClass('show');
 			$('#userbar-inner').css('min-height', $(window).height());
@@ -40,6 +43,8 @@ jQuery(document).ready(function($){
 	ls.tools.hideuserbar = function() {
 		if ($('#wrapper').hasClass('hidden')) {
 			$('#userbar-trigger').toggleClass('active');
+
+			$('iframe').show();
 
 			$('#wrapper').removeClass('hidden');
 			$('#wrapper').css('width', 'auto');
