@@ -17,16 +17,12 @@
 	margin: 0 4px;
 	padding: 9px;
 	background: #fff;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
-	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2); 
-	        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	border: 1px solid #e1e1e1;
 }
 #content.no-bg { 
 	background: transparent;
 	padding: 0;
-	-webkit-box-shadow: none; 
-	   -moz-box-shadow: none; 
-	        box-shadow: none; 
+	border: none;
 }
 #footer {
 	overflow: hidden;

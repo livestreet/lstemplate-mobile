@@ -21,15 +21,18 @@ jQuery(document).ready(function($){
 		}
 	}
 
-	$(".text").fitVids({customSelector: "iframe"});
+	//$(".text").fitVids({customSelector: "iframe"});
 
 	// Userbar
 	ls.tools.showuserbar = function() {
 		if ( ! $('#wrapper').hasClass('hidden')) {
 			$('#userbar-trigger').toggleClass('active');
 
+			// Костыль для андроида
+			$('iframe').hide();
+
 			$('#wrapper').addClass('hidden');
-			$('#wrapper').css('width', $('#container').width());
+			$('#wrapper').css('width', $(window).width());
 
 			$('#userbar').addClass('show');
 			$('#userbar-inner').css('min-height', $(window).height());
@@ -40,6 +43,8 @@ jQuery(document).ready(function($){
 	ls.tools.hideuserbar = function() {
 		if ($('#wrapper').hasClass('hidden')) {
 			$('#userbar-trigger').toggleClass('active');
+
+			$('iframe').show();
 
 			$('#wrapper').removeClass('hidden');
 			$('#wrapper').css('width', 'auto');
@@ -749,3 +754,27 @@ jQuery(document).ready(function($){
 	// Хук конца инициализации javascript-составляющих шаблона
 	ls.hook.run('ls_template_init_end',[],window);
 });
+
+function adjustIframes()
+{
+  $('iframe').each(function(){
+    var
+    $this = $(this),
+    proportion = $this.data( 'proportion' ),
+    w = $this.attr('width'),
+    actual_w = $this.width();
+    
+    if ( ! proportion )
+    {
+        proportion = $this.attr('height') / w;
+        $this.data( 'proportion', proportion );
+    }
+  
+    if ( actual_w != w )
+    {
+        $this.css( 'height', Math.round( actual_w * proportion ) + 'px' );
+    }
+  });
+}
+
+$(window).on('resize load',adjustIframes);
