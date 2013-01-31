@@ -98,4 +98,11 @@ class MobileDetect {
 		}
 	}
 
+	static public function IsMobileTemplate($bHard=true) {
+		if ($bHard) {
+			return self::IsNeedShowMobile();
+		} else {
+			return Config::Get('plugin.mobiletpl.template') && Config::Get('view.skin')==Config::Get('plugin.mobiletpl.template');
+		}
+	}
 }

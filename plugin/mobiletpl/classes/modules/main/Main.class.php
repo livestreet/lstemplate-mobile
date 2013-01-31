@@ -23,6 +23,15 @@ class PluginMobiletpl_ModuleMain extends Module {
 		$this->oMapper=Engine::GetMapper(__CLASS__);
 	}
 
+	/**
+	 * Проверяет является ли текущий шаблон мобильным
+	 *
+	 * @return bool
+	 */
+	public function IsMobileTemplate() {
+		return MobileDetect::IsMobileTemplate(false);
+	}
+
 	public function GetTopicLastbyUserId($iUserId) {
 		$aTopicTypes=$this->Topic_GetTopicTypes();
 		$aFilter=array(

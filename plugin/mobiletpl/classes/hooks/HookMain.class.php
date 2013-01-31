@@ -11,10 +11,6 @@ class PluginMobiletpl_HookMain extends Hook {
 		$this->AddHook('template_profile_whois_activity_item', 'WhoisActivityItem');
 		$this->AddHook('init_action', 'InitAction');
 		$this->AddHook('topic_show', 'TopicShow');
-
-		if (!class_exists('MobileDetect')) {
-			require_once(Plugin::GetPath(__CLASS__).'classes/lib/mobile-detect/MobileDetect.php');
-		}
 	}
 
 	public function InitAction() {
@@ -22,7 +18,7 @@ class PluginMobiletpl_HookMain extends Hook {
 		if (!$oUserCurrent) {
 			return;
 		}
-		if (!MobileDetect::IsNeedShowMobile()) {
+		if (!MobileDetect::IsMobileTemplate()) {
 			return;
 		}
 		/**
@@ -46,9 +42,8 @@ class PluginMobiletpl_HookMain extends Hook {
 	 * Инициализация
 	 */
 	public function ViewerInitStart($aParams) {
-		$bIsNeed=MobileDetect::IsNeedShowMobile();
-		if ($bIsNeed) {
-			Config::Set('view.skin','mobile');
+		if (MobileDetect::IsMobileTemplate()) {
+			Config::Set('view.skin',Config::Get('plugin.mobiletpl.template'));
 		}
 	}
 
@@ -56,20 +51,19 @@ class PluginMobiletpl_HookMain extends Hook {
 	 * Инициализация
 	 */
 	public function LangInitStart() {
-		$bIsNeed=MobileDetect::IsNeedShowMobile();
-		if ($bIsNeed) {
-			Config::Set('view.skin','mobile');
+		if (MobileDetect::IsMobileTemplate()) {
+			Config::Set('view.skin',Config::Get('plugin.mobiletpl.template'));
 		}
 	}
 
 	public function MenuItem() {
-		if (Config::Get('view.skin')!='mobile') {
+		if (!$this->PluginMobiletpl_Main_IsMobileTemplate()) {
 			return $this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__).'inject.navigate-item.tpl');
 		}
 	}
 
 	public function WhoisActivityItem($aParams) {
-		if (Config::Get('view.skin')=='mobile') {
+		if ($this->PluginMobiletpl_Main_IsMobileTemplate()) {
 			/**
 			 * Получаем последний топик пользователя
 			 */
