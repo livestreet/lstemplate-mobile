@@ -11,6 +11,6 @@
 	{hook run='main_menu'}
 		
 	{if $menu}
-		{include file="menu.$menu.tpl"}
+		{if in_array($menu,$aMenuContainers)}{$aMenuFetch.$menu}{else}{include file="menu.$menu.tpl"}{/if}
 	{/if}
 </nav>
