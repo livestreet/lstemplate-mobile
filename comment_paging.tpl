@@ -5,45 +5,19 @@
 		{assign var="sGetSep" value='?'}
 	{/if}
 	
-	<div class="pagination pagination-comments">				
-		<ul>
-			<li>{$aLang.paging}:</li>				
-				
-			{if $oConfig->GetValue('module.comment.nested_page_reverse')}
-			
-				{if $aPagingCmt.iCurrentPage>1}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage=1">&larr;</a></li>
-				{/if}
-				{foreach from=$aPagingCmt.aPagesLeft item=iPage}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$iPage}">{$iPage}</a></li>
-				{/foreach}
-				<li class="active">{$aPagingCmt.iCurrentPage}</li>
-				{foreach from=$aPagingCmt.aPagesRight item=iPage}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$iPage}">{$iPage}</a></li>
-				{/foreach}
-				{if $aPagingCmt.iCurrentPage<$aPagingCmt.iCountPage}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$aPagingCmt.iCountPage}">{$aLang.paging_last}</a></li>
-				{/if}
-			
-			{else}
-			
-				{if $aPagingCmt.iCurrentPage<$aPagingCmt.iCountPage}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$aPagingCmt.iCountPage}">{$aLang.paging_last}</a></li>
-				{/if}
-				
-				{foreach from=$aPagingCmt.aPagesRight item=iPage}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$iPage}">{$iPage}</a></li>
-				{/foreach}
-				<li class="active">{$aPagingCmt.iCurrentPage}</li>
-				{foreach from=$aPagingCmt.aPagesLeft item=iPage}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$iPage}">{$iPage}</a></li>
-				{/foreach}
-				
-				{if $aPagingCmt.iCurrentPage>1}
-					<li><a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage=1">&rarr;</a></li>
-				{/if}
-			
-			{/if}
-		</ul>
+	<div class="pagination pagination-comments">
+		{if $aPagingCmt.iPrevPage}
+			<a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$aPagingCmt.iPrevPage}" class="pagination-arrow pagination-arrow-prev" title="{$aLang.paging_previos}"><span></span></a>
+		{else}
+			<div class="pagination-arrow pagination-arrow-prev inactive" title="{$aLang.paging_previos}"><span></span></div>
+		{/if}
+
+		<div class="pagination-current"><span>{$aPagingCmt.iCurrentPage}</span> {$aLang.paging_out_of} {$aPagingCmt.iCountPage}</div>
+
+		{if $aPagingCmt.iNextPage}
+			<a href="{$aPagingCmt.sGetParams}{$sGetSep}cmtpage={$aPagingCmt.iNextPage}" class="pagination-arrow pagination-arrow-next" title="{$aLang.paging_next}"><span></span></a>
+		{else}
+			<div class="pagination-arrow pagination-arrow-next inactive" title="{$aLang.paging_next}"><span></span></div>
+		{/if}
 	</div>
 {/if}
