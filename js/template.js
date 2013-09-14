@@ -31,8 +31,10 @@ jQuery(document).ready(function($){
 			// Костыль для андроида
 			$('iframe').hide();
 
+			$('#area-form-file-avatar, #area-form-file-foto').hide();
+
 			$('#wrapper').addClass('hidden');
-			$('#wrapper').css('width', $(window).width());
+			$('#wrapper').css('width', $('#container').width());
 
 			$('#userbar').addClass('show');
 			$('#userbar-inner').css('min-height', $(window).height());
@@ -45,6 +47,8 @@ jQuery(document).ready(function($){
 			$('#userbar-trigger').toggleClass('active');
 
 			$('iframe').show();
+
+			$('#area-form-file-avatar, #area-form-file-foto').show();
 
 			$('#wrapper').removeClass('hidden');
 			$('#wrapper').css('width', 'auto');
