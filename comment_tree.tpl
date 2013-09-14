@@ -1,7 +1,9 @@
 {hook run='comment_tree_begin' iTargetId=$iTargetId sTargetType=$sTargetType}
 
-<input type="hidden" id="comment_last_id" value="{$params.iMaxIdComment}" />
-<input type="hidden" id="comment_use_paging" value="{if $aPagingCmt and $aPagingCmt.iCountPage>1}1{/if}" />
+{if $oUserCurrent}
+	<input type="hidden" id="comment_last_id" value="{$iMaxIdComment}" />
+	<input type="hidden" id="comment_use_paging" value="{if $aPagingCmt and $aPagingCmt.iCountPage>1}1{/if}" />
+{/if}
 
 <div class="comments" id="comments">
 	<header class="comments-header clearfix">
