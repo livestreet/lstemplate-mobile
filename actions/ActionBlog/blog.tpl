@@ -10,34 +10,6 @@
 </script>
 
 
-{if $oUserCurrent and $oUserCurrent->isAdministrator()}
-	<div id="blog_delete_form" class="modal">
-		<header class="modal-header">
-			<h3>{$aLang.blog_admin_delete_title}</h3>
-			<a href="#" class="close jqmClose"></a>
-		</header>
-		
-		
-		<form action="{router page='blog'}delete/{$oBlog->getId()}/" method="POST" class="modal-content">
-			<p><label for="topic_move_to">{$aLang.blog_admin_delete_move}:</label>
-			<select name="topic_move_to" id="topic_move_to" class="input-width-full">
-				<option value="-1">{$aLang.blog_delete_clear}</option>
-				{if $aBlogs}
-					<optgroup label="{$aLang.blogs}">
-						{foreach from=$aBlogs item=oBlogDelete}
-							<option value="{$oBlogDelete->getId()}">{$oBlogDelete->getTitle()|escape:'html'}</option>
-						{/foreach}
-					</optgroup>
-				{/if}
-			</select></p>
-			
-			<input type="hidden" value="{$LIVESTREET_SECURITY_KEY}" name="security_ls_key" />
-			<button type="submit" class="button button-primary">{$aLang.blog_delete}</button>
-		</form>
-	</div>
-{/if}
-
-
 
 <div class="blog">
 	<header class="blog-header">
@@ -121,7 +93,7 @@
 			<li><a href="{router page='blog'}edit/{$oBlog->getId()}/" title="{$aLang.blog_edit}" class="icon-edit"></a></li>
 			
 			{if $oUserCurrent->isAdministrator()}
-				<li><a href="#" title="{$aLang.blog_delete}" id="blog_delete_show" class="icon-delete"></a></li>
+				<li><a href="#" title="{$aLang.blog_delete}" onclick="jQuery('#blog_delete_form').slideToggle()" class="icon-delete"></a></li>
 			{else}
 				<li><a href="{router page='blog'}delete/{$oBlog->getId()}/?security_ls_key={$LIVESTREET_SECURITY_KEY}" 
 				       class="icon-delete"
@@ -168,6 +140,34 @@
 		<div class="vote-item vote-down" onclick="return ls.vote.vote({$oBlog->getId()},this,-1,'blog');"><i></i></div>
 	</div>
 </div>
+
+
+{if $oUserCurrent and $oUserCurrent->isAdministrator()}
+	<div id="blog_delete_form" class="slide mb-10">
+		<header>
+			<h3>{$aLang.blog_admin_delete_title}</h3>
+			<a href="#" class="close jqmClose"></a>
+		</header>
+		
+		
+		<form action="{router page='blog'}delete/{$oBlog->getId()}/" method="POST">
+			<p><label for="topic_move_to">{$aLang.blog_admin_delete_move}:</label>
+			<select name="topic_move_to" id="topic_move_to" class="input-width-full">
+				<option value="-1">{$aLang.blog_delete_clear}</option>
+				{if $aBlogs}
+					<optgroup label="{$aLang.blogs}">
+						{foreach from=$aBlogs item=oBlogDelete}
+							<option value="{$oBlogDelete->getId()}">{$oBlogDelete->getTitle()|escape:'html'}</option>
+						{/foreach}
+					</optgroup>
+				{/if}
+			</select></p>
+			
+			<input type="hidden" value="{$LIVESTREET_SECURITY_KEY}" name="security_ls_key" />
+			<button type="submit" class="button button-primary">{$aLang.blog_delete}</button>
+		</form>
+	</div>
+{/if}
 
 {hook run='blog_info' oBlog=$oBlog}
 
