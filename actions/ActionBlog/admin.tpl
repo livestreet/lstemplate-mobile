@@ -53,7 +53,9 @@
 <br />
 <br />
 
-{include file='actions/ActionBlog/invited.tpl'}
+{if $oBlogEdit->getType() == 'close'}
+	{include file='actions/ActionBlog/invited.tpl'}
+{/if}
 
 
 
